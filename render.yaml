@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: careatlas
+    runtime: node
+    # Legacy fallback only. The primary no-cold-start deployment uses Cloudflare.
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
