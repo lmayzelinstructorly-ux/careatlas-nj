@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "ruleVersion": "1.0.0",
+  "title": "CareAtlas New Jersey transparent access-gap flag rule",
+  "scope": {
+    "state": "New Jersey",
+    "stateFips": "34",
+    "geography": "census_tract",
+    "healthEvidenceRelease": "CDC PLACES 2025 release, 2023 estimates",
+    "socialEvidenceRelease": "CDC/ATSDR SVI 2022",
+    "shortageEvidenceCheckedDate": "2026-07-12"
+  },
+  "statesInPrecedenceOrder": [
+    "insufficient_evidence",
+    "potential_access_gap",
+    "elevated_need_without_documented_shortage",
+    "no_current_gap_flag"
+  ],
+  "stateLabels": {
+    "potential_access_gap": "Potential access gap",
+    "elevated_need_without_documented_shortage": "Elevated need without documented shortage",
+    "no_current_gap_flag": "No current gap flag",
+    "insufficient_evidence": "Insufficient evidence"
+  },
+  "communityHealthNeed": {
+    "combiner": "at_least",
+    "minimumTriggeredMeasures": 2,
+    "thresholdBasis": "Fixed New Jersey quartile cut points calculated once from the 2,169 non-missing CDC PLACES 2025 release tract estimates using linear interpolation at (n - 1) * p. High disease prevalence uses the 75th percentile; low preventive-care use uses the 25th percentile. These cut points stay fixed for rule version 1.0.0.",
+    "requiredMeasures": [
+      {
+        "id": "cdc_places_diagnosed_diabetes_crude_prevalence",
+        "operator": ">=",
+        "threshold": 12.3,
+        "unit": "percent",
+        "meaning": "At or above the New Jersey 75th percentile"
+      },
+      {
+        "id": "cdc_places_coronary_heart_disease_crude_prevalence",
+        "operator": ">=",
+        "threshold": 6.1,
+        "unit": "percent",
+        "meaning": "At or above the New Jersey 75th percentile"
+      },
+      {
+        "id": "cdc_places_annual_checkup_crude_prevalence",
+        "operator": "<=",
+        "threshold": 76.1,
+        "unit": "percent",
+        "meaning": "At or below the New Jersey 25th percentile"
+      },
+      {
+        "id": "cdc_places_cholesterol_screening_crude_prevalence",
+        "operator": "<=",
+        "threshold": 86.8,
+        "unit": "percent",
+        "meaning": "At or below the New Jersey 25th percentile"
+      }
+    ]
+  },
+  "socialBarriers": {
+    "combiner": "at_least",
+    "minimumTriggeredMeasures": 1,
+    "thresholdBasis": "The CDC/ATSDR SVI overall national percentile rank is elevated at or above 0.75. CareAtlas does not recalculate or re-rank SVI.",
+    "requiredMeasures": [
+      {
+        "id": "cdc_svi_overall_percentile_rank",
+        "operator": ">=",
+        "threshold": 0.75,
+        "unit": "percentile_rank_0_to_1",
+        "meaning": "At or above the official national 75th percentile"
+      }
+    ]
+  },
+  "documentedShortage": {
+    "combiner": "any",
+    "thresholdBasis": "One or more active reviewed HRSA primary-care HPSA or MUA/P designations intersecting the tract is treated as documented shortage evidence. Dental and mental-health designations remain visible evidence but are not substituted for primary-care shortage in this rule.",
+    "requiredMeasures": [
+      {
+        "id": "hrsa_active_primary_care_hpsa_component_count",
+        "operator": ">=",
+        "threshold": 1,
+        "unit": "active_designations",
+        "meaning": "At least one active primary-care HPSA designation"
+      },
+      {
+        "id": "hrsa_active_muap_component_count",
+        "operator": ">=",
+        "threshold": 1,
+        "unit": "active_designations",
+        "meaning": "At least one active MUA/P designation"
+      }
+    ]
+  },
+  "decision": {
+    "missingRequiredInput": "insufficient_evidence",
+    "potentialAccessGap": "(elevated community health need OR elevated social barriers) AND documented shortage",
+    "elevatedNeedWithoutDocumentedShortage": "(elevated community health need OR elevated social barriers) AND NOT documented shortage",
+    "noCurrentGapFlag": "NOT (elevated community health need OR elevated social barriers), whether or not a shortage designation is present"
+  },
+  "contextOnlyMeasures": {
+    "reason": "These validated components remain available for explanation and future review but do not affect rule version 1.0.0. Keeping them outside the decision prevents correlated health and social measures, dental and mental-health designations, and incomplete facility directories from being silently double-counted.",
+    "ids": [
+      "cdc_places_lack_reliable_transportation_crude_prevalence",
+      "cdc_svi_socioeconomic_status_percentile_rank",
+      "cdc_svi_household_characteristics_percentile_rank",
+      "cdc_svi_racial_ethnic_minority_status_percentile_rank",
+      "cdc_svi_housing_transportation_percentile_rank",
+      "acs_uninsured_population_percent",
+      "acs_population_below_poverty_percent",
+      "acs_population_with_disability_percent",
+      "acs_households_without_vehicle_percent",
+      "hrsa_active_dental_health_hpsa_component_count",
+      "hrsa_active_mental_health_hpsa_component_count"
+    ]
+  },
+  "limitations": [
+    "This is a screening flag for public-health planning, not a score, ranking, diagnosis, medical advice or statement about an individual.",
+    "CDC PLACES values are modeled tract estimates; SVI is an official percentile rank; HRSA designations can cover a whole tract, part of a tract or a defined population group.",
+    "No current gap flag does not prove adequate access. It only means this versioned rule did not meet its published elevated-need condition.",
+    "A missing required value always produces Insufficient evidence and is never treated as zero or reassuring evidence."
+  ]
+}

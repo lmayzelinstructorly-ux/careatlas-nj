@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "public/data/healthcare/facilities.json",
+  "coverageStatus": "limited_production_coverage",
+  "totalFacilities": 3920,
+  "loadedStates": [
+    {
+      "postalCode": "CT",
+      "name": "Connecticut",
+      "stateFips": "09",
+      "facilityCount": 487,
+      "facilitiesWithValidCoordinates": 487,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "DC",
+      "name": "Washington, D.C.",
+      "stateFips": "11",
+      "facilityCount": 89,
+      "facilitiesWithValidCoordinates": 89,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "DE",
+      "name": "Delaware",
+      "stateFips": "10",
+      "facilityCount": 28,
+      "facilitiesWithValidCoordinates": 28,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "MA",
+      "name": "Massachusetts",
+      "stateFips": "25",
+      "facilityCount": 377,
+      "facilitiesWithValidCoordinates": 377,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "MD",
+      "name": "Maryland",
+      "stateFips": "24",
+      "facilityCount": 225,
+      "facilitiesWithValidCoordinates": 225,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "ME",
+      "name": "Maine",
+      "stateFips": "23",
+      "facilityCount": 220,
+      "facilitiesWithValidCoordinates": 220,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "NH",
+      "name": "New Hampshire",
+      "stateFips": "33",
+      "facilityCount": 100,
+      "facilitiesWithValidCoordinates": 100,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "NJ",
+      "name": "New Jersey",
+      "stateFips": "34",
+      "facilityCount": 215,
+      "facilitiesWithValidCoordinates": 215,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-13",
+      "latestSourceUpdatedDate": "2026-07-13"
+    },
+    {
+      "postalCode": "NY",
+      "name": "New York",
+      "stateFips": "36",
+      "facilityCount": 1040,
+      "facilitiesWithValidCoordinates": 1040,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "PA",
+      "name": "Pennsylvania",
+      "stateFips": "42",
+      "facilityCount": 635,
+      "facilitiesWithValidCoordinates": 635,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "RI",
+      "name": "Rhode Island",
+      "stateFips": "44",
+      "facilityCount": 75,
+      "facilitiesWithValidCoordinates": 75,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "VA",
+      "name": "Virginia",
+      "stateFips": "51",
+      "facilityCount": 313,
+      "facilitiesWithValidCoordinates": 313,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    },
+    {
+      "postalCode": "VT",
+      "name": "Vermont",
+      "stateFips": "50",
+      "facilityCount": 116,
+      "facilitiesWithValidCoordinates": 116,
+      "facilitiesMissingCoordinates": 0,
+      "sourceNames": [
+        "CMS Hospital General Information",
+        "HRSA Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "sourceDatasets": [
+        "Health Center Service Delivery and Look-Alike Sites",
+        "Hospital General Information"
+      ],
+      "facilityTypes": [
+        "community_health_center",
+        "hospital"
+      ],
+      "latestLastVerifiedDate": "2026-07-02",
+      "latestSourceUpdatedDate": "2026-07-02"
+    }
+  ],
+  "sources": [
+    {
+      "name": "CMS Hospital General Information",
+      "facilityCount": 719,
+      "datasets": [
+        "Hospital General Information"
+      ],
+      "loadedStates": [
+        "CT",
+        "DC",
+        "DE",
+        "MA",
+        "MD",
+        "ME",
+        "NH",
+        "NJ",
+        "NY",
+        "PA",
+        "RI",
+        "VA",
+        "VT"
+      ]
+    },
+    {
+      "name": "HRSA Health Center Service Delivery and Look-Alike Sites",
+      "facilityCount": 3201,
+      "datasets": [
+        "Health Center Service Delivery and Look-Alike Sites"
+      ],
+      "loadedStates": [
+        "CT",
+        "DC",
+        "DE",
+        "MA",
+        "MD",
+        "ME",
+        "NH",
+        "NJ",
+        "NY",
+        "PA",
+        "RI",
+        "VA",
+        "VT"
+      ]
+    }
+  ],
+  "facilityTypes": [
+    {
+      "facilityType": "community_health_center",
+      "facilityCount": 3201
+    },
+    {
+      "facilityType": "hospital",
+      "facilityCount": 719
+    }
+  ],
+  "coordinateCoverage": {
+    "facilitiesWithValidCoordinates": 3920,
+    "facilitiesMissingCoordinates": 0
+  },
+  "dateCoverage": {
+    "earliestLastVerifiedDate": "2026-06-03",
+    "latestLastVerifiedDate": "2026-07-13",
+    "earliestSourceUpdatedDate": "2026-06-03",
+    "latestSourceUpdatedDate": "2026-07-13"
+  },
+  "caveats": [
+    "Production coverage is limited to the loaded states and sources listed here.",
+    "Coverage not loaded for a state or boundary does not mean no healthcare exists there.",
+    "Facility records document source-backed capacity evidence. They do not measure medical quality or provide medical advice."
+  ]
+}
