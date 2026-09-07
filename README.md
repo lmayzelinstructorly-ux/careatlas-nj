@@ -4,15 +4,20 @@ Transparent New Jersey healthcare access mapping, built as an independent projec
 
 Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
-## First source installment — September 5, 2026
+## Source upload progress
 
-This private repository is receiving an existing project in installments. This first upload contains **72 of the 720 files in the revised project snapshot (10% by file count)**. File count does not measure development effort or byte size. Today's commit records when these files were uploaded, not when their original implementation was written.
+This private repository receives an existing project in installments. It currently contains **92 of 720 files (12.78% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
-Included: configuration, data types, data-loading hooks, shared utilities and evidence-method documentation. The README is adapted to explain this partial upload.
+| Upload date | Contents | New files | Total files |
+| --- | --- | ---: | ---: |
+| September 5, 2026 | Configuration, types, hooks, utilities and evidence documentation | 72 | 72 |
+| September 7, 2026 | Site shell and navigation | 20 | 92 |
 
-**This installment is incomplete and cannot build or deploy the app on its own.** The application entry points, most UI components, server/Worker implementation, pipeline scripts and runtime datasets are not all present. The full tested app is maintained separately and is used for deployment to the live site. No GitHub deployment integration is configured for this partial repository.
+The second installment is being imported in component order: site shell, map and initial NJ data, then API support and tests.
 
-The remaining 648 files have not been uploaded. No automatic schedule for later installments has been set.
+**This is an incomplete source checkout and is not ready for full production deployment.** Application components, backend support, runtime data and tooling are still arriving in this installment. Manifests and summaries describe the full dataset; they may reference files that have not been uploaded yet.
+
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **628 files** have not been uploaded. No automatic schedule for later installments has been set.
 
 ## Evidence and review
 
@@ -20,7 +25,9 @@ CareAtlas preserves source provenance and missing values, and applies a publishe
 
 See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit](docs/outside-review-kit.md). Real resident sessions and external expert review remain pending.
 
-## Files included in this installment
+## Uploaded file inventory
+
+### September 5: initial foundation (72 files)
 
 - .env.example
 - .gitattributes
@@ -94,6 +101,29 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - vite.config.js
 - vitest.config.ts
 - wrangler.jsonc
+
+### September 7: Site shell and navigation (20 files)
+
+- src/App.tsx
+- src/components/MethodologyGuide.tsx
+- src/components/PublicHeader.tsx
+- src/components/PurposeDialog.tsx
+- src/components/SiteBrand.tsx
+- src/components/map/boundaryLabelUtils.ts
+- src/components/map/boundaryNames.ts
+- src/components/map/boundaryStyle.ts
+- src/components/map/geometry.ts
+- src/components/map/mapConstants.ts
+- src/components/map/mapExamples.ts
+- src/components/map/mapPermalink.ts
+- src/components/map/mapReset.ts
+- src/components/map/mapTypes.ts
+- src/components/map/searchTargets.ts
+- src/main.tsx
+- src/pages/InternalDataReviewPage.tsx
+- src/pages/MapPage.tsx
+- src/pages/ProjectStoryPage.tsx
+- src/styles.css
 
 ## License
 
