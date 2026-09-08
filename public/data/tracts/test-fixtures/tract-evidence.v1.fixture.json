@@ -1,0 +1,65 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "geography": {
+      "type": "census_tract",
+      "geoid": "34001000100",
+      "stateFips": "34",
+      "countyFips": "001",
+      "tractCode": "000100"
+    },
+    "measure": {
+      "id": "documented_hrsa_health_center_count",
+      "label": "Documented HRSA health center count",
+      "evidenceLayer": "documented_capacity"
+    },
+    "source": {
+      "agency": "Health Resources and Services Administration",
+      "dataset": "Health Center Service Delivery and Look-Alike Sites",
+      "releaseYear": 2026,
+      "url": "https://data.hrsa.gov/"
+    },
+    "value": 1,
+    "unit": "facilities",
+    "estimateType": "derived",
+    "missingness": { "isMissing": false, "reason": null },
+    "provenance": {
+      "sourceRecordId": "fixture-health-center",
+      "transformation": "Point-in-polygon assignment to the official tract GEOID.",
+      "checkedDate": "2026-07-11"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "geography": {
+      "type": "census_tract",
+      "geoid": "34001000200",
+      "stateFips": "34",
+      "countyFips": "001",
+      "tractCode": "000200"
+    },
+    "measure": {
+      "id": "future_places_measure",
+      "label": "Future CDC PLACES measure",
+      "evidenceLayer": "community_health_need"
+    },
+    "source": {
+      "agency": "Centers for Disease Control and Prevention",
+      "dataset": "CDC PLACES",
+      "releaseYear": 2024,
+      "url": "https://www.cdc.gov/places/"
+    },
+    "value": null,
+    "unit": "percent",
+    "estimateType": "unavailable",
+    "missingness": {
+      "isMissing": true,
+      "reason": "The evidence importer has not been run for this measure."
+    },
+    "provenance": {
+      "sourceRecordId": "fixture-missing",
+      "transformation": "No transformation; explicit missing-data fixture.",
+      "checkedDate": "2026-07-11"
+    }
+  }
+]

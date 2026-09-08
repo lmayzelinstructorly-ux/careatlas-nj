@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": [
+    "/data/us-states.geojson",
+    "/data/counties/by-state/*.geojson",
+    "/data/cousubs/by-state/*.geojson",
+    "/data/tracts/nj/by-county/*.geojson"
+  ],
+  "statesUrl": "/data/geography/search/states.json",
+  "stateCount": 49,
+  "boundaryCount": 40647,
+  "stateBoundaryCount": 49,
+  "shardedBoundaryCount": 40598,
+  "states": [
+    {
+      "boundaryCount": 457,
+      "byteLength": 182885,
+      "stateAbbr": "AL",
+      "stateFips": "01",
+      "stateName": "Alabama",
+      "url": "/data/geography/search/states/01.json"
+    },
+    {
+      "boundaryCount": 95,
+      "byteLength": 38245,
+      "stateAbbr": "AZ",
+      "stateFips": "04",
+      "stateName": "Arizona",
+      "url": "/data/geography/search/states/04.json"
+    },
+    {
+      "boundaryCount": 1170,
+      "byteLength": 468561,
+      "stateAbbr": "AR",
+      "stateFips": "05",
+      "stateName": "Arkansas",
+      "url": "/data/geography/search/states/05.json"
+    },
+    {
+      "boundaryCount": 462,
+      "byteLength": 191386,
+      "stateAbbr": "CA",
+      "stateFips": "06",
+      "stateName": "California",
+      "url": "/data/geography/search/states/06.json"
+    },
+    {
+      "boundaryCount": 273,
+      "byteLength": 109629,
+      "stateAbbr": "CO",
+      "stateFips": "08",
+      "stateName": "Colorado",
+      "url": "/data/geography/search/states/08.json"
+    },
+    {
+      "boundaryCount": 178,
+      "byteLength": 75691,
+      "stateAbbr": "CT",
+      "stateFips": "09",
+      "stateName": "Connecticut",
+      "url": "/data/geography/search/states/09.json"
+    },
+    {
+      "boundaryCount": 30,
+      "byteLength": 12208,
+      "stateAbbr": "DE",
+      "stateFips": "10",
+      "stateName": "Delaware",
+      "url": "/data/geography/search/states/10.json"
+    },
+    {
+      "boundaryCount": 2,
+      "byteLength": 904,
+      "stateAbbr": "DC",
+      "stateFips": "11",
+      "stateName": "District of Columbia",
+      "url": "/data/geography/search/states/11.json"
+    },
+    {
+      "boundaryCount": 383,
+      "byteLength": 155963,
+      "stateAbbr": "FL",
+      "stateFips": "12",
+      "stateName": "Florida",
+      "url": "/data/geography/search/states/12.json"
+    },
+    {
+      "boundaryCount": 745,
+      "byteLength": 296509,
+      "stateAbbr": "GA",
+      "stateFips": "13",
+      "stateName": "Georgia",
+      "url": "/data/geography/search/states/13.json"
+    },
+    {
+      "boundaryCount": 214,
+      "byteLength": 84991,
+      "stateAbbr": "ID",
+      "stateFips": "16",
+      "stateName": "Idaho",
+      "url": "/data/geography/search/states/16.json"
+    },
+    {
+      "boundaryCount": 1796,
+      "byteLength": 722394,
+      "stateAbbr": "IL",
+      "stateFips": "17",
+      "stateName": "Illinois",
+      "url": "/data/geography/search/states/17.json"
+    },
+    {
+      "boundaryCount": 1102,
+      "byteLength": 436457,
+      "stateAbbr": "IN",
+      "stateFips": "18",
+      "stateName": "Indiana",
+      "url": "/data/geography/search/states/18.json"
+    },
+    {
+      "boundaryCount": 1762,
+      "byteLength": 694965,
+      "stateAbbr": "IA",
+      "stateFips": "19",
+      "stateName": "Iowa",
+      "url": "/data/geography/search/states/19.json"
+    },
+    {
+      "boundaryCount": 1630,
+      "byteLength": 647555,
+      "stateAbbr": "KS",
+      "stateFips": "20",
+      "stateName": "Kansas",
+      "url": "/data/geography/search/states/20.json"
+    },
+    {
+      "boundaryCount": 613,
+      "byteLength": 246529,
+      "stateAbbr": "KY",
+      "stateFips": "21",
+      "stateName": "Kentucky",
+      "url": "/data/geography/search/states/21.json"
+    },
+    {
+      "boundaryCount": 640,
+      "byteLength": 257216,
+      "stateAbbr": "LA",
+      "stateFips": "22",
+      "stateName": "Louisiana",
+      "url": "/data/geography/search/states/22.json"
+    },
+    {
+      "boundaryCount": 545,
+      "byteLength": 217336,
+      "stateAbbr": "ME",
+      "stateFips": "23",
+      "stateName": "Maine",
+      "url": "/data/geography/search/states/23.json"
+    },
+    {
+      "boundaryCount": 314,
+      "byteLength": 131091,
+      "stateAbbr": "MD",
+      "stateFips": "24",
+      "stateName": "Maryland",
+      "url": "/data/geography/search/states/24.json"
+    },
+    {
+      "boundaryCount": 365,
+      "byteLength": 147968,
+      "stateAbbr": "MA",
+      "stateFips": "25",
+      "stateName": "Massachusetts",
+      "url": "/data/geography/search/states/25.json"
+    },
+    {
+      "boundaryCount": 1623,
+      "byteLength": 648923,
+      "stateAbbr": "MI",
+      "stateFips": "26",
+      "stateName": "Michigan",
+      "url": "/data/geography/search/states/26.json"
+    },
+    {
+      "boundaryCount": 2843,
+      "byteLength": 1142070,
+      "stateAbbr": "MN",
+      "stateFips": "27",
+      "stateName": "Minnesota",
+      "url": "/data/geography/search/states/27.json"
+    },
+    {
+      "boundaryCount": 492,
+      "byteLength": 197809,
+      "stateAbbr": "MS",
+      "stateFips": "28",
+      "stateName": "Mississippi",
+      "url": "/data/geography/search/states/28.json"
+    },
+    {
+      "boundaryCount": 1509,
+      "byteLength": 603796,
+      "stateAbbr": "MO",
+      "stateFips": "29",
+      "stateName": "Missouri",
+      "url": "/data/geography/search/states/29.json"
+    },
+    {
+      "boundaryCount": 250,
+      "byteLength": 102779,
+      "stateAbbr": "MT",
+      "stateFips": "30",
+      "stateName": "Montana",
+      "url": "/data/geography/search/states/30.json"
+    },
+    {
+      "boundaryCount": 1275,
+      "byteLength": 510550,
+      "stateAbbr": "NE",
+      "stateFips": "31",
+      "stateName": "Nebraska",
+      "url": "/data/geography/search/states/31.json"
+    },
+    {
+      "boundaryCount": 88,
+      "byteLength": 35151,
+      "stateAbbr": "NV",
+      "stateFips": "32",
+      "stateName": "Nevada",
+      "url": "/data/geography/search/states/32.json"
+    },
+    {
+      "boundaryCount": 269,
+      "byteLength": 108890,
+      "stateAbbr": "NH",
+      "stateFips": "33",
+      "stateName": "New Hampshire",
+      "url": "/data/geography/search/states/33.json"
+    },
+    {
+      "boundaryCount": 2766,
+      "byteLength": 1197918,
+      "stateAbbr": "NJ",
+      "stateFips": "34",
+      "stateName": "New Jersey",
+      "url": "/data/geography/search/states/34.json"
+    },
+    {
+      "boundaryCount": 163,
+      "byteLength": 66354,
+      "stateAbbr": "NM",
+      "stateFips": "35",
+      "stateName": "New Mexico",
+      "url": "/data/geography/search/states/35.json"
+    },
+    {
+      "boundaryCount": 1076,
+      "byteLength": 428259,
+      "stateAbbr": "NY",
+      "stateFips": "36",
+      "stateName": "New York",
+      "url": "/data/geography/search/states/36.json"
+    },
+    {
+      "boundaryCount": 1141,
+      "byteLength": 470467,
+      "stateAbbr": "NC",
+      "stateFips": "37",
+      "stateName": "North Carolina",
+      "url": "/data/geography/search/states/37.json"
+    },
+    {
+      "boundaryCount": 1813,
+      "byteLength": 733217,
+      "stateAbbr": "ND",
+      "stateFips": "38",
+      "stateName": "North Dakota",
+      "url": "/data/geography/search/states/38.json"
+    },
+    {
+      "boundaryCount": 1690,
+      "byteLength": 667948,
+      "stateAbbr": "OH",
+      "stateFips": "39",
+      "stateName": "Ohio",
+      "url": "/data/geography/search/states/39.json"
+    },
+    {
+      "boundaryCount": 382,
+      "byteLength": 153396,
+      "stateAbbr": "OK",
+      "stateFips": "40",
+      "stateName": "Oklahoma",
+      "url": "/data/geography/search/states/40.json"
+    },
+    {
+      "boundaryCount": 248,
+      "byteLength": 99786,
+      "stateAbbr": "OR",
+      "stateFips": "41",
+      "stateName": "Oregon",
+      "url": "/data/geography/search/states/41.json"
+    },
+    {
+      "boundaryCount": 2639,
+      "byteLength": 1078869,
+      "stateAbbr": "PA",
+      "stateFips": "42",
+      "stateName": "Pennsylvania",
+      "url": "/data/geography/search/states/42.json"
+    },
+    {
+      "boundaryCount": 44,
+      "byteLength": 18000,
+      "stateAbbr": "RI",
+      "stateFips": "44",
+      "stateName": "Rhode Island",
+      "url": "/data/geography/search/states/44.json"
+    },
+    {
+      "boundaryCount": 345,
+      "byteLength": 141547,
+      "stateAbbr": "SC",
+      "stateFips": "45",
+      "stateName": "South Carolina",
+      "url": "/data/geography/search/states/45.json"
+    },
+    {
+      "boundaryCount": 1394,
+      "byteLength": 562235,
+      "stateAbbr": "SD",
+      "stateFips": "46",
+      "stateName": "South Dakota",
+      "url": "/data/geography/search/states/46.json"
+    },
+    {
+      "boundaryCount": 939,
+      "byteLength": 376826,
+      "stateAbbr": "TN",
+      "stateFips": "47",
+      "stateName": "Tennessee",
+      "url": "/data/geography/search/states/47.json"
+    },
+    {
+      "boundaryCount": 1116,
+      "byteLength": 444500,
+      "stateAbbr": "TX",
+      "stateFips": "48",
+      "stateName": "Texas",
+      "url": "/data/geography/search/states/48.json"
+    },
+    {
+      "boundaryCount": 122,
+      "byteLength": 49122,
+      "stateAbbr": "UT",
+      "stateFips": "49",
+      "stateName": "Utah",
+      "url": "/data/geography/search/states/49.json"
+    },
+    {
+      "boundaryCount": 270,
+      "byteLength": 107593,
+      "stateAbbr": "VT",
+      "stateFips": "50",
+      "stateName": "Vermont",
+      "url": "/data/geography/search/states/50.json"
+    },
+    {
+      "boundaryCount": 685,
+      "byteLength": 276499,
+      "stateAbbr": "VA",
+      "stateFips": "51",
+      "stateName": "Virginia",
+      "url": "/data/geography/search/states/51.json"
+    },
+    {
+      "boundaryCount": 281,
+      "byteLength": 115827,
+      "stateAbbr": "WA",
+      "stateFips": "53",
+      "stateName": "Washington",
+      "url": "/data/geography/search/states/53.json"
+    },
+    {
+      "boundaryCount": 280,
+      "byteLength": 112654,
+      "stateAbbr": "WV",
+      "stateFips": "54",
+      "stateName": "West Virginia",
+      "url": "/data/geography/search/states/54.json"
+    },
+    {
+      "boundaryCount": 1985,
+      "byteLength": 792069,
+      "stateAbbr": "WI",
+      "stateFips": "55",
+      "stateName": "Wisconsin",
+      "url": "/data/geography/search/states/55.json"
+    },
+    {
+      "boundaryCount": 94,
+      "byteLength": 38198,
+      "stateAbbr": "WY",
+      "stateFips": "56",
+      "stateName": "Wyoming",
+      "url": "/data/geography/search/states/56.json"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careatlas.org/schemas/access-gap-classification.v1.schema.json",
+  "title": "CareAtlas transparent census-tract access-gap screening classification",
+  "description": "A rule-versioned screening state with disclosed inputs, explanations, limitations and provenance. This schema does not define a score or rank.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "ruleVersion",
+    "geography",
+    "state",
+    "label",
+    "findings",
+    "ruleInputs",
+    "explanations",
+    "limitations",
+    "provenance"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "ruleVersion": { "const": "1.0.0" },
+    "geography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "geoid", "stateFips", "countyFips", "tractCode"],
+      "properties": {
+        "type": { "const": "census_tract" },
+        "geoid": { "type": "string", "pattern": "^34[0-9]{9}$" },
+        "stateFips": { "const": "34" },
+        "countyFips": { "type": "string", "pattern": "^[0-9]{3}$" },
+        "tractCode": { "type": "string", "pattern": "^[0-9]{6}$" }
+      }
+    },
+    "state": {
+      "enum": [
+        "potential_access_gap",
+        "elevated_need_without_documented_shortage",
+        "no_current_gap_flag",
+        "insufficient_evidence"
+      ]
+    },
+    "label": { "type": "string", "minLength": 1 },
+    "findings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elevatedCommunityHealthNeed",
+        "elevatedSocialBarriers",
+        "documentedShortage",
+        "missingRequiredMeasureIds"
+      ],
+      "properties": {
+        "elevatedCommunityHealthNeed": { "type": ["boolean", "null"] },
+        "elevatedSocialBarriers": { "type": ["boolean", "null"] },
+        "documentedShortage": { "type": ["boolean", "null"] },
+        "missingRequiredMeasureIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "ruleInputs": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "measureId",
+          "value",
+          "unit",
+          "operator",
+          "threshold",
+          "triggered",
+          "missing",
+          "missingReason"
+        ],
+        "properties": {
+          "measureId": { "type": "string", "minLength": 1 },
+          "value": { "type": ["number", "null"] },
+          "unit": { "type": "string", "minLength": 1 },
+          "operator": { "enum": [">=", "<="] },
+          "threshold": { "type": "number" },
+          "triggered": { "type": ["boolean", "null"] },
+          "missing": { "type": "boolean" },
+          "missingReason": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "explanations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleFile", "sourceEvidenceFamilies", "sourceCheckedDates", "generatedDate"],
+      "properties": {
+        "ruleFile": { "type": "string", "minLength": 1 },
+        "sourceEvidenceFamilies": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "sourceCheckedDates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "format": "date" }
+        },
+        "generatedDate": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **180 of 720 files (25% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **198 of 720 files (27.5% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -14,26 +14,17 @@ This private repository receives an existing project in installments. It current
 | September 7, 2026 | Site shell and navigation | 20 | 92 |
 | September 7, 2026 | Interactive map and initial NJ data | 75 | 167 |
 | September 7, 2026 | API support and interface tests | 13 | 180 |
+| September 8, 2026 | NJ search, statewide data foundations and validation checks | 18 | 198 |
 
-The second installment adds **108 files (15% of the original snapshot)**, bringing cumulative coverage to **180 files (25%)**.
+The third installment is being imported in dependency order: shared NJ data and search, then complete county record bundles. 18 files from this installment are currently imported.
 
-**This is an incomplete source checkout and is not ready for full production deployment.** All frontend source is included, along with server/Worker source, essential development/build helpers, and selected official NJ data. County and town boundaries and facility data cover NJ; detailed tract, evidence and town records in this installment cover Essex County (013). Additional county data, search indexes, pipeline scripts, and validation tooling remain to be imported. Manifests and summaries describe the full dataset; they may reference files that have not been uploaded yet.
+**This is an incomplete source checkout and is not ready for statewide production deployment.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records cover Essex County. The remaining county bundles, non-NJ search shards, pipeline scripts, and most validation tooling are still pending. Manifests and statewide summaries describe the complete project dataset and may reference files not yet uploaded. Successful packaging does not prove that all referenced county data is present.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **540 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **522 files** have not been uploaded. No automatic schedule for later installments has been set.
 
-## Verification of this installment
+## Verification
 
-The assembled frontend passed TypeScript checking, Vite compilation, and all **24 tests across 5 test files**. Imported JSON/GeoJSON parsed successfully, backend/build modules passed syntax checks, and all 108 imported files matched the existing source snapshot byte for byte.
-
-After installing dependencies with `npm ci`, the available focused checks are:
-
-`node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json`
-
-`node node_modules/vite/bin/vite.js build --configLoader native`
-
-`npm run test:ui`
-
-The normal `npm run check:changed` command cannot run yet because its runner is in a later installment. The frontend compilation above does not establish complete runtime data coverage. Full production build/data validation requires the remaining artifacts; production validators have not been weakened.
+These files are imported unchanged from the existing project snapshot. Final validation results for this installment will be recorded after all three groups have been imported. The full changed-check runner and remaining runtime county bundles are still pending.
 
 ## Evidence and review
 
@@ -234,6 +225,27 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - src/pages/MapPage.test.tsx
 - src/test/setup.ts
 - worker/index.mjs
+
+### September 8: NJ search, statewide data foundations and validation checks (18 files)
+
+- public/data/geography/search/search-manifest.json
+- public/data/geography/search/states.json
+- public/data/geography/search/states/34.json
+- public/data/healthcare-resources.json
+- public/data/healthcare/facility-boundary-assignments.json
+- public/data/tracts/access-gap-classification.v1.schema.json
+- public/data/tracts/nj/batch-6-coverage-summary.json
+- public/data/tracts/nj/cdc-places-coverage-summary.json
+- public/data/tracts/nj/cdc-svi-coverage-summary.json
+- public/data/tracts/nj/census-acs-coverage-summary.json
+- public/data/tracts/nj/coverage-summary.json
+- public/data/tracts/nj/facility-tract-assignments.json
+- public/data/tracts/nj/hrsa-shortage-coverage-summary.json
+- public/data/tracts/nj/tract-foundation.json
+- public/data/tracts/test-fixtures/tract-evidence.v1.fixture.json
+- public/data/tracts/tract-evidence.v1.schema.json
+- scripts/checkTractEvidenceSchema.mjs
+- scripts/validateDoctorOffices.mjs
 
 ## License
 

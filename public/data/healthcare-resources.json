@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Newark Community Health Resource",
+    "type": "Community health center",
+    "city": "Newark",
+    "latitude": 40.7357,
+    "longitude": -74.1724
+  },
+  {
+    "name": "Trenton Public Health Resource",
+    "type": "Public health clinic",
+    "city": "Trenton",
+    "latitude": 40.2206,
+    "longitude": -74.7597
+  },
+  {
+    "name": "Camden Healthcare Resource",
+    "type": "Healthcare resource center",
+    "city": "Camden",
+    "latitude": 39.9259,
+    "longitude": -75.1196
+  }
+]
