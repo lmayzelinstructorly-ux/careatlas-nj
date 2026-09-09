@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **333 of 720 files (46.25% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **378 of 720 files (52.5% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -18,12 +18,13 @@ This private repository receives an existing project in installments. It current
 | September 8, 2026 | Bergen, Hudson, Morris, Passaic and Union county records | 45 | 243 |
 | September 8, 2026 | Hunterdon, Mercer, Middlesex, Monmouth and Somerset county records | 45 | 288 |
 | September 9, 2026 | Burlington, Camden, Ocean, Sussex and Warren county records | 45 | 333 |
+| September 9, 2026 | Atlantic, Cape May, Cumberland, Gloucester and Salem county records | 45 | 378 |
 
-The fourth installment is being imported in component order: remaining central and northern county bundles, southern county bundles, then statewide data validation and generation tools. 45 files from this installment are currently imported.
+The fourth installment is being imported in component order: remaining central and northern county bundles, southern county bundles, then statewide data validation and generation tools. 90 files from this installment are currently imported.
 
-**This remains a partial project archive.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records now cover 16 of NJ's 21 counties; the five southern county bundles are next. Statewide validation and generation tools arrive in the final group of this installment. Non-NJ boundary/search files, other import and review pipelines, documentation, and some test tooling remain to be imported. Manifests can still reference non-NJ files that are not present; successful NJ checks do not establish completeness of the entire original project.
+**This remains a partial project archive.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records now cover all 21 NJ counties. Statewide validation and generation tools arrive in the final group of this installment. Non-NJ boundary/search files, other import and review pipelines, documentation, and some test tooling remain to be imported. Manifests can still reference non-NJ files that are not present; successful NJ checks do not establish completeness of the entire original project.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **387 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **342 files** have not been uploaded. No automatic schedule for later installments has been set.
 
 ## Verification
 
@@ -393,6 +394,54 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - public/data/tracts/nj/town-foundation/by-county/029.json
 - public/data/tracts/nj/town-foundation/by-county/037.json
 - public/data/tracts/nj/town-foundation/by-county/041.json
+
+### September 9: Atlantic, Cape May, Cumberland, Gloucester and Salem county records (45 files)
+
+- public/data/tracts/nj/by-county/001.geojson
+- public/data/tracts/nj/by-county/009.geojson
+- public/data/tracts/nj/by-county/011.geojson
+- public/data/tracts/nj/by-county/015.geojson
+- public/data/tracts/nj/by-county/033.geojson
+- public/data/tracts/nj/classifications/access-gap-rule-v1/by-county/001.json
+- public/data/tracts/nj/classifications/access-gap-rule-v1/by-county/009.json
+- public/data/tracts/nj/classifications/access-gap-rule-v1/by-county/011.json
+- public/data/tracts/nj/classifications/access-gap-rule-v1/by-county/015.json
+- public/data/tracts/nj/classifications/access-gap-rule-v1/by-county/033.json
+- public/data/tracts/nj/evidence/cdc-places/by-county/001.json
+- public/data/tracts/nj/evidence/cdc-places/by-county/009.json
+- public/data/tracts/nj/evidence/cdc-places/by-county/011.json
+- public/data/tracts/nj/evidence/cdc-places/by-county/015.json
+- public/data/tracts/nj/evidence/cdc-places/by-county/033.json
+- public/data/tracts/nj/evidence/cdc-svi/by-county/001.json
+- public/data/tracts/nj/evidence/cdc-svi/by-county/009.json
+- public/data/tracts/nj/evidence/cdc-svi/by-county/011.json
+- public/data/tracts/nj/evidence/cdc-svi/by-county/015.json
+- public/data/tracts/nj/evidence/cdc-svi/by-county/033.json
+- public/data/tracts/nj/evidence/census-acs/by-county/001.json
+- public/data/tracts/nj/evidence/census-acs/by-county/009.json
+- public/data/tracts/nj/evidence/census-acs/by-county/011.json
+- public/data/tracts/nj/evidence/census-acs/by-county/015.json
+- public/data/tracts/nj/evidence/census-acs/by-county/033.json
+- public/data/tracts/nj/evidence/hrsa-shortage/by-county/001.json
+- public/data/tracts/nj/evidence/hrsa-shortage/by-county/009.json
+- public/data/tracts/nj/evidence/hrsa-shortage/by-county/011.json
+- public/data/tracts/nj/evidence/hrsa-shortage/by-county/015.json
+- public/data/tracts/nj/evidence/hrsa-shortage/by-county/033.json
+- public/data/tracts/nj/public-records/tracts/by-county/001.csv
+- public/data/tracts/nj/public-records/tracts/by-county/001.json
+- public/data/tracts/nj/public-records/tracts/by-county/009.csv
+- public/data/tracts/nj/public-records/tracts/by-county/009.json
+- public/data/tracts/nj/public-records/tracts/by-county/011.csv
+- public/data/tracts/nj/public-records/tracts/by-county/011.json
+- public/data/tracts/nj/public-records/tracts/by-county/015.csv
+- public/data/tracts/nj/public-records/tracts/by-county/015.json
+- public/data/tracts/nj/public-records/tracts/by-county/033.csv
+- public/data/tracts/nj/public-records/tracts/by-county/033.json
+- public/data/tracts/nj/town-foundation/by-county/001.json
+- public/data/tracts/nj/town-foundation/by-county/009.json
+- public/data/tracts/nj/town-foundation/by-county/011.json
+- public/data/tracts/nj/town-foundation/by-county/015.json
+- public/data/tracts/nj/town-foundation/by-county/033.json
 
 ## License
 
