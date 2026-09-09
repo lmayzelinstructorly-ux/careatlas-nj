@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **378 of 720 files (52.5% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **396 of 720 files (55% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -19,16 +19,32 @@ This private repository receives an existing project in installments. It current
 | September 8, 2026 | Hunterdon, Mercer, Middlesex, Monmouth and Somerset county records | 45 | 288 |
 | September 9, 2026 | Burlington, Camden, Ocean, Sussex and Warren county records | 45 | 333 |
 | September 9, 2026 | Atlantic, Cape May, Cumberland, Gloucester and Salem county records | 45 | 378 |
+| September 9, 2026 | Statewide tract validation, generation tools and facility source data | 18 | 396 |
 
-The fourth installment is being imported in component order: remaining central and northern county bundles, southern county bundles, then statewide data validation and generation tools. 90 files from this installment are currently imported.
+The fourth installment adds **108 files (15% of the original snapshot)**, bringing cumulative coverage to **396 files (55%)**.
 
-**This remains a partial project archive.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records now cover all 21 NJ counties. Statewide validation and generation tools arrive in the final group of this installment. Non-NJ boundary/search files, other import and review pipelines, documentation, and some test tooling remain to be imported. Manifests can still reference non-NJ files that are not present; successful NJ checks do not establish completeness of the entire original project.
+**This remains a partial project archive.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records now cover all 21 NJ counties. The facility source dataset and statewide tract validation/generation tools are also included. Non-NJ boundary/search files, other import and review pipelines, documentation, and some test tooling remain to be imported. Manifests can still reference non-NJ files that are not present; successful NJ checks do not establish completeness of the entire original project.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **342 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **324 files** have not been uploaded. No automatic schedule for later installments has been set.
 
-## Verification
+## Verification of this installment
 
-These files are imported unchanged from the existing source snapshot. Final validation results will be recorded after all county bundles and their supporting validation tools are imported. The full changed-check runner remains pending.
+On September 9, the assembled checkout passed `npm run build`, including TypeScript compilation, Vite bundling, and production asset validation (219 runtime data files). Eight additional checks passed:
+
+- NJ tract foundation: 2,181 tracts across 21 counties.
+- CDC PLACES evidence, including explicit missing values.
+- CDC SVI, Census ACS and HRSA evidence with combined coverage validation.
+- Access-gap rule fixtures and threshold/missingness edge cases.
+- All 2,181 tract classifications against their source evidence.
+- Town context for 564 towns, preserving seven explicitly unassigned tracts.
+- Public JSON/CSV records for 2,181 tracts, 21 county summaries and the statewide report.
+- Map geography, including boundary clipping and six water-only tracts excluded from public display.
+
+All 108 imported files matched the existing source snapshot byte for byte. JSON/GeoJSON parsed successfully and all imported JavaScript modules passed syntax checks. Generation scripts were imported without regenerating the datasets.
+
+After `npm ci`, run `npm run build` and the individual `node scripts/validate*.mjs` checks corresponding to the imported tools. The interface source is unchanged; its 24 tests last passed in the September 7 installment.
+
+The normal `npm run check:changed` command remains unavailable because its runner is in a later installment. No validation rules were weakened, and this partial checkout has not replaced the live deployment.
 
 ## Evidence and review
 
@@ -442,6 +458,27 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - public/data/tracts/nj/town-foundation/by-county/011.json
 - public/data/tracts/nj/town-foundation/by-county/015.json
 - public/data/tracts/nj/town-foundation/by-county/033.json
+
+### September 9: Statewide tract validation, generation tools and facility source data (18 files)
+
+- public/data/healthcare/facilities.json
+- scripts/applyAccessGapRule.mjs
+- scripts/buildBatch8PublicRecords.mjs
+- scripts/buildNjTownGapFoundation.mjs
+- scripts/buildNjTractFoundation.mjs
+- scripts/checkAccessGapRule.mjs
+- scripts/checkNjMapGeography.mjs
+- scripts/importCdcPlacesTractEvidence.mjs
+- scripts/lib/accessGapRuleV1.mjs
+- scripts/lib/batch6SourceConfig.mjs
+- scripts/lib/cdcPlacesConfig.mjs
+- scripts/lib/csvRows.mjs
+- scripts/validateAccessGapClassifications.mjs
+- scripts/validateBatch6TractEvidence.mjs
+- scripts/validateBatch8PublicRecords.mjs
+- scripts/validateCdcPlacesTractEvidence.mjs
+- scripts/validateNjTownGapFoundation.mjs
+- scripts/validateNjTractFoundation.mjs
 
 ## License
 
