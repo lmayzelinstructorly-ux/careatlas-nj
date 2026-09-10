@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **396 of 720 files (55% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **431 of 720 files (59.86% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -20,31 +20,17 @@ This private repository receives an existing project in installments. It current
 | September 9, 2026 | Burlington, Camden, Ocean, Sussex and Warren county records | 45 | 333 |
 | September 9, 2026 | Atlantic, Cape May, Cumberland, Gloucester and Salem county records | 45 | 378 |
 | September 9, 2026 | Statewide tract validation, generation tools and facility source data | 18 | 396 |
+| September 10, 2026 | Healthcare pipeline libraries, source review data and test fixtures | 35 | 431 |
 
-The fourth installment adds **108 files (15% of the original snapshot)**, bringing cumulative coverage to **396 files (55%)**.
+The fifth installment is being imported in dependency order: pipeline libraries and fixture/source data, import and review workflows, then checks and documentation. 35 files from this installment are currently imported.
 
-**This remains a partial project archive.** All frontend source, server/Worker source, essential development/build helpers, NJ search data and shared statewide data summaries are included. Detailed tract boundaries, classifications, town context, four evidence datasets, and JSON/CSV public records now cover all 21 NJ counties. The facility source dataset and statewide tract validation/generation tools are also included. Non-NJ boundary/search files, other import and review pipelines, documentation, and some test tooling remain to be imported. Manifests can still reference non-NJ files that are not present; successful NJ checks do not establish completeness of the entire original project.
+**This remains a partial project archive.** All frontend source, server/Worker source, NJ search data, and detailed tract boundaries, classifications, town context, evidence and public records for all 21 NJ counties are included. Healthcare pipeline foundations and supporting data are being followed by their workflows and checks. Non-NJ boundary/search files, additional source import archives and reports, remaining documentation, and the full check runners are still pending. Manifests and archived documentation can reference files or historical context not present in this partial checkout. Follow the upload ledger above for this repository's actual import history.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **324 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **289 files** have not been uploaded. No automatic schedule for later installments has been set.
 
-## Verification of this installment
+## Verification
 
-On September 9, the assembled checkout passed `npm run build`, including TypeScript compilation, Vite bundling, and production asset validation (219 runtime data files). Eight additional checks passed:
-
-- NJ tract foundation: 2,181 tracts across 21 counties.
-- CDC PLACES evidence, including explicit missing values.
-- CDC SVI, Census ACS and HRSA evidence with combined coverage validation.
-- Access-gap rule fixtures and threshold/missingness edge cases.
-- All 2,181 tract classifications against their source evidence.
-- Town context for 564 towns, preserving seven explicitly unassigned tracts.
-- Public JSON/CSV records for 2,181 tracts, 21 county summaries and the statewide report.
-- Map geography, including boundary clipping and six water-only tracts excluded from public display.
-
-All 108 imported files matched the existing source snapshot byte for byte. JSON/GeoJSON parsed successfully and all imported JavaScript modules passed syntax checks. Generation scripts were imported without regenerating the datasets.
-
-After `npm ci`, run `npm run build` and the individual `node scripts/validate*.mjs` checks corresponding to the imported tools. The interface source is unchanged; its 24 tests last passed in the September 7 installment.
-
-The normal `npm run check:changed` command remains unavailable because its runner is in a later installment. No validation rules were weakened, and this partial checkout has not replaced the live deployment.
+These files are imported unchanged from the existing source snapshot. Final validation results will be recorded after the workflow scripts, their checks and documentation are imported. The full check runners remain pending.
 
 ## Evidence and review
 
@@ -479,6 +465,44 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - scripts/validateCdcPlacesTractEvidence.mjs
 - scripts/validateNjTownGapFoundation.mjs
 - scripts/validateNjTractFoundation.mjs
+
+### September 10: Healthcare pipeline libraries, source review data and test fixtures (35 files)
+
+- public/data/doctor-offices/staging/README.md
+- public/data/healthcare/README.md
+- public/data/healthcare/facilities.demo.json
+- public/data/healthcare/facilities.sample.json
+- public/data/healthcare/facilities.template.csv
+- public/data/healthcare/imports/README.md
+- public/data/healthcare/imports/cms/enrichment/cms-medicare-insurance-enrichment.json
+- public/data/healthcare/imports/hrsa-sample.csv
+- public/data/healthcare/imports/hrsa/enrichment/hrsa-designation-enrichment.json
+- public/data/healthcare/imports/pilot-nj/README.md
+- public/data/healthcare/imports/pilot-nj/nj-healthcare-pilot.csv
+- public/data/healthcare/imports/pilot-nj/nj-healthcare-pilot.template.csv
+- public/data/healthcare/imports/source-reviews.json
+- public/data/healthcare/imports/source-reviews.sample.json
+- public/data/healthcare/staging/README.md
+- public/data/healthcare/staging/facilities.staged.json
+- public/data/healthcare/staging/latest-promotion-report.json
+- public/data/healthcare/test-fixtures/.gitignore
+- public/data/healthcare/test-fixtures/README.md
+- public/data/healthcare/test-fixtures/enrichment-plan.input.fixture.json
+- public/data/healthcare/test-fixtures/enrichment-plan.production.fixture.json
+- public/data/healthcare/test-fixtures/enrichment-provenance.fixture.json
+- public/data/healthcare/test-fixtures/healthcare-pipeline-fixture.csv
+- public/data/healthcare/test-fixtures/hrsa-refresh-audit/official-hrsa.fixture.csv
+- public/data/healthcare/test-fixtures/hrsa-refresh-audit/production-facilities.fixture.json
+- public/data/tracts/test-fixtures/cdc-places-source.fixture.json
+- scripts/lib/doctorOfficePipeline.mjs
+- scripts/lib/doctorOfficeSourceConfig.mjs
+- scripts/lib/healthcareAccessReporting.mjs
+- scripts/lib/healthcareEnrichmentPlan.mjs
+- scripts/lib/healthcareEnrichmentProvenance.mjs
+- scripts/lib/healthcareOfficialSourceDiscovery.mjs
+- scripts/lib/healthcareProviderEnrichmentOpportunities.mjs
+- scripts/lib/stateBounds.mjs
+- scripts/lib/tractEvidenceBatch6.mjs
 
 ## License
 

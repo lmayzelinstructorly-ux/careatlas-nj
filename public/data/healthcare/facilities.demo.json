@@ -1,0 +1,96 @@
+[
+  {
+    "id": "hrsa-demo-hrsa-001",
+    "name": "Demo HRSA Community Site",
+    "facilityType": "community_health_center",
+    "address": "101 Sample Health Way",
+    "city": "Sampletown",
+    "state": "NJ",
+    "county": "Demo County",
+    "phone": "555-0111",
+    "website": "https://example.org/demo-hrsa-site",
+    "services": [],
+    "hours": {},
+    "priceInfo": {
+      "priceLevel": "unknown"
+    },
+    "insuranceInfo": {},
+    "sourceInfo": {
+      "sourceName": "HRSA demo data",
+      "sourceUrl": "https://data.hrsa.gov/",
+      "lastChecked": "2026-05-31",
+      "notes": "Demo row for testing official-source import mapping. Not a real healthcare provider."
+    },
+    "sourceId": "DEMO-HRSA-001",
+    "sourceDataset": "Health Center Program demo fixture",
+    "sourceLastUpdated": "2026-05-31",
+    "importDate": "2026-05-31",
+    "isDemoData": true,
+    "dataCompletenessNotes": "Demo fixture only. Missing hours, prices, insurance, services or coordinates remain unknown.",
+    "verificationStatus": "demo",
+    "postalCode": "07001",
+    "latitude": 40.5773,
+    "longitude": -74.2799
+  },
+  {
+    "id": "hrsa-demo-hrsa-002",
+    "name": "Demo HRSA Mobile Unit",
+    "facilityType": "community_health_center",
+    "address": "202 Placeholder Road",
+    "city": "Faketon",
+    "state": "PA",
+    "county": "Example County",
+    "phone": "555-0122",
+    "website": "https://example.org/demo-hrsa-mobile",
+    "services": [],
+    "hours": {},
+    "priceInfo": {
+      "priceLevel": "unknown"
+    },
+    "insuranceInfo": {},
+    "sourceInfo": {
+      "sourceName": "HRSA demo data",
+      "sourceUrl": "https://data.hrsa.gov/",
+      "lastChecked": "2026-05-31",
+      "notes": "Demo row for testing official-source import mapping. Not a real healthcare provider."
+    },
+    "sourceId": "DEMO-HRSA-002",
+    "sourceDataset": "Health Center Program demo fixture",
+    "sourceLastUpdated": "2026-05-31",
+    "importDate": "2026-05-31",
+    "isDemoData": true,
+    "dataCompletenessNotes": "Demo fixture only. Missing hours, prices, insurance, services or coordinates remain unknown.",
+    "verificationStatus": "demo",
+    "postalCode": "19104",
+    "latitude": 39.9526,
+    "longitude": -75.1652
+  },
+  {
+    "id": "hrsa-demo-hrsa-003",
+    "name": "Demo HRSA Sparse Site",
+    "facilityType": "community_health_center",
+    "address": "303 Unknown Services Ave",
+    "city": "Testville",
+    "state": "DE",
+    "services": [],
+    "hours": {},
+    "priceInfo": {
+      "priceLevel": "unknown"
+    },
+    "insuranceInfo": {},
+    "sourceInfo": {
+      "sourceName": "HRSA demo data",
+      "sourceUrl": "https://data.hrsa.gov/",
+      "lastChecked": "2026-05-31",
+      "notes": "Demo row for testing official-source import mapping. Not a real healthcare provider."
+    },
+    "sourceId": "DEMO-HRSA-003",
+    "sourceDataset": "Health Center Program demo fixture",
+    "sourceLastUpdated": "2026-05-31",
+    "importDate": "2026-05-31",
+    "isDemoData": true,
+    "dataCompletenessNotes": "Demo fixture only. Missing hours, prices, insurance, services or coordinates remain unknown.",
+    "verificationStatus": "demo",
+    "postalCode": "19901"
+  }
+]

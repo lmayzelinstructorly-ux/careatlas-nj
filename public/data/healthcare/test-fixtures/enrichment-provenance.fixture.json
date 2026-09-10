@@ -1,0 +1,291 @@
+[
+  {
+    "id": "valid-service-with-provenance",
+    "expectedValid": true,
+    "description": "Valid service field with facility-specific provenance.",
+    "facility": {
+      "id": "valid-service-with-provenance",
+      "name": "Fixture Service Clinic",
+      "facilityType": "community_health_center",
+      "address": "100 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.7,
+      "longitude": -74.1,
+      "services": ["primary care"],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/service-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "services": {
+          "field": "services",
+          "status": "source_backed",
+          "sourceUrl": "https://example.test/fixtures/service-clinic/services",
+          "sourceTitle": "Fixture Service Clinic services",
+          "checkedDate": "2026-06-25",
+          "sourceType": "official_facility_page",
+          "locationSpecific": true
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "invalid-service-without-provenance",
+    "expectedValid": false,
+    "description": "Invalid service field without field-level provenance.",
+    "facility": {
+      "id": "invalid-service-without-provenance",
+      "name": "Fixture Unsupported Service Clinic",
+      "facilityType": "community_health_center",
+      "address": "101 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.701,
+      "longitude": -74.101,
+      "services": ["primary care"],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/unsupported-service-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "valid-hours-with-provenance",
+    "expectedValid": true,
+    "description": "Valid daily hours field with facility-specific provenance.",
+    "facility": {
+      "id": "valid-hours-with-provenance",
+      "name": "Fixture Hours Clinic",
+      "facilityType": "community_health_center",
+      "address": "102 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.702,
+      "longitude": -74.102,
+      "services": [],
+      "hours": {
+        "monday": "8:00 AM - 5:00 PM",
+        "tuesday": "8:00 AM - 5:00 PM"
+      },
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/hours-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "hours": {
+          "field": "hours",
+          "status": "source_backed",
+          "sourceUrl": "https://example.test/fixtures/hours-clinic/hours",
+          "sourceTitle": "Fixture Hours Clinic hours",
+          "checkedDate": "2026-06-25",
+          "sourceType": "official_facility_page",
+          "locationSpecific": true
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "invalid-hours-missing-checked-date",
+    "expectedValid": false,
+    "description": "Invalid daily hours field with no checked date.",
+    "facility": {
+      "id": "invalid-hours-missing-checked-date",
+      "name": "Fixture Undated Hours Clinic",
+      "facilityType": "community_health_center",
+      "address": "103 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.703,
+      "longitude": -74.103,
+      "services": [],
+      "hours": { "monday": "8:00 AM - 5:00 PM" },
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/undated-hours-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "hours": {
+          "field": "hours",
+          "status": "source_backed",
+          "sourceUrl": "https://example.test/fixtures/undated-hours-clinic/hours",
+          "sourceTitle": "Fixture Undated Hours Clinic hours",
+          "sourceType": "official_facility_page",
+          "locationSpecific": true
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "invalid-insurance-organization-page",
+    "expectedValid": false,
+    "description": "Invalid insurance field sourced only from a non-location-specific organization page.",
+    "facility": {
+      "id": "invalid-insurance-organization-page",
+      "name": "Fixture Organization Insurance Clinic",
+      "facilityType": "community_health_center",
+      "address": "104 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.704,
+      "longitude": -74.104,
+      "services": [],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {
+        "insuranceNotes": "Accepts public insurance in organization-wide fixture copy."
+      },
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/org",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "insurance": {
+          "field": "insurance",
+          "status": "needs_review",
+          "sourceUrl": "https://example.test/fixtures/org/insurance",
+          "sourceTitle": "Fixture organization insurance page",
+          "checkedDate": "2026-06-25",
+          "sourceType": "health_system_location_page",
+          "locationSpecific": false,
+          "sourceLocationScope": "organization",
+          "reviewerNote": "The page is organization-wide and does not verify this site."
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "valid-accessibility-with-exact-url",
+    "expectedValid": true,
+    "description": "Valid accessibility field with exact facility source URL.",
+    "facility": {
+      "id": "valid-accessibility-with-exact-url",
+      "name": "Fixture Accessibility Clinic",
+      "facilityType": "community_health_center",
+      "address": "105 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.705,
+      "longitude": -74.105,
+      "services": [],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "accessibilityInfo": "Wheelchair-accessible entrance listed on facility page.",
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/accessibility-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "accessibility": {
+          "field": "accessibility",
+          "status": "source_backed",
+          "sourceUrl": "https://example.test/fixtures/accessibility-clinic/accessibility",
+          "sourceTitle": "Fixture Accessibility Clinic accessibility",
+          "checkedDate": "2026-06-25",
+          "sourceType": "official_facility_page",
+          "locationSpecific": true
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "invalid-google-yelp-review-source",
+    "expectedValid": false,
+    "description": "Invalid enrichment from Google, Yelp, ratings, reviews or patient comments.",
+    "facility": {
+      "id": "invalid-google-yelp-review-source",
+      "name": "Fixture Review Source Clinic",
+      "facilityType": "community_health_center",
+      "address": "106 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.706,
+      "longitude": -74.106,
+      "services": ["urgent care"],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/review-source-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "fieldSources": {
+        "services": {
+          "field": "services",
+          "status": "source_backed",
+          "sourceUrl": "https://www.google.com/maps/place/fixture/reviews",
+          "sourceTitle": "Google reviews for Fixture Review Source Clinic",
+          "checkedDate": "2026-06-25",
+          "sourceType": "google_reviews",
+          "locationSpecific": true
+        }
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  },
+  {
+    "id": "valid-unknown-fields-blank",
+    "expectedValid": true,
+    "description": "Unknown enrichment fields left blank pass validation.",
+    "facility": {
+      "id": "valid-unknown-fields-blank",
+      "name": "Fixture Unknowns Clinic",
+      "facilityType": "community_health_center",
+      "address": "107 Fixture Way",
+      "city": "Fixture City",
+      "state": "NJ",
+      "latitude": 40.707,
+      "longitude": -74.107,
+      "services": [],
+      "hours": {},
+      "priceInfo": { "priceLevel": "unknown" },
+      "insuranceInfo": {},
+      "sourceInfo": {
+        "sourceName": "HealthBorders enrichment provenance fixture",
+        "sourceUrl": "https://example.test/fixtures/unknowns-clinic",
+        "lastChecked": "2026-06-25"
+      },
+      "lastVerified": "2026-06-25",
+      "verificationStatus": "demo",
+      "isDemoData": true
+    }
+  }
+]

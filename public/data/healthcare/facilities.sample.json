@@ -1,0 +1,161 @@
+[
+  {
+    "id": "demo-community-clinic",
+    "name": "Demo Community Clinic",
+    "facilityType": "community_health_center",
+    "address": "100 Example Street",
+    "city": "Sampleville",
+    "state": "NJ",
+    "stateFips": "34",
+    "county": "Demo County",
+    "countyFips": "34000",
+    "latitude": 40.7357,
+    "longitude": -74.1724,
+    "phone": "555-0100",
+    "website": "https://example.org/demo-community-clinic",
+    "services": ["primary care", "vaccination referrals"],
+    "hours": {
+      "monday": "Demo hours only",
+      "tuesday": "Demo hours only",
+      "wednesday": "Demo hours only",
+      "thursday": "Demo hours only",
+      "friday": "Demo hours only",
+      "saturday": "Demo hours only",
+      "sunday": "Demo hours only",
+      "notes": "Sample data for schema testing only. Do not use for care decisions."
+    },
+    "priceInfo": {
+      "priceLevel": "unknown",
+      "acceptsSlidingScale": false,
+      "priceNotes": "Demo entry only. Real prices must be source-backed and verified."
+    },
+    "insuranceInfo": {
+      "insuranceNotes": "Demo entry only. Insurance details are not verified."
+    },
+    "accessibilityInfo": "Demo entry only. Accessibility details are not verified.",
+    "sourceInfo": {
+      "sourceName": "HealthBorders demo data",
+      "sourceUrl": "https://example.org/healthborders-demo",
+      "lastChecked": "2026-05-29",
+      "notes": "Clearly fake sample record for validating the data shape."
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/demo-community-clinic/services",
+        "sourceTitle": "Demo Community Clinic services",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "hours": {
+        "field": "hours",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/demo-community-clinic/hours",
+        "sourceTitle": "Demo Community Clinic hours",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "cost": {
+        "field": "cost",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/demo-community-clinic/cost",
+        "sourceTitle": "Demo Community Clinic cost details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "insurance": {
+        "field": "insurance",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/demo-community-clinic/insurance",
+        "sourceTitle": "Demo Community Clinic insurance details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "accessibility": {
+        "field": "accessibility",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/demo-community-clinic/accessibility",
+        "sourceTitle": "Demo Community Clinic accessibility details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      }
+    },
+    "lastVerified": "2026-05-29",
+    "verificationStatus": "demo"
+  },
+  {
+    "id": "example-urgent-care-center",
+    "name": "Example Urgent Care Center",
+    "facilityType": "urgent_care",
+    "address": "200 Placeholder Avenue",
+    "city": "Faketown",
+    "state": "PA",
+    "latitude": 39.9526,
+    "longitude": -75.1652,
+    "services": ["urgent care", "basic lab referrals"],
+    "hours": {
+      "notes": "Sample data for schema testing only. Real hours can change and must be verified."
+    },
+    "priceInfo": {
+      "priceLevel": "unknown",
+      "acceptsSlidingScale": false,
+      "priceNotes": "Demo entry only. No real price information is provided."
+    },
+    "insuranceInfo": {
+      "insuranceNotes": "Demo entry only. Insurance details are not verified."
+    },
+    "accessibilityInfo": "Demo entry only. Accessibility details are not verified.",
+    "sourceInfo": {
+      "sourceName": "HealthBorders demo data",
+      "sourceUrl": "https://example.org/healthborders-demo",
+      "lastChecked": "2026-05-29",
+      "notes": "Clearly fake sample record for validating the data shape."
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/example-urgent-care-center/services",
+        "sourceTitle": "Example Urgent Care Center services",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "cost": {
+        "field": "cost",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/example-urgent-care-center/cost",
+        "sourceTitle": "Example Urgent Care Center cost details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "insurance": {
+        "field": "insurance",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/example-urgent-care-center/insurance",
+        "sourceTitle": "Example Urgent Care Center insurance details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      },
+      "accessibility": {
+        "field": "accessibility",
+        "status": "source_backed",
+        "sourceUrl": "https://example.org/example-urgent-care-center/accessibility",
+        "sourceTitle": "Example Urgent Care Center accessibility details",
+        "checkedDate": "2026-05-29",
+        "sourceType": "official_facility_page",
+        "locationSpecific": true
+      }
+    },
+    "lastVerified": "2026-05-29",
+    "verificationStatus": "demo"
+  }
+]

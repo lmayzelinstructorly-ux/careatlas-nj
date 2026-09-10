@@ -1,0 +1,21 @@
+[
+  {
+    "id": "demo-nj-source-review",
+    "sourceName": "Demo NJ source review",
+    "sourceFileName": "public/data/healthcare/imports/pilot-nj/demo-source.csv",
+    "sourceType": "official",
+    "state": "NJ",
+    "county": "Middlesex",
+    "dateChecked": "2026-05-31",
+    "recordsReviewed": 12,
+    "recordsImportReady": 9,
+    "missingCoordinates": 2,
+    "missingSourceUrl": 1,
+    "missingPriceInfo": 10,
+    "missingInsuranceInfo": 8,
+    "missingHours": 7,
+    "readinessStatus": "needs_review",
+    "notes": "Demo review only. This file is not loaded by default and does not describe real healthcare facilities.",
+    "isDemo": true
+  }
+]

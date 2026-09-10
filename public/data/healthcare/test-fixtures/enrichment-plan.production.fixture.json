@@ -1,0 +1,79 @@
+[
+  {
+    "id": "fixture-clinic-needs-enrichment",
+    "name": "HealthBorders Fixture Clinic Needs Enrichment",
+    "facilityType": "clinic",
+    "address": "100 Fixture Way",
+    "city": "Example",
+    "state": "NJ",
+    "zip": "07001",
+    "latitude": 40.1,
+    "longitude": -74.1,
+    "phone": "555-0100",
+    "website": "https://example.org/fixture-clinic-needs-enrichment",
+    "sourceDataset": "HealthBorders enrichment plan fixture",
+    "sourceInfo": {
+      "sourceName": "HealthBorders enrichment plan fixture",
+      "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment",
+      "lastChecked": "2026-06-30"
+    },
+    "verificationStatus": "demo",
+    "isDemoData": true
+  },
+  {
+    "id": "fixture-clinic-bad-provenance",
+    "name": "HealthBorders Fixture Clinic Bad Provenance",
+    "facilityType": "clinic",
+    "address": "200 Fixture Way",
+    "city": "Example",
+    "state": "NJ",
+    "zip": "07002",
+    "latitude": 40.2,
+    "longitude": -74.2,
+    "phone": "555-0200",
+    "website": "https://example.org/fixture-clinic-bad-provenance",
+    "sourceDataset": "HealthBorders enrichment plan fixture",
+    "sourceInfo": {
+      "sourceName": "HealthBorders enrichment plan fixture",
+      "sourceUrl": "https://example.org/fixture-clinic-bad-provenance",
+      "lastChecked": "2026-06-30"
+    },
+    "verificationStatus": "demo",
+    "isDemoData": true
+  },
+  {
+    "id": "fixture-clinic-existing-services",
+    "name": "HealthBorders Fixture Clinic Existing Services",
+    "facilityType": "clinic",
+    "address": "300 Fixture Way",
+    "city": "Example",
+    "state": "NJ",
+    "zip": "07003",
+    "latitude": 40.3,
+    "longitude": -74.3,
+    "phone": "555-0300",
+    "website": "https://example.org/fixture-clinic-existing-services",
+    "services": [
+      "Primary care"
+    ],
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-existing-services",
+        "sourceTitle": "Fixture Clinic Existing Services",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      }
+    },
+    "sourceDataset": "HealthBorders enrichment plan fixture",
+    "sourceInfo": {
+      "sourceName": "HealthBorders enrichment plan fixture",
+      "sourceUrl": "https://example.org/fixture-clinic-existing-services",
+      "lastChecked": "2026-06-30"
+    },
+    "verificationStatus": "demo",
+    "isDemoData": true
+  }
+]

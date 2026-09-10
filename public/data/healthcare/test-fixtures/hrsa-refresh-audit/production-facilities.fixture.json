@@ -1,0 +1,95 @@
+[
+  {
+    "id": "hrsa-match-001",
+    "name": "Fixture Matched Center",
+    "facilityType": "community_health_center",
+    "address": "10 Test Street",
+    "city": "Hartford",
+    "state": "CT",
+    "stateFips": "09",
+    "county": "Hartford County",
+    "countyFips": "09003",
+    "postalCode": "06103",
+    "latitude": 41.7658,
+    "longitude": -72.6734,
+    "phone": "860-555-0101",
+    "website": "https://matched.invalid",
+    "sourceId": "MATCH-001",
+    "sourceDataset": "Health Center Service Delivery and Look-Alike Sites",
+    "sourceInfo": {
+      "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+      "notes": "Site status: Active. Location setting: All Other Clinic Types. Operational schedule: Full-Time."
+    }
+  },
+  {
+    "id": "hrsa-change-001",
+    "name": "Fixture Original Center",
+    "facilityType": "community_health_center",
+    "address": "20 Old Audit Avenue",
+    "city": "New Haven",
+    "state": "CT",
+    "stateFips": "09",
+    "county": "New Haven County",
+    "countyFips": "09009",
+    "postalCode": "06510",
+    "latitude": 41.3000,
+    "longitude": -72.9100,
+    "phone": "203-555-0102",
+    "website": "https://changed-old.invalid",
+    "sourceId": "CHANGE-001",
+    "sourceDataset": "Health Center Service Delivery and Look-Alike Sites",
+    "sourceInfo": {
+      "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+      "notes": "Site status: Active. Location setting: All Other Clinic Types. Operational schedule: Full-Time."
+    }
+  },
+  {
+    "id": "hrsa-removed-001",
+    "name": "Fixture Production Missing Upstream Center",
+    "facilityType": "community_health_center",
+    "address": "70 Removal Road",
+    "city": "Norwalk",
+    "state": "CT",
+    "stateFips": "09",
+    "county": "Fairfield County",
+    "countyFips": "09001",
+    "postalCode": "06850",
+    "latitude": 41.1177,
+    "longitude": -73.4082,
+    "sourceId": "REMOVED-001",
+    "sourceDataset": "Health Center Service Delivery and Look-Alike Sites",
+    "sourceInfo": {
+      "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites"
+    }
+  },
+  {
+    "id": "hrsa-prod-dup-001-a",
+    "name": "Fixture Production Duplicate A",
+    "facilityType": "community_health_center",
+    "address": "80 Duplicate Plaza",
+    "city": "Hartford",
+    "state": "CT",
+    "latitude": 41.7600,
+    "longitude": -72.6800,
+    "sourceId": "PROD-DUP-001",
+    "sourceDataset": "Health Center Service Delivery and Look-Alike Sites",
+    "sourceInfo": {
+      "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites"
+    }
+  },
+  {
+    "id": "hrsa-prod-dup-001-b",
+    "name": "Fixture Production Duplicate B",
+    "facilityType": "community_health_center",
+    "address": "81 Duplicate Plaza",
+    "city": "Hartford",
+    "state": "CT",
+    "latitude": 41.7610,
+    "longitude": -72.6810,
+    "sourceId": "PROD-DUP-001",
+    "sourceDataset": "Health Center Service Delivery and Look-Alike Sites",
+    "sourceInfo": {
+      "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites"
+    }
+  }
+]

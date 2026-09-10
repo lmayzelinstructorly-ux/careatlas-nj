@@ -1,0 +1,4 @@
+Site Name,Street Address,City,State,ZIP Code,County,Latitude,Longitude,Phone Number,Website,Site ID,Program,Source URL,Last Updated,Demo Notes
+Demo HRSA Community Site,101 Sample Health Way,Sampletown,NJ,07001,Demo County,40.5773,-74.2799,555-0111,https://example.org/demo-hrsa-site,DEMO-HRSA-001,Health Center Program,https://data.hrsa.gov/,2026-05-31,Demo row only for HRSA column mapping tests
+Demo HRSA Mobile Unit,202 Placeholder Road,Faketon,PA,19104,Example County,39.9526,-75.1652,555-0122,https://example.org/demo-hrsa-mobile,DEMO-HRSA-002,Health Center Program,https://data.hrsa.gov/,2026-05-31,Demo row only for HRSA column mapping tests
+Demo HRSA Sparse Site,303 Unknown Services Ave,Testville,DE,19901,,,,,,DEMO-HRSA-003,Health Center Program,https://data.hrsa.gov/,2026-05-31,Demo row with intentionally missing optional fields

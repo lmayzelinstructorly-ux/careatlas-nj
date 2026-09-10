@@ -1,0 +1,163 @@
+[
+  {
+    "id": "fixture-clinic-needs-enrichment",
+    "enrichment": {
+      "services": [
+        "Primary care",
+        "Preventive care"
+      ],
+      "hours": {
+        "monday": "9:00 AM - 5:00 PM"
+      },
+      "insuranceInfo": {
+        "acceptsMedicaid": true,
+        "acceptsMedicare": true,
+        "insuranceNotes": "Fixture accepts public insurance."
+      },
+      "priceInfo": {
+        "priceLevel": "low_cost",
+        "acceptsSlidingScale": true
+      },
+      "accessibilityInfo": "Wheelchair-accessible entrance listed on the fixture location page."
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment",
+        "sourceTitle": "Fixture Clinic Needs Enrichment",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      },
+      "hours": {
+        "field": "hours",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment/hours",
+        "sourceTitle": "Fixture Clinic Needs Enrichment Hours",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      },
+      "insurance": {
+        "field": "insurance",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment/insurance",
+        "sourceTitle": "Fixture Clinic Needs Enrichment Insurance",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      },
+      "cost": {
+        "field": "cost",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment/cost",
+        "sourceTitle": "Fixture Clinic Needs Enrichment Cost",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      },
+      "accessibility": {
+        "field": "accessibility",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-needs-enrichment/accessibility",
+        "sourceTitle": "Fixture Clinic Needs Enrichment Accessibility",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      }
+    }
+  },
+  {
+    "id": "fixture-clinic-bad-provenance",
+    "enrichment": {
+      "services": [
+        "Urgent care"
+      ],
+      "hours": {
+        "monday": "10:00 AM - 4:00 PM"
+      },
+      "insuranceInfo": {
+        "acceptsMedicaid": true
+      },
+      "priceInfo": {
+        "priceLevel": "free"
+      }
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-bad-provenance",
+        "sourceTitle": "Fixture Clinic Bad Provenance",
+        "locationSpecific": true
+      },
+      "hours": {
+        "field": "hours",
+        "status": "source_backed",
+        "sourceType": "yelp",
+        "sourceUrl": "https://www.yelp.com/biz/fixture-clinic-bad-provenance",
+        "sourceTitle": "Yelp reviews for Fixture Clinic Bad Provenance",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      },
+      "insurance": {
+        "field": "insurance",
+        "status": "source_backed",
+        "sourceType": "approved_nonprofit_directory",
+        "sourceUrl": "https://example.org/fixture-health-system",
+        "sourceTitle": "Fixture Health System General Services",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": false
+      },
+      "cost": {
+        "field": "cost",
+        "status": "needs_review",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-bad-provenance/cost",
+        "sourceTitle": "Fixture Clinic Bad Provenance Cost",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      }
+    }
+  },
+  {
+    "id": "fixture-clinic-existing-services",
+    "enrichment": {
+      "services": [
+        "Dental care"
+      ]
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-existing-services/new-services",
+        "sourceTitle": "Fixture Clinic Existing Services New Services",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      }
+    }
+  },
+  {
+    "id": "fixture-clinic-missing-production",
+    "enrichment": {
+      "services": [
+        "Primary care"
+      ]
+    },
+    "fieldSources": {
+      "services": {
+        "field": "services",
+        "status": "source_backed",
+        "sourceType": "official_facility_page",
+        "sourceUrl": "https://example.org/fixture-clinic-missing-production",
+        "sourceTitle": "Fixture Clinic Missing Production",
+        "checkedDate": "2026-06-30",
+        "locationSpecific": true
+      }
+    }
+  }
+]

@@ -1,0 +1,478 @@
+[
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-nj-nj-healthcare-pilot-",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/pilot-nj/nj-healthcare-pilot.csv",
+    "sourceType": "official",
+    "state": "NJ",
+    "dateChecked": "2026-06-03",
+    "recordsReviewed": 139,
+    "recordsImportReady": 139,
+    "missingCoordinates": 0,
+    "coordinatesOutsidePilotGeography": 0,
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 139,
+    "missingHours": 139,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "1 likely duplicate name/address warning found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "139 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "139 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-pa-hrsa-pa-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/pa/hrsa-pa.csv",
+    "sourceType": "official",
+    "state": "PA",
+    "dateChecked": "2026-06-21",
+    "recordsReviewed": 481,
+    "recordsImportReady": 481,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 481,
+    "missingHours": 481,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "481 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "481 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-ny-hrsa-ny-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/ny/hrsa-ny.csv",
+    "sourceType": "official",
+    "state": "NY",
+    "dateChecked": "2026-06-21",
+    "recordsReviewed": 875,
+    "recordsImportReady": 875,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 875,
+    "missingHours": 875,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "3 likely duplicate name/address warnings found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "875 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "875 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-de-hrsa-de-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/de/hrsa-de.csv",
+    "sourceType": "official",
+    "state": "DE",
+    "dateChecked": "2026-06-21",
+    "recordsReviewed": 16,
+    "recordsImportReady": 16,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 16,
+    "missingHours": 16,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "16 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "16 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-ct-hrsa-ct-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/ct/hrsa-ct.csv",
+    "sourceType": "official",
+    "state": "CT",
+    "dateChecked": "2026-06-21",
+    "recordsReviewed": 466,
+    "recordsImportReady": 466,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 466,
+    "missingHours": 466,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "2 likely duplicate name/address warnings found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "466 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "466 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-ma-hrsa-ma-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/ma/hrsa-ma.csv",
+    "sourceType": "official",
+    "state": "MA",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 299,
+    "recordsImportReady": 299,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 299,
+    "missingHours": 299,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "299 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "299 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-ri-hrsa-ri-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/ri/hrsa-ri.csv",
+    "sourceType": "official",
+    "state": "RI",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 65,
+    "recordsImportReady": 65,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 65,
+    "missingHours": 65,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "65 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "65 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-vt-hrsa-vt-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/vt/hrsa-vt.csv",
+    "sourceType": "official",
+    "state": "VT",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 103,
+    "recordsImportReady": 103,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 103,
+    "missingHours": 103,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "103 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "103 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-nh-hrsa-nh-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/nh/hrsa-nh.csv",
+    "sourceType": "official",
+    "state": "NH",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 78,
+    "recordsImportReady": 78,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 78,
+    "missingHours": 78,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "1 likely duplicate name/address warning found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "78 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "78 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-me-hrsa-me-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/me/hrsa-me.csv",
+    "sourceType": "official",
+    "state": "ME",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 189,
+    "recordsImportReady": 189,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 189,
+    "missingHours": 189,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "189 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "189 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-md-hrsa-md-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/md/hrsa-md.csv",
+    "sourceType": "official",
+    "state": "MD",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 173,
+    "recordsImportReady": 173,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 173,
+    "missingHours": 173,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "173 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "173 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-dc-hrsa-dc-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/dc/hrsa-dc.csv",
+    "sourceType": "official",
+    "state": "DC",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 79,
+    "recordsImportReady": 79,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 79,
+    "missingHours": 79,
+    "readinessStatus": "ready_to_import",
+    "issues": [
+      {
+        "field": "insuranceInfo",
+        "message": "79 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "79 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-va-hrsa-va-csv",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/va/hrsa-va.csv",
+    "sourceType": "official",
+    "state": "VA",
+    "dateChecked": "2026-07-02",
+    "recordsReviewed": 239,
+    "recordsImportReady": 239,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 239,
+    "missingHours": 239,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "1 likely duplicate name/address warning found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "239 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "239 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  },
+  {
+    "id": "hrsa-health-center-service-delivery-and-look-alike-sites-nj-hrsa-nj-service-deli",
+    "sourceName": "HRSA Health Center Service Delivery and Look-Alike Sites",
+    "sourceFileName": "public/data/healthcare/imports/hrsa/nj/hrsa-nj-service-delivery-additions-2026-07-13.csv",
+    "sourceType": "official",
+    "state": "NJ",
+    "dateChecked": "2026-07-14",
+    "recordsReviewed": 16,
+    "recordsImportReady": 16,
+    "missingCoordinates": 0,
+    "coordinatesOutsideStateBounds": 0,
+    "rowsWithStateMismatch": 0,
+    "stateBoundsSource": "public/data/us-states.geojson",
+    "missingSourceUrl": 0,
+    "missingPriceInfo": 0,
+    "missingInsuranceInfo": 16,
+    "missingHours": 16,
+    "readinessStatus": "needs_review",
+    "issues": [
+      {
+        "field": "duplicates",
+        "message": "1 likely duplicate name/address warning found.",
+        "severity": "warning"
+      },
+      {
+        "field": "insuranceInfo",
+        "message": "16 rows missing insuranceInfo. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      },
+      {
+        "field": "hours",
+        "message": "16 rows missing hours. This reduces score confidence but does not block import when marked unknown.",
+        "severity": "info"
+      }
+    ],
+    "notes": "Source review only. Missing price, insurance or hours fields should remain unknown unless verified from the source."
+  }
+]
