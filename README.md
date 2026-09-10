@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **431 of 720 files (59.86% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **471 of 720 files (65.42% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -21,12 +21,13 @@ This private repository receives an existing project in installments. It current
 | September 9, 2026 | Atlantic, Cape May, Cumberland, Gloucester and Salem county records | 45 | 378 |
 | September 9, 2026 | Statewide tract validation, generation tools and facility source data | 18 | 396 |
 | September 10, 2026 | Healthcare pipeline libraries, source review data and test fixtures | 35 | 431 |
+| September 10, 2026 | Healthcare import, review and geography generation workflows | 40 | 471 |
 
-The fifth installment is being imported in dependency order: pipeline libraries and fixture/source data, import and review workflows, then checks and documentation. 35 files from this installment are currently imported.
+The fifth installment is being imported in dependency order: pipeline libraries and fixture/source data, import and review workflows, then checks and documentation. 75 files from this installment are currently imported.
 
 **This remains a partial project archive.** All frontend source, server/Worker source, NJ search data, and detailed tract boundaries, classifications, town context, evidence and public records for all 21 NJ counties are included. Healthcare pipeline foundations and supporting data are being followed by their workflows and checks. Non-NJ boundary/search files, additional source import archives and reports, remaining documentation, and the full check runners are still pending. Manifests and archived documentation can reference files or historical context not present in this partial checkout. Follow the upload ledger above for this repository's actual import history.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **289 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **249 files** have not been uploaded. No automatic schedule for later installments has been set.
 
 ## Verification
 
@@ -503,6 +504,49 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - scripts/lib/healthcareProviderEnrichmentOpportunities.mjs
 - scripts/lib/stateBounds.mjs
 - scripts/lib/tractEvidenceBatch6.mjs
+
+### September 10: Healthcare import, review and geography generation workflows (40 files)
+
+- scripts/applyHealthcareEnrichment.mjs
+- scripts/assignFacilityBoundaries.mjs
+- scripts/auditHealthcareProviderEnrichmentOpportunities.mjs
+- scripts/auditHrsaRefresh.mjs
+- scripts/boundaryHealthcareSummaries.mjs
+- scripts/buildBatch6CoverageSummary.mjs
+- scripts/buildBoundarySearchIndex.mjs
+- scripts/buildGeographyDataManifest.mjs
+- scripts/buildHealthcareProviderReviewedEnrichment.mjs
+- scripts/buildLocalJurisdictionSearchIndex.mjs
+- scripts/buildNjHealthcareFacilityShard.mjs
+- scripts/collectHealthcareOfficialSourceEnrichment.mjs
+- scripts/createHrsaRefreshReviewPacket.mjs
+- scripts/download-boundaries.mjs
+- scripts/generateBoundaryHealthcareSummaries.mjs
+- scripts/generateCmsMedicareEnrichmentInput.mjs
+- scripts/generateHealthcareCoverageSummary.mjs
+- scripts/generateHealthcareEnrichmentWorklist.mjs
+- scripts/generateHealthcareProviderReviewPackets.mjs
+- scripts/generateHrsaEnrichmentInput.mjs
+- scripts/healthcareCoverageSummary.mjs
+- scripts/importCdcSviTractEvidence.mjs
+- scripts/importCensusAcsTractEvidence.mjs
+- scripts/importCmsDoctorOffices.mjs
+- scripts/importHealthcareFacilitiesFromCsv.mjs
+- scripts/importHrsaShortageTractEvidence.mjs
+- scripts/importOfficialHealthcareFacilities.mjs
+- scripts/listStagedHealthcareFacilities.mjs
+- scripts/planHealthcareEnrichment.mjs
+- scripts/prepareCmsHospitalImport.mjs
+- scripts/prepareHrsaStateImport.mjs
+- scripts/promoteStagedHealthcareFacilities.mjs
+- scripts/refreshHealthcareData.mjs
+- scripts/refreshHrsaHoursNotes.mjs
+- scripts/reviewCmsStagedState.mjs
+- scripts/reviewDoctorOfficeGeocodes.mjs
+- scripts/reviewHealthcareImportFile.mjs
+- scripts/reviewHrsaStagedState.mjs
+- scripts/reviewStagedHealthcareFacility.mjs
+- scripts/stageHealthcareImport.mjs
 
 ## License
 
