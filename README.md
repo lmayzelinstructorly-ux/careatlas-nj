@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **504 of 720 files (70% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **653 of 717 project files (91.07% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -23,12 +23,13 @@ This private repository receives an existing project in installments. It current
 | September 10, 2026 | Healthcare pipeline libraries, source review data and test fixtures | 35 | 431 |
 | September 10, 2026 | Healthcare import, review and geography generation workflows | 40 | 471 |
 | September 10, 2026 | Validation checks and workflow documentation | 33 | 504 |
+| September 12, 2026 | Remaining geography boundaries and search indexes | 149 | 653 |
 
-The fifth installment adds **108 files (15% of the original snapshot)**, bringing cumulative coverage to **504 files (70%)**.
+The final import is in progress. The original 720-file estimate included three ignored temporary test outputs; the corrected project total is 717. This commit adds the next logical component group. Final validation and complete setup documentation will be recorded with the last group.
 
-**This remains a partial project archive.** All frontend source, server/Worker source, NJ search data, and detailed tract boundaries, classifications, town context, evidence and public records for all 21 NJ counties are included. This installment adds healthcare and doctor-office import/review workflows, source provenance tools, geography generation scripts, validation checks, supporting fixtures and workflow documentation. Non-NJ boundary/search files, additional source import archives and reports, remaining documentation, and the full check runners are still pending. Manifests and archived documentation can reference files or historical context not present in this partial checkout. Follow the upload ledger above for this repository's actual import history.
+Archive completion is in progress. Remaining source archives, documentation, workflows and tooling are being imported in component order. Historical competition commits and tags were not included in the supplied ZIP.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **216 files** have not been uploaded. No automatic schedule for later installments has been set.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **64 project files** have not been uploaded. GitHub Actions is disabled while scheduled workflow definitions are imported.
 
 ## Verification of this installment
 
@@ -597,6 +598,158 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - scripts/validateHealthcareFacilities.mjs
 - scripts/validateHealthcareSourceReviews.mjs
 - scripts/validateHealthcareStaging.mjs
+
+### September 12: Remaining geography boundaries and search indexes (149 files)
+
+- public/data/boundary-search-index.json
+- public/data/counties/by-state/01.geojson
+- public/data/counties/by-state/04.geojson
+- public/data/counties/by-state/05.geojson
+- public/data/counties/by-state/06.geojson
+- public/data/counties/by-state/08.geojson
+- public/data/counties/by-state/09.geojson
+- public/data/counties/by-state/10.geojson
+- public/data/counties/by-state/11.geojson
+- public/data/counties/by-state/12.geojson
+- public/data/counties/by-state/13.geojson
+- public/data/counties/by-state/16.geojson
+- public/data/counties/by-state/17.geojson
+- public/data/counties/by-state/18.geojson
+- public/data/counties/by-state/19.geojson
+- public/data/counties/by-state/20.geojson
+- public/data/counties/by-state/21.geojson
+- public/data/counties/by-state/22.geojson
+- public/data/counties/by-state/23.geojson
+- public/data/counties/by-state/24.geojson
+- public/data/counties/by-state/25.geojson
+- public/data/counties/by-state/26.geojson
+- public/data/counties/by-state/27.geojson
+- public/data/counties/by-state/28.geojson
+- public/data/counties/by-state/29.geojson
+- public/data/counties/by-state/30.geojson
+- public/data/counties/by-state/31.geojson
+- public/data/counties/by-state/32.geojson
+- public/data/counties/by-state/33.geojson
+- public/data/counties/by-state/35.geojson
+- public/data/counties/by-state/36.geojson
+- public/data/counties/by-state/37.geojson
+- public/data/counties/by-state/38.geojson
+- public/data/counties/by-state/39.geojson
+- public/data/counties/by-state/40.geojson
+- public/data/counties/by-state/41.geojson
+- public/data/counties/by-state/42.geojson
+- public/data/counties/by-state/44.geojson
+- public/data/counties/by-state/45.geojson
+- public/data/counties/by-state/46.geojson
+- public/data/counties/by-state/47.geojson
+- public/data/counties/by-state/48.geojson
+- public/data/counties/by-state/49.geojson
+- public/data/counties/by-state/50.geojson
+- public/data/counties/by-state/51.geojson
+- public/data/counties/by-state/53.geojson
+- public/data/counties/by-state/54.geojson
+- public/data/counties/by-state/55.geojson
+- public/data/counties/by-state/56.geojson
+- public/data/cousubs/by-state/01.geojson
+- public/data/cousubs/by-state/04.geojson
+- public/data/cousubs/by-state/05.geojson
+- public/data/cousubs/by-state/06.geojson
+- public/data/cousubs/by-state/08.geojson
+- public/data/cousubs/by-state/09.geojson
+- public/data/cousubs/by-state/10.geojson
+- public/data/cousubs/by-state/11.geojson
+- public/data/cousubs/by-state/12.geojson
+- public/data/cousubs/by-state/13.geojson
+- public/data/cousubs/by-state/16.geojson
+- public/data/cousubs/by-state/17.geojson
+- public/data/cousubs/by-state/18.geojson
+- public/data/cousubs/by-state/19.geojson
+- public/data/cousubs/by-state/20.geojson
+- public/data/cousubs/by-state/21.geojson
+- public/data/cousubs/by-state/22.geojson
+- public/data/cousubs/by-state/23.geojson
+- public/data/cousubs/by-state/24.geojson
+- public/data/cousubs/by-state/25.geojson
+- public/data/cousubs/by-state/26.geojson
+- public/data/cousubs/by-state/27.geojson
+- public/data/cousubs/by-state/28.geojson
+- public/data/cousubs/by-state/29.geojson
+- public/data/cousubs/by-state/30.geojson
+- public/data/cousubs/by-state/31.geojson
+- public/data/cousubs/by-state/32.geojson
+- public/data/cousubs/by-state/33.geojson
+- public/data/cousubs/by-state/35.geojson
+- public/data/cousubs/by-state/36.geojson
+- public/data/cousubs/by-state/37.geojson
+- public/data/cousubs/by-state/38.geojson
+- public/data/cousubs/by-state/39.geojson
+- public/data/cousubs/by-state/40.geojson
+- public/data/cousubs/by-state/41.geojson
+- public/data/cousubs/by-state/42.geojson
+- public/data/cousubs/by-state/44.geojson
+- public/data/cousubs/by-state/45.geojson
+- public/data/cousubs/by-state/46.geojson
+- public/data/cousubs/by-state/47.geojson
+- public/data/cousubs/by-state/48.geojson
+- public/data/cousubs/by-state/49.geojson
+- public/data/cousubs/by-state/50.geojson
+- public/data/cousubs/by-state/51.geojson
+- public/data/cousubs/by-state/53.geojson
+- public/data/cousubs/by-state/54.geojson
+- public/data/cousubs/by-state/55.geojson
+- public/data/cousubs/by-state/56.geojson
+- public/data/geography/search/states/01.json
+- public/data/geography/search/states/04.json
+- public/data/geography/search/states/05.json
+- public/data/geography/search/states/06.json
+- public/data/geography/search/states/08.json
+- public/data/geography/search/states/09.json
+- public/data/geography/search/states/10.json
+- public/data/geography/search/states/11.json
+- public/data/geography/search/states/12.json
+- public/data/geography/search/states/13.json
+- public/data/geography/search/states/16.json
+- public/data/geography/search/states/17.json
+- public/data/geography/search/states/18.json
+- public/data/geography/search/states/19.json
+- public/data/geography/search/states/20.json
+- public/data/geography/search/states/21.json
+- public/data/geography/search/states/22.json
+- public/data/geography/search/states/23.json
+- public/data/geography/search/states/24.json
+- public/data/geography/search/states/25.json
+- public/data/geography/search/states/26.json
+- public/data/geography/search/states/27.json
+- public/data/geography/search/states/28.json
+- public/data/geography/search/states/29.json
+- public/data/geography/search/states/30.json
+- public/data/geography/search/states/31.json
+- public/data/geography/search/states/32.json
+- public/data/geography/search/states/33.json
+- public/data/geography/search/states/35.json
+- public/data/geography/search/states/36.json
+- public/data/geography/search/states/37.json
+- public/data/geography/search/states/38.json
+- public/data/geography/search/states/39.json
+- public/data/geography/search/states/40.json
+- public/data/geography/search/states/41.json
+- public/data/geography/search/states/42.json
+- public/data/geography/search/states/44.json
+- public/data/geography/search/states/45.json
+- public/data/geography/search/states/46.json
+- public/data/geography/search/states/47.json
+- public/data/geography/search/states/48.json
+- public/data/geography/search/states/49.json
+- public/data/geography/search/states/50.json
+- public/data/geography/search/states/51.json
+- public/data/geography/search/states/53.json
+- public/data/geography/search/states/54.json
+- public/data/geography/search/states/55.json
+- public/data/geography/search/states/56.json
+- public/data/local-jurisdiction-search-index.json
+- public/data/nj-counties.geojson
+- public/data/nj-municipalities.geojson
+- public/data/us-counties.geojson
 
 ## License
 
