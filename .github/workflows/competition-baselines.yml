@@ -1,0 +1,43 @@
+name: Competition baseline tags
+
+on:
+  schedule:
+    # The script selects the final main commit at or before each official start,
+    # so a delayed run cannot move a baseline into the build period. These UTC
+    # hours cover every remaining 2026 event within 17 minutes of its start.
+    - cron: "17 4,7,8,16 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: competition-baseline-tags
+  cancel-in-progress: false
+
+jobs:
+  tag-baselines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Create due baseline tags
+        run: |
+          git config user.name "careatlas-competition-baseline[bot]"
+          git config user.email "careatlas-competition-baseline@users.noreply.github.com"
+          npm run create:competition-baselines -- --apply
+          git push origin --tags
+
+          if ! git diff --quiet -- docs/competition-baselines.md; then
+            git add docs/competition-baselines.md
+            git commit -m "Record due competition baselines"
+            git push origin HEAD:main
+          fi

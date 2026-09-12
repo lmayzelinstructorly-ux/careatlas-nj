@@ -1,0 +1,272 @@
+{
+  "date": "2026-06-24",
+  "scope": "review-only HRSA refresh triage",
+  "inputs": {
+    "auditReport": "docs/reports/hrsa-refresh-audit-2026-06-24.md",
+    "reviewPacket": "docs/reports/hrsa-refresh-review-packet-2026-06-24.md",
+    "officialCsv": "public/data/healthcare/imports/hrsa/refresh/hrsa-official-2026-06-24.csv",
+    "productionFile": "public/data/healthcare/facilities.json"
+  },
+  "constraints": {
+    "approvalsIncluded": false,
+    "productionRecordsChanged": false,
+    "recordsStaged": false,
+    "recordsPromoted": false,
+    "recordsRemoved": false
+  },
+  "njAdditionsSummary": {
+    "reviewed": 30,
+    "riskCounts": {
+      "low": 3,
+      "medium": 16,
+      "high": 4,
+      "hold": 7
+    }
+  },
+  "njAdditions": [
+    {
+      "sourceId": "BPS-H80-008812",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-035398",
+      "similarityReasons": ["same organization", "similar phone", "similar name", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-LAL-039367",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-LAL-037089",
+      "similarityReasons": ["similar name", "similar website/domain", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-003788",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-001532",
+      "similarityReasons": ["same organization", "similar website/domain", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-004971",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-034310",
+      "similarityReasons": ["same address", "similar name", "similar phone", "similar website/domain", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-008251",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-039775",
+      "similarityReasons": ["same address", "similar phone", "nearby coordinate", "missing website"]
+    },
+    {
+      "sourceId": "BPS-H80-005615",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-032546",
+      "similarityReasons": ["same organization", "similar phone", "similar website/domain", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-034033",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-027862",
+      "similarityReasons": ["same organization", "similar name", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-039294",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "missing critical source details/hold",
+      "nearestOrSimilarProductionRecord": null,
+      "similarityReasons": ["missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-007901",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-013660",
+      "similarityReasons": ["same address", "similar phone", "similar website/domain", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-041425",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-012729",
+      "similarityReasons": ["similar phone", "nearby coordinate", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-001408",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-024564",
+      "similarityReasons": ["same organization", "similar name", "similar phone", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-032725",
+      "riskLevel": "high",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-017765",
+      "similarityReasons": ["same organization", "similar name", "similar phone", "similar website/domain", "packet same/similar address flag"]
+    },
+    {
+      "sourceId": "BPS-H80-017286",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-012729",
+      "similarityReasons": ["similar phone", "nearby coordinate", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-032492",
+      "riskLevel": "high",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-018693",
+      "similarityReasons": ["same organization", "same/similar name", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-037717",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-LAL-037722",
+      "similarityReasons": ["same address", "nearby coordinate", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-008888",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-000131",
+      "similarityReasons": ["same organization", "similar website/domain", "nearby coordinate", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-035341",
+      "riskLevel": "low",
+      "recommendedManualReviewAction": "likely safe to stage later",
+      "nearestOrSimilarProductionRecord": "BPS-H80-003387",
+      "similarityReasons": ["same organization", "similar website/domain"]
+    },
+    {
+      "sourceId": "BPS-H80-038343",
+      "riskLevel": "high",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-038345",
+      "similarityReasons": ["same name", "nearby coordinate", "missing website"]
+    },
+    {
+      "sourceId": "BPS-H80-019637",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-017493",
+      "similarityReasons": ["same address", "same name", "same organization", "similar phone", "nearby coordinate", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-000725",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-037818",
+      "similarityReasons": ["same address", "similar name", "similar phone", "nearby coordinate", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-035726",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "missing critical source details/hold",
+      "nearestOrSimilarProductionRecord": null,
+      "similarityReasons": ["missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-018011",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-002970",
+      "similarityReasons": ["nearby coordinate", "missing website"]
+    },
+    {
+      "sourceId": "BPS-H80-034397",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-024564",
+      "similarityReasons": ["same organization", "similar name", "similar phone", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-001082",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-008508",
+      "similarityReasons": ["same organization", "similar phone", "similar website/domain", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-032726",
+      "riskLevel": "low",
+      "recommendedManualReviewAction": "likely safe to stage later",
+      "nearestOrSimilarProductionRecord": "BPS-H80-017765",
+      "similarityReasons": ["same organization", "similar name", "similar phone", "similar website/domain"]
+    },
+    {
+      "sourceId": "BPS-H80-041422",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-036679",
+      "similarityReasons": ["similar name", "missing website", "coordinate near border/boundary"]
+    },
+    {
+      "sourceId": "BPS-H80-003137",
+      "riskLevel": "low",
+      "recommendedManualReviewAction": "likely safe to stage later",
+      "nearestOrSimilarProductionRecord": "BPS-H80-004925",
+      "similarityReasons": ["same organization", "similar website/domain", "nearby coordinate"]
+    },
+    {
+      "sourceId": "BPS-H80-028090",
+      "riskLevel": "medium",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-017765",
+      "similarityReasons": ["same organization", "similar name", "similar phone", "missing website"]
+    },
+    {
+      "sourceId": "BPS-H80-004219",
+      "riskLevel": "hold",
+      "recommendedManualReviewAction": "likely duplicate/hold",
+      "nearestOrSimilarProductionRecord": "BPS-H80-040694",
+      "similarityReasons": ["same address", "similar name", "similar website/domain", "nearby coordinate"]
+    },
+    {
+      "sourceId": "BPS-H80-036171",
+      "riskLevel": "high",
+      "recommendedManualReviewAction": "verify exact site first",
+      "nearestOrSimilarProductionRecord": "BPS-H80-011078",
+      "similarityReasons": ["same organization", "same/similar name", "similar website/domain", "coordinate near border/boundary"]
+    }
+  ],
+  "missingUpstream": [
+    {
+      "sourceId": "BPS-H80-003698",
+      "state": "NY",
+      "riskLevel": "hold",
+      "recommendedAction": "do not remove automatically; verify HRSA history/source; check closure, merge, source ID change, or upstream data issue",
+      "replacementOrRenameSignal": "No same-source-ID row found in the official 2026-06-24 CSV. BPS-H80-041628 has same organization contact details but is already a distinct production/upstream record."
+    },
+    {
+      "sourceId": "BPS-H80-010657",
+      "state": "CT",
+      "riskLevel": "hold",
+      "recommendedAction": "do not remove automatically; verify HRSA history/source; check closure, merge, source ID change, or upstream data issue",
+      "replacementOrRenameSignal": "Same source ID appears in official CSV with state XX / Not Determined and missing address/coordinates, so it is outside the CT-scoped audit."
+    }
+  ],
+  "highRiskAdditionIds": [
+    "BPS-H80-004971",
+    "BPS-H80-008251",
+    "BPS-H80-007901",
+    "BPS-H80-037717",
+    "BPS-H80-019637",
+    "BPS-H80-000725",
+    "BPS-H80-004219",
+    "BPS-LAL-040192",
+    "BPS-LAL-041175",
+    "BPS-LAL-040190",
+    "BPS-LAL-041408",
+    "BPS-H80-000988",
+    "BPS-H80-032725",
+    "BPS-H80-032492",
+    "BPS-H80-038343",
+    "BPS-H80-036171"
+  ]
+}

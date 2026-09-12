@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **697 of 717 project files (97.21% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository now contains the completed import of the existing project. It currently contains **717 of 717 project files (100% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -25,29 +25,25 @@ This private repository receives an existing project in installments. It current
 | September 10, 2026 | Validation checks and workflow documentation | 33 | 504 |
 | September 12, 2026 | Remaining geography boundaries and search indexes | 149 | 653 |
 | September 12, 2026 | Official source archives, legacy data and branding assets | 44 | 697 |
+| September 12, 2026 | Project documentation, workflows and full check tooling | 20 | 717 |
 
-The final import is in progress. The original 720-file estimate included three ignored temporary test outputs; the corrected project total is 717. This commit adds the next logical component group. Final validation and complete setup documentation will be recorded with the last group.
+The final installment adds **213 project files**, completing the repository. The earlier 720-file estimate included three ignored, generated healthcare pipeline test outputs under `public/data/healthcare/test-fixtures/tmp/`. Excluding those temporary outputs gives the corrected total of **717 project files**. Earlier ledger counts are retained as the original upload record. Dependencies, build output, caches, temporary outputs and credentials are not source uploads.
 
-Archive completion is in progress. Remaining source archives, documentation, workflows and tooling are being imported in component order. Historical competition commits and tags were not included in the supplied ZIP.
+CareAtlas is a focused New Jersey map covering 21 counties, 564 towns/townships, 2,181 census tracts and source-backed healthcare facility locations. The `/internal-data` development-only review route is excluded from production builds. The repository includes the existing UI, backend, official data, source archives, pipelines, checks and documentation; legacy assets do not restore retired app routes. See the [demo readiness checklist](docs/demo-readiness-checklist.md).
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **20 project files** have not been uploaded. GitHub Actions is disabled while scheduled workflow definitions are imported.
+Archived competition documentation refers to earlier repository commits and tags that were not part of the supplied ZIP and are not recreated here. Those historical assertions are not verified by this import. Commit dates in this repository record actual import dates.
 
-## Verification of this installment
+The live deployment remains separate from this import; no deployment was performed. GitHub Actions is disabled for this repository so the preserved scheduled workflows cannot automatically refresh data, create tags or rewrite the historical ledger. All intended project files have now been uploaded.
 
-On September 10, the assembled checkout passed `npm run build`, including TypeScript compilation, Vite bundling and production asset validation (219 runtime data files). All **18 focused checks** passed, covering healthcare data quality, enrichment planning/provenance, staging and source reviews, the fixture-based import/review/promotion pipeline, HRSA audit fixtures, doctor-office workflows, CDC PLACES and social/shortage importers, explanation safety, public map behavior, tract proximity, public-record interfaces and healthcare coverage.
+## Running and checking the project
 
-All 108 imported files matched the existing source snapshot byte for byte. Imported JSON parsed successfully, and all 77 newly imported JavaScript modules passed syntax checks. Production datasets were not refreshed or regenerated. Test fixtures and internal source/review artifacts remain excluded from the production build.
+Install dependencies with `npm ci`, then start the app with `npm run dev`. Use `.env.example` for optional server configuration; do not commit credentials. Build with `npm run build`.
 
-After `npm ci`, available commands include:
+The complete check runners are now included: `npm run check:changed` and `npm run check`. The historical competition-baseline check requires original commits/tags absent from the ZIP; a complete source import cannot restore that Git history. Do not create substitute historical tags just to satisfy the check.
 
-- `npm run build`
-- `node scripts/validateHealthcareFacilities.mjs`
-- `node scripts/checkHealthcarePipeline.mjs`
-- `node scripts/checkDoctorOfficePipeline.mjs`
-- `node scripts/checkCdcPlacesImporter.mjs`
-- `node scripts/checkBatch6Importers.mjs`
+Final validation on September 12: **44 of the 45 checks in the project suite passed**, including all 24 UI tests, official data and pipeline checks, geography/search generation, production build, bundle/performance checks, and a Cloudflare deployment dry run. The remaining competition-baseline check fails because no original commit exists before the recorded event start; the ZIP contains files, not those commits or tags. The full aggregate check therefore does not pass. No historical tags were fabricated and no check was weakened.
 
-The normal `npm run check:changed` and full `npm run check` runners are not yet imported. Some scripts still require the remaining source archives, geography files, or historical project artifacts; the focused checks above do not certify every package script. No validation rules were weakened. The interface source is unchanged; its 24 tests last passed in the September 7 installment. The live deployment has not been replaced by this partial checkout.
+The initial demo-readiness check identified missing scope details in this repository's adapted README; those details were restored and the check passed. After validation, all 716 non-README project files matched the supplied source byte for byte. The README intentionally documents this repository's actual import history and corrected file count. Build output includes 363 allowed runtime data files; test fixtures and source/review archives remain excluded from public deployment.
 
 ## Evidence and review
 
@@ -798,6 +794,29 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - public/data/student-opportunities/staging/latest-promotion-report.json
 - public/data/student-opportunities/staging/latest-review-packet.md
 - public/data/student-opportunities/staging/opportunities.staged.json
+
+### September 12: Project documentation, workflows and full check tooling (20 files)
+
+- .github/workflows/competition-baselines.yml
+- .github/workflows/healthcare-data-refresh.yml
+- AGENTS.md
+- docs/codex-task-checklist.md
+- docs/competition-baselines.md
+- docs/competition-organizer-correspondence.md
+- docs/healthcare-de-ct-promotion-report.md
+- docs/healthcare-first-pilot-promotion-report.md
+- docs/healthcare-first-pilot-staging-report.md
+- docs/healthcare-pa-ny-promotion-report.md
+- docs/reports/hrsa-refresh-audit-2026-06-24.md
+- docs/reports/hrsa-refresh-nj-additions-review-2026-06-24.md
+- docs/reports/hrsa-refresh-review-decisions-2026-06-24.json
+- docs/reports/hrsa-refresh-review-packet-2026-06-24.md
+- docs/security-audit-2026-08-31.md
+- docs/student-opportunities-workflow.md
+- scripts/checkCompetitionBaselines.mjs
+- scripts/createCompetitionBaselines.mjs
+- scripts/runChangedChecks.mjs
+- scripts/runProjectChecks.mjs
 
 ## License
 
