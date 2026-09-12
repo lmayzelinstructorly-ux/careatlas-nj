@@ -1,0 +1,29 @@
+{
+  "source": "hrsa",
+  "inputPath": "public\\data\\healthcare\\imports\\hrsa-sample.csv",
+  "outputPath": "public\\data\\healthcare\\facilities.demo.json",
+  "importDate": "2026-05-31",
+  "dryRun": false,
+  "demoImport": true,
+  "demoRecordCount": 3,
+  "merge": false,
+  "rowsRead": 3,
+  "validRecords": 3,
+  "recordsWritten": 3,
+  "skippedRows": 0,
+  "skipped": [],
+  "warnings": [
+    "Row 4: Latitude or longitude is missing or invalid."
+  ],
+  "unknownFieldCounts": {
+    "coordinates": 1,
+    "phone": 1,
+    "website": 1,
+    "services": 3,
+    "hours": 3,
+    "priceInfo": 3,
+    "insuranceInfo": 3,
+    "county": 1
+  },
+  "duplicateWarnings": []
+}

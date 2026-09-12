@@ -6,7 +6,7 @@ Live app: [CareAtlas NJ](https://careatlas.lmayzel930.workers.dev).
 
 ## Source upload progress
 
-This private repository receives an existing project in installments. It currently contains **653 of 717 project files (91.07% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
+This private repository receives an existing project in installments. It currently contains **697 of 717 project files (97.21% by file count)** from the revised project snapshot. File count does not measure development effort or byte size. Commit dates record the actual import dates, not the dates of original implementation.
 
 | Upload date | Contents | New files | Total files |
 | --- | --- | ---: | ---: |
@@ -24,12 +24,13 @@ This private repository receives an existing project in installments. It current
 | September 10, 2026 | Healthcare import, review and geography generation workflows | 40 | 471 |
 | September 10, 2026 | Validation checks and workflow documentation | 33 | 504 |
 | September 12, 2026 | Remaining geography boundaries and search indexes | 149 | 653 |
+| September 12, 2026 | Official source archives, legacy data and branding assets | 44 | 697 |
 
 The final import is in progress. The original 720-file estimate included three ignored temporary test outputs; the corrected project total is 717. This commit adds the next logical component group. Final validation and complete setup documentation will be recorded with the last group.
 
 Archive completion is in progress. Remaining source archives, documentation, workflows and tooling are being imported in component order. Historical competition commits and tags were not included in the supplied ZIP.
 
-The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **64 project files** have not been uploaded. GitHub Actions is disabled while scheduled workflow definitions are imported.
+The full tested app is maintained separately and used for the live deployment. No GitHub deployment integration is configured for this partial repository. The remaining **20 project files** have not been uploaded. GitHub Actions is disabled while scheduled workflow definitions are imported.
 
 ## Verification of this installment
 
@@ -750,6 +751,53 @@ See [the rule](docs/batch-7-transparent-flagging.md) and [the outside-review kit
 - public/data/nj-counties.geojson
 - public/data/nj-municipalities.geojson
 - public/data/us-counties.geojson
+
+### September 12: Official source archives, legacy data and branding assets (44 files)
+
+- public/careatlas-logo-mark.png
+- public/careatlas-logo.png
+- public/data/healthcare/imports/cms/cms-hospitals-northeast.csv
+- public/data/healthcare/imports/cms/ct/cms-hospitals-ct.csv
+- public/data/healthcare/imports/cms/dc/cms-hospitals-dc.csv
+- public/data/healthcare/imports/cms/de/cms-hospitals-de.csv
+- public/data/healthcare/imports/cms/hospital-general-information-2026-07-02.csv
+- public/data/healthcare/imports/cms/hospital-general-information-latest.csv
+- public/data/healthcare/imports/cms/ma/cms-hospitals-ma.csv
+- public/data/healthcare/imports/cms/md/cms-hospitals-md.csv
+- public/data/healthcare/imports/cms/me/cms-hospitals-me.csv
+- public/data/healthcare/imports/cms/nh/cms-hospitals-nh.csv
+- public/data/healthcare/imports/cms/nj/cms-hospitals-nj.csv
+- public/data/healthcare/imports/cms/ny/cms-hospitals-ny.csv
+- public/data/healthcare/imports/cms/pa/cms-hospitals-pa.csv
+- public/data/healthcare/imports/cms/ri/cms-hospitals-ri.csv
+- public/data/healthcare/imports/cms/va/cms-hospitals-va.csv
+- public/data/healthcare/imports/cms/vt/cms-hospitals-vt.csv
+- public/data/healthcare/imports/hrsa/README.md
+- public/data/healthcare/imports/hrsa/ct/hrsa-ct.csv
+- public/data/healthcare/imports/hrsa/dc/hrsa-dc.csv
+- public/data/healthcare/imports/hrsa/de/hrsa-de.csv
+- public/data/healthcare/imports/hrsa/ma/hrsa-ma.csv
+- public/data/healthcare/imports/hrsa/md/hrsa-md.csv
+- public/data/healthcare/imports/hrsa/me/hrsa-me.csv
+- public/data/healthcare/imports/hrsa/nh/hrsa-nh.csv
+- public/data/healthcare/imports/hrsa/nj/README.md
+- public/data/healthcare/imports/hrsa/nj/hrsa-nj-service-delivery-additions-2026-07-13.csv
+- public/data/healthcare/imports/hrsa/ny/README.md
+- public/data/healthcare/imports/hrsa/ny/hrsa-ny.csv
+- public/data/healthcare/imports/hrsa/pa/README.md
+- public/data/healthcare/imports/hrsa/pa/hrsa-pa.csv
+- public/data/healthcare/imports/hrsa/refresh/hrsa-official-2026-06-24.csv
+- public/data/healthcare/imports/hrsa/ri/hrsa-ri.csv
+- public/data/healthcare/imports/hrsa/va/hrsa-va.csv
+- public/data/healthcare/imports/hrsa/vt/hrsa-vt.csv
+- public/data/healthcare/imports/latest-demo-import-report.json
+- public/data/student-opportunities/imports/student-opportunities-real-batch-2026-06-27-2.csv
+- public/data/student-opportunities/imports/student-opportunities-real-batch-2026-06-27.csv
+- public/data/student-opportunities/imports/student-opportunities-real-batch-2026-06-28-brainyac.csv
+- public/data/student-opportunities/imports/student-opportunities-template.csv
+- public/data/student-opportunities/staging/latest-promotion-report.json
+- public/data/student-opportunities/staging/latest-review-packet.md
+- public/data/student-opportunities/staging/opportunities.staged.json
 
 ## License
 
