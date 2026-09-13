@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFile, stat } from "node:fs/promises";
+import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { discoverOfficialSourcePages } from "./lib/healthcareOfficialSourceDiscovery.mjs";
 import path from "node:path";
 import {
   collectEnrichmentProvenanceErrors,
@@ -112,6 +115,12 @@ function assertNoBannedSources(input) {
 }
 
 async function main() {
+  const fixture = { name: "Fixture Health Center", address: "100 Main Street", city: "Newark", state: "NJ", phone: "973-555-0100", website: "https://clinic.example.invalid/locations/newark" };
+  const options = { cacheDirectory: path.join(tmpDirectory, "discovery-fixture-cache") };
+  const matched = await discoverOfficialSourcePages(fixture, { refreshCache: true }, options);
+  assert.equal(matched.hasLocationSpecificPage, true, "A matching fixture location must be recognized.");
+  const unrelated = await discoverOfficialSourcePages({ ...fixture, website: "https://clinic.example.invalid/organization" }, { refreshCache: true }, options);
+  assert.equal(unrelated.hasLocationSpecificPage, false, "An organization page must not become location evidence.");
   const beforeHash = await sha256File(facilitiesPath);
 
   runNpm(["run", "generate:healthcare-enrichment-worklist"]);
@@ -136,6 +145,8 @@ async function main() {
   const summary = await readJson(summaryPath);
   const plan = await readJson(planPath);
 
+  assert.equal(inputs.length, 0, "Unavailable fixture sources must not invent enrichment records.");
+  assert(reviewReport.items.length > 0, "Unavailable sources must produce review items.");
   assert(Array.isArray(inputs), `${toProjectPath(inputPath)} must contain an array.`);
   assert(
     Array.isArray(discoveryReport.items),
@@ -222,8 +233,22 @@ async function main() {
   console.log(`Review report items: ${reviewReport.items.length}.`);
 }
 
-main().catch((error) => {
-  console.error("Healthcare official-source enrichment check failed.");
-  console.error(error.message);
-  process.exit(1);
-});
+if (process.argv.includes("--isolated-fixture")) {
+  await main();
+} else {
+  const temporaryRoot = await mkdtemp(path.join(tmpdir(), "careatlas-enrichment-check-"));
+  try {
+    const fixtureModule = pathToFileURL(path.join(projectRoot, "scripts/test-support/officialSourceFetch.mjs")).href;
+    const result = spawnSync(process.execPath, [fileURLToPath(import.meta.url), "--isolated-fixture"], {
+      cwd: projectRoot,
+      env: { ...process.env, CAREATLAS_TMP_DIR: temporaryRoot, NODE_OPTIONS: "--import=" + fixtureModule },
+      encoding: "utf8",
+      maxBuffer: 20 * 1024 * 1024
+    });
+    process.stdout.write(result.stdout ?? "");
+    process.stderr.write(result.stderr ?? "");
+    assert.equal(result.status, 0, result.error?.message ?? "Isolated collector check failed.");
+  } finally {
+    await rm(temporaryRoot, { recursive: true, force: true });
+  }
+}

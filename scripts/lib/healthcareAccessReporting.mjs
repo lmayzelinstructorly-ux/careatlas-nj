@@ -13,7 +13,9 @@ export const facilitiesPath = path.join(
   "healthcare",
   "facilities.json"
 );
-export const tmpDirectory = path.join(projectRoot, "tmp");
+export const tmpDirectory = process.env.CAREATLAS_TMP_DIR
+  ? path.resolve(process.env.CAREATLAS_TMP_DIR)
+  : path.join(projectRoot, "tmp");
 
 
 export const accessCategoryFields = [

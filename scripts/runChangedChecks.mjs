@@ -34,7 +34,7 @@ function changedFiles() {
   }
 
   return [
-    ...gitLines(["diff", "--name-only", "--diff-filter=ACMR", "HEAD"]),
+    ...gitLines(["diff", "--name-only", "--diff-filter=ACMRD", "HEAD"]),
     ...gitLines(["ls-files", "--others", "--exclude-standard"])
   ];
 }

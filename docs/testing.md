@@ -1,7 +1,10 @@
 # Testing CareAtlas
 
-Codex runs terminal checks as the routine verification workflow. The human user
-does not need to run terminal checks after Codex edits.
+Use Node.js 24 and install dependencies with `npm ci`. Run `npm test` for the complete suite, including the production build and local HTTP server checks. All datasets and fixtures are checked in. Tests need no cloud account, API keys, previous checkout, live provider websites or historical Git tags.
+
+## Network and fixtures
+
+The initial dependency installation needs internet access. The official-source collector test runs in a temporary directory with deterministic HTTP fixtures: matching location pages, unrelated organization pages and unavailable providers. Fixture results never enter production data. Live collection remains an explicit maintenance command.
 
 ## Standard workflow
 

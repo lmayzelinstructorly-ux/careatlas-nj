@@ -15,6 +15,10 @@ const checks = [
     command: ["run", "check:healthcare-enrichment-plan"]
   },
   {
+    label: "healthcare enrichment provenance fixtures",
+    command: ["run", "check:healthcare-enrichment-provenance"]
+  },
+  {
     label: "healthcare provider enrichment opportunity audit",
     command: ["run", "audit:healthcare-provider-enrichment-opportunities"]
   },
@@ -81,10 +85,6 @@ const checks = [
   {
     label: "demo readiness documentation check",
     command: ["run", "check:demo-readiness"]
-  },
-  {
-    label: "competition baseline tags and ledger automation check",
-    command: ["run", "check:competition-baselines"]
   },
   {
     label: "healthcare production coverage summary validation",
@@ -171,6 +171,10 @@ const checks = [
   {
     label: "production build",
     command: ["run", "build"]
+  },
+  {
+    label: "local production server routes",
+    command: ["run", "check:local-server"]
   },
   {
     label: "Cloudflare Worker deployment dry run",

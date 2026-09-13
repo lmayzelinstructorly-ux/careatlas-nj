@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "dev": "node scripts/runDevServers.mjs",
@@ -114,15 +114,15 @@
     "check:map-healthcare-data-performance": "node scripts/checkMapHealthcareDataPerformance.mjs",
     "check:bundle-splitting": "node scripts/checkBundleSplitting.mjs",
     "check:source-file-size": "node scripts/checkSourceFileSize.mjs",
-    "check:deploy": "npm run check && npm run build && npm run validate:production-dist && node scripts/checkDeploymentRoutes.mjs",
+    "check:deploy": "npm run check",
     "check:cloudflare-deploy": "node scripts/checkCloudflareDeployment.mjs",
     "deploy:cloudflare": "npm run build && wrangler deploy",
-    "create:competition-baselines": "node scripts/createCompetitionBaselines.mjs",
-    "check:competition-baselines": "node scripts/checkCompetitionBaselines.mjs",
     "check:facility-boundaries": "npm run validate:facility-boundaries",
     "check:boundary-healthcare-summaries": "npm run validate:boundary-healthcare-summaries",
     "preview": "vite preview",
-    "test:ui": "vitest run --config vitest.config.ts"
+    "test:ui": "vitest run --config vitest.config.ts",
+    "test": "npm run check",
+    "check:local-server": "node scripts/checkDeploymentRoutes.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.3",

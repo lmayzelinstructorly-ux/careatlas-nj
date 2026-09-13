@@ -1,9 +1,6 @@
 name: Healthcare data refresh
 
 on:
-  schedule:
-    # Mondays 06:15 UTC — refresh enrichment from the latest official CMS/HRSA data.
-    - cron: "15 6 * * 1"
   workflow_dispatch: {}
 
 permissions:
@@ -24,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
