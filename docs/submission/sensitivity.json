@@ -1,0 +1,67 @@
+{
+  "ruleVersion": "1.0.0",
+  "tractCount": 2181,
+  "purpose": "One-factor sensitivity analysis, not validation against actual healthcare access.",
+  "results": [
+    {
+      "name": "Published rule",
+      "counts": {
+        "elevated_need_without_documented_shortage": 401,
+        "potential_access_gap": 359,
+        "no_current_gap_flag": 1404,
+        "insufficient_evidence": 17
+      },
+      "changed": 0,
+      "newlyFlagged": 0,
+      "removedFlags": 0
+    },
+    {
+      "name": "SVI threshold 0.70",
+      "counts": {
+        "elevated_need_without_documented_shortage": 445,
+        "potential_access_gap": 368,
+        "no_current_gap_flag": 1351,
+        "insufficient_evidence": 17
+      },
+      "changed": 53,
+      "newlyFlagged": 9,
+      "removedFlags": 0
+    },
+    {
+      "name": "SVI threshold 0.80",
+      "counts": {
+        "elevated_need_without_documented_shortage": 371,
+        "potential_access_gap": 348,
+        "no_current_gap_flag": 1445,
+        "insufficient_evidence": 17
+      },
+      "changed": 41,
+      "newlyFlagged": 0,
+      "removedFlags": 11
+    },
+    {
+      "name": "Health: at least 1 of 4",
+      "counts": {
+        "elevated_need_without_documented_shortage": 720,
+        "potential_access_gap": 453,
+        "no_current_gap_flag": 991,
+        "insufficient_evidence": 17
+      },
+      "changed": 413,
+      "newlyFlagged": 94,
+      "removedFlags": 0
+    },
+    {
+      "name": "Health: at least 3 of 4",
+      "counts": {
+        "elevated_need_without_documented_shortage": 276,
+        "potential_access_gap": 290,
+        "no_current_gap_flag": 1598,
+        "insufficient_evidence": 17
+      },
+      "changed": 194,
+      "newlyFlagged": 0,
+      "removedFlags": 69
+    }
+  ]
+}

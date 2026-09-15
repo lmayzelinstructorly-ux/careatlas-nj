@@ -11,7 +11,7 @@ tract as an access gap.
 - Dataset: CDC/ATSDR Social Vulnerability Index 2022 New Jersey database
 - Geography key: `FIPS`, preserved as an 11-digit Census tract GEOID
 - Measures: `RPL_THEMES`, `RPL_THEME1`, `RPL_THEME2`, `RPL_THEME3` and `RPL_THEME4`
-- Unit: official national tract percentile rank from 0 through 1
+- Unit: official New Jersey tract percentile rank from 0 through 1
 - Missingness: source sentinel `-999` or no exact current-foundation GEOID match
 
 The five ranks are copied without re-ranking. CDC cautions that ranks from

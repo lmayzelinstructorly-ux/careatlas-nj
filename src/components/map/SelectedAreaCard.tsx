@@ -262,7 +262,7 @@ function formatRuleValue(input: TractPublicRuleInput) {
   if (input.value === null) return "Not available";
   if (input.unit === "percent") return `${input.value.toFixed(1)}%`;
   if (input.unit === "percentile_rank_0_to_1") {
-    return `${formatOrdinal(Math.round(input.value * 100))} national percentile`;
+    return `${formatOrdinal(Math.round(input.value * 100))} New Jersey percentile`;
   }
   if (input.unit === "active_designations") {
     return `${input.value} active designation${input.value === 1 ? "" : "s"}`;
@@ -756,14 +756,11 @@ export function SelectedAreaCard({
   const totalTracts = counts
     ? Object.values(counts).reduce((sum, count) => sum + count, 0)
     : 0;
-  const selectedTownCounts = townContext.record
-    ? getTownContextCounts(townContext.record)
-    : null;
   const allowPrintBrief = showingTract
-    ? tractRecord.record?.screening.state === "potential_access_gap"
+    ? tractRecord.record !== null
     : showingTown
-      ? (selectedTownCounts?.potential_access_gap ?? 0) > 0
-      : (counts?.potential_access_gap ?? 0) > 0;
+      ? townContext.record !== null
+      : counts !== null;
 
   return (
     <div

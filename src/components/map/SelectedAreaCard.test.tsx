@@ -63,6 +63,7 @@ it("explains a zero flag and missing evidence without implying adequate access",
   render(<SelectedAreaCard {...props()} />);
   expect(screen.getByText(/None of these tract areas met both parts/)).toHaveTextContent("or prove that access is adequate");
   expect(screen.queryByRole("button", { name: "View gap tracts" })).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Print brief" })).toBeVisible();
   await user.click(screen.getByRole("button", { name: "Explain town data limitations" }));
   expect(screen.getByText(/missing required evidence/)).toBeVisible();
 });

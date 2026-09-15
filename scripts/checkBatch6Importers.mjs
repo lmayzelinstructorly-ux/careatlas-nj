@@ -30,6 +30,10 @@ const sviRow = {
 };
 const svi = buildCdcSviArtifacts([sviRow], tractArtifact);
 assert(svi.observations.length === 10, "SVI fixture must create five observations per tract.");
+assert(svi.coverageSummary.source.csvUrl.endsWith('/states/NewJersey.csv'),
+  "The SVI reference population must match the pinned New Jersey state file.");
+assert(svi.coverageSummary.limitations.some(text => text.includes('2022 New Jersey release')),
+  "State-file ranks must not be described as national percentiles.");
 assert(svi.observations.filter(({ value }) => value === null).length === 5,
   "SVI fixture must preserve explicit missing observations.");
 

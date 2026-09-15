@@ -108,7 +108,7 @@ Each tract record groups validated observations into transportation, coverage an
 - A missing required value always produces Insufficient evidence and is never treated as zero or reassuring evidence.
 - CDC PLACES values are modeled population estimates, not individual diagnoses.
 - ACS values are survey-derived estimates; CareAtlas does not claim they cause healthcare access conditions.
-- SVI values are official national percentile ranks, not CareAtlas rankings.
+- SVI values are official New Jersey percentile ranks, not CareAtlas rankings.
 - HRSA designations can apply to whole areas, parts of areas or defined population groups.
 - The loaded facility layer is not a complete provider directory and does not measure medical quality.
 

@@ -94,7 +94,7 @@ export function MethodologyGuide({ isOpen, onClose }: MethodologyGuideProps) {
               </li>
               <li className="rounded-xl border border-cyan-200 bg-cyan-50/60 p-4">
                 <p className="text-xs font-extrabold uppercase tracking-wide text-hb-teal">2. Social barriers</p>
-                <p className="mt-2 text-sm leading-5 text-slate-700">The official overall SVI national percentile is checked against the published threshold.</p>
+                <p className="mt-2 text-sm leading-5 text-slate-700">The official overall SVI New Jersey percentile is checked against the published threshold.</p>
               </li>
               <li className="rounded-xl border border-cyan-200 bg-cyan-50/60 p-4">
                 <p className="text-xs font-extrabold uppercase tracking-wide text-hb-teal">3. Documented shortage</p>

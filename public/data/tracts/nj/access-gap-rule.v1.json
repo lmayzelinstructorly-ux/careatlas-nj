@@ -60,14 +60,14 @@
   "socialBarriers": {
     "combiner": "at_least",
     "minimumTriggeredMeasures": 1,
-    "thresholdBasis": "The CDC/ATSDR SVI overall national percentile rank is elevated at or above 0.75. CareAtlas does not recalculate or re-rank SVI.",
+    "thresholdBasis": "The CDC/ATSDR SVI overall New Jersey percentile rank is elevated at or above 0.75. CareAtlas does not recalculate or re-rank SVI.",
     "requiredMeasures": [
       {
         "id": "cdc_svi_overall_percentile_rank",
         "operator": ">=",
         "threshold": 0.75,
         "unit": "percentile_rank_0_to_1",
-        "meaning": "At or above the official national 75th percentile"
+        "meaning": "At or above the official New Jersey 75th percentile"
       }
     ]
   },

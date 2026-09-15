@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Start with a place you know.",
+    "tag": "01 / Find Newark",
+    "image": "search.png",
+    "caption": "Search a New Jersey town. Choose Newark City, or use the built-in Newark example.",
+    "narration": "CareAtlas New Jersey helps residents explore where public data suggest that getting primary care may be harder. This walkthrough uses screenshots captured from the working application, with a synthetic narrator. Start in Potential gaps and search for Newark. Choose Newark City, rather than East Newark Borough. You can also use the built-in Newark example. No personal address or health information is needed."
+  },
+  {
+    "title": "A town opens the context.",
+    "tag": "02 / Read the town summary",
+    "image": "newark.png",
+    "caption": "66 of 88 assigned tracts meet the rule. This does not classify the whole town.",
+    "narration": "Newark's summary reports that sixty-six of eighty-eight assigned census tracts were flagged by the published rule. Eighteen additional tracts show elevated need without matching shortage evidence. These counts describe tract areas, not the percentage of residents lacking care. Open View gap tracts to see the shapes, then expand the flagged tract list to choose a record without relying on a tiny map target."
+  },
+  {
+    "title": "Every flag has a reason.",
+    "tag": "03 / Open Census Tract 1",
+    "image": "tract.png",
+    "caption": "Health need or social barriers + documented shortage. A screening signal, not a diagnosis.",
+    "narration": "Select Census Tract One. Its potential-gap result combines elevated health need with official shortage evidence. Diabetes is thirteen point five percent, and annual checkups are seventy-five point two percent. Both cross the published thresholds. A matching primary-care shortage designation supplies the other part of the rule. Nearby health centers are useful context, but the number of pins never determines the flag."
+  },
+  {
+    "title": "Inspect the evidence.",
+    "tag": "04 / Sources and limitations",
+    "image": "sources.png",
+    "caption": "Open values, cutoffs and publisher links. SVI percentiles are relative to New Jersey.",
+    "narration": "Open See full evidence and sources to inspect every screening input, its cutoff, and the original publisher. These are modeled and survey-derived estimates, not measurements of every resident. Social vulnerability ranks in this project are relative to New Jersey. That label was corrected during the methods review. Shortage designations can apply to only part of a tract or a defined population. Missing required evidence stays unknown."
+  },
+  {
+    "title": "Take the question with you.",
+    "tag": "05 / Share and export",
+    "image": "export.png",
+    "caption": "Share a tract URL; inspect JSON, county CSV or the statewide report. Print controls are available for every loaded result.",
+    "narration": "The brief offers Copy link and Print brief, while the evidence section exposes a tract JSON download, county CSV and statewide report. Shared URLs reopen the selected area. During this review, print controls were extended to unflagged and insufficient-evidence results too. The browser tool did not expose a completed download or print preview, so native file-save and pagination checks remain open. These controls are shown here without claiming those checks passed."
+  },
+  {
+    "title": "The map is the final step.",
+    "tag": "06 / The contribution",
+    "image": null,
+    "caption": "Official sources → explicit joins → fixed screening rule → validated records → resident briefs",
+    "narration": "Behind the map, CareAtlas joins official Census geography with CDC health and social evidence and HRSA shortage records. A fixed rule creates validated tract records. A town crosswalk and small county files make that evidence explorable. The contribution is a transparent route from public records to understandable questions. OpenAI assisted development and this review. Real resident sessions and an independent methods review remain outstanding; the project does not claim demonstrated health impact."
+  }
+]

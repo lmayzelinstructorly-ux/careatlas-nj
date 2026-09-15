@@ -4,6 +4,8 @@ CareAtlas maps public healthcare-access evidence across New Jersey: 21 counties,
 
 [Live site](https://careatlas.lmayzel930.workers.dev)
 
+[Contribution, source versions and AI disclosure](docs/submission/contribution.md) · [Submission review package](docs/submission/README.md)
+
 ## Run locally
 
 Install **Node.js 24** (with npm) and Git, then:

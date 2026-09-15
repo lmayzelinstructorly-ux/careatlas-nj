@@ -2,6 +2,8 @@
 
 Prepared September 5, 2026. **Status: ready to use; no participant sessions or external expert reviews have been completed for this kit.**
 
+September 14 update: [five agent-operated browser scenarios](submission/browser-review.md) and an [AI technical methods review](submission/methods-review.md) are recorded separately. They found corrections to SVI labeling and print availability. They are not resident sessions or an external expert review.
+
 The first audience is New Jersey residents exploring their area. The goal is to discover whether they can find a place, interpret the evidence correctly and identify a useful next question. A separate expert review evaluates the method. Software checks establish consistency with the published rule, not real-world validity.
 
 ## 1. Prepare a small resident pilot

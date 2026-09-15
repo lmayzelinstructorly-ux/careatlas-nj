@@ -28,7 +28,7 @@ fixed for this rule version.
 
 ### Elevated social barriers
 
-The official CDC/ATSDR SVI 2022 overall national percentile rank must be at or
+The official CDC/ATSDR SVI 2022 overall New Jersey percentile rank must be at or
 above 0.75. CareAtlas copies that rank and does not re-rank SVI.
 
 ### Documented shortage

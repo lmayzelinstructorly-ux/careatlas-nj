@@ -49,7 +49,7 @@ Current New Jersey foundation:
 - explicit suppression and cross-vintage missingness
 - one observation per reviewed measure for every foundation tract
 
-SVI values remain official national percentile ranks, not CareAtlas scores. ACS
+SVI values remain official New Jersey percentile ranks, not CareAtlas scores. ACS
 measures remain survey estimates. CareAtlas must not present demographic
 variables as individual-level diagnoses or deterministic causes.
 
@@ -194,7 +194,7 @@ access-gap classification.
 
 Rule version 1.0.0 is written as a production data artifact before it is
 applied. It uses fixed New Jersey quartile cut points for the four CDC PLACES
-measures, the official CDC/ATSDR SVI overall national percentile rank and
+measures, the official CDC/ATSDR SVI overall New Jersey percentile rank and
 separate HRSA primary-care HPSA and MUA/P designation counts. It does not
 create a weighted score or rank.
 

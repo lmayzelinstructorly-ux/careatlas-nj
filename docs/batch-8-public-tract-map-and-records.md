@@ -84,7 +84,7 @@ all four Census ACS measures, dental HPSA and mental-health HPSA evidence in
 addition to the seven rule inputs.
 
 CDC PLACES values are labeled modeled population estimates. ACS values are
-survey-derived estimates. SVI values remain official national percentile ranks.
+survey-derived estimates. SVI values remain official New Jersey percentile ranks.
 HRSA designations can apply to areas, parts of areas or defined population
 groups. Missing values remain missing and cannot become zero.
 

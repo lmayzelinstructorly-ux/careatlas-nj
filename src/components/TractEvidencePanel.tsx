@@ -231,7 +231,7 @@ function TractEvidencePanel({ error, loadState, record }: Props) {
 
       <section aria-labelledby="social-barriers-heading">
         <h3 id="social-barriers-heading" className="text-lg font-semibold text-hb-deepNavy">Social barriers</h3>
-        <p className="mt-1 text-sm leading-6 text-hb-muted">SVI values are official national percentile ranks. ACS percentages are survey-derived estimates. These measures do not prove causation.</p>
+        <p className="mt-1 text-sm leading-6 text-hb-muted">SVI values are official New Jersey percentile ranks. ACS percentages are survey-derived estimates. These measures do not prove causation.</p>
         <ObservationList observations={record.evidence.socialBarriers} />
       </section>
 

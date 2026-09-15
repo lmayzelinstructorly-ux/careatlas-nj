@@ -25,7 +25,7 @@ function formatObservationValue(observation: TractEvidenceObservation) {
     observation.unit === "percentile_rank_0_to_1" &&
     typeof observation.value === "number"
   ) {
-    return `${formatOrdinal(Math.round(observation.value * 100))} national percentile`;
+    return `${formatOrdinal(Math.round(observation.value * 100))} New Jersey percentile`;
   }
   if (
     observation.unit === "active_designations" &&

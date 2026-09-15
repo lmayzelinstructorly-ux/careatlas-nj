@@ -288,7 +288,7 @@ for (const phrase of [
   "not a ranking",
   "not individual diagnoses",
   "survey-derived estimates",
-  "official national percentile ranks",
+  "official New Jersey percentile ranks",
   "defined population groups",
   "not diagnoses, clinical guidance or medical advice"
 ]) {

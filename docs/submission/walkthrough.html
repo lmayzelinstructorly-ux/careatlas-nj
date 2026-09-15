@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CareAtlas NJ — walkthrough</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6f4;color:#173c46;font-family:Arial,sans-serif}main{max-width:1400px;margin:auto;padding:22px 32px}header{display:flex;justify-content:space-between;align-items:center;font-size:13px;letter-spacing:1px;font-weight:bold;color:#176c67}h1{font-size:38px;letter-spacing:-1px;margin:15px 0 8px}#caption{font-size:18px;line-height:1.4;max-width:1120px;margin:0 0 18px;min-height:50px}#visual{height:470px;display:flex;align-items:center;justify-content:center;background:#e0e9e7;border:1px solid #c1d1cd;border-radius:12px;overflow:hidden}#visual img{width:100%;height:100%;object-fit:contain}footer{margin-top:14px;display:flex;justify-content:space-between;align-items:center;color:#536b6a;font-size:12px}button{background:#173c46;color:white;border:0;border-radius:6px;padding:9px 14px;cursor:pointer}button:focus-visible{outline:3px solid #1eb7a9;outline-offset:3px}.pipeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;padding:32px}.node{min-height:155px;background:white;border-top:5px solid #14847d;padding:22px;border-radius:8px}.node strong{display:block;font-size:22px;margin:10px 0}.node p{font-size:15px;line-height:1.5;margin:0}.node small{color:#14847d;font-weight:bold}body.render nav{visibility:hidden}@media(max-width:700px){main{padding:20px}h1{font-size:30px}#visual{height:auto;min-height:280px}.pipeline{grid-template-columns:1fr;padding:12px}footer{gap:16px}}
+</style>
+<main>
+<header><span>CAREATLAS / NEW JERSEY</span><span id="tag"></span></header>
+<h1 id="title"></h1><p id="caption"></p><section id="visual" aria-label="Walkthrough visual"></section>
+<footer><span>Working-app screenshots · September 14, 2026 · Screening context, not medical advice</span><nav><button id="previous" aria-label="Previous step">←</button> <button id="next" aria-label="Next step">→</button></nav></footer>
+</main>
+<script type="module">
+const slides = await (await fetch('./walkthrough.json')).json();
+let index = Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1))||0));
+if(new URLSearchParams(location.search).has('render'))document.body.classList.add('render');
+const nodes=[['Official sources','Census boundaries; CDC PLACES and SVI; HRSA shortage records.'],['Explicit joins','Preserve GEOIDs, source dates, uncertainty and missing values.'],['Published rule','Need or barriers AND shortage; missing required input stays unknown.'],['Validated records','Reproducible classifiers, source links and county-sized data files.'],['Resident experience','Town search, tract explanations, shareable URLs and export controls.'],['Honest evaluation','Agent QA completed; resident sessions and external review still pending.']];
+function show(){const s=slides[index];document.querySelector('#title').textContent=s.title;document.querySelector('#caption').textContent=s.caption;document.querySelector('#tag').textContent=s.tag;const visual=document.querySelector('#visual');visual.replaceChildren();if(s.image){const img=document.createElement('img');img.src='./assets/'+s.image;img.alt=s.title;visual.append(img)}else{const grid=document.createElement('div');grid.className='pipeline';nodes.forEach(([title,text],i)=>{const card=document.createElement('article');card.className='node';const n=document.createElement('small');n.textContent=String(i+1).padStart(2,'0');const heading=document.createElement('strong');heading.textContent=title;const p=document.createElement('p');p.textContent=text;card.append(n,heading,p);grid.append(card)});visual.append(grid)}location.hash=index;}
+function move(delta){index=(index+delta+slides.length)%slides.length;show()}
+document.querySelector('#next').onclick=()=>move(1);document.querySelector('#previous').onclick=()=>move(-1);document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1)});show();
+</script>
+</html>

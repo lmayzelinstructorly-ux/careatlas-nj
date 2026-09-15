@@ -67,7 +67,7 @@ function buildCdcSviArtifacts(sourceRows, tractArtifact) {
         estimateType: "derived",
         sourceRecordId,
         transformation: row
-          ? `Selected CDC SVI field ${measure.sourceField}; preserved its official national tract percentile rank without re-ranking or rescoring.`
+          ? `Selected CDC SVI field ${measure.sourceField}; preserved its official New Jersey tract percentile rank without re-ranking or rescoring.`
           : "Created an explicit missing observation after an exact 11-digit GEOID join found no matching 2022 SVI tract; no value was imputed.",
         missingReason: row
           ? `CDC SVI reports ${measure.sourceField} as unavailable (-999) for this tract.`
@@ -94,7 +94,7 @@ function buildCdcSviArtifacts(sourceRows, tractArtifact) {
       },
       selectedMeasures: cdcSviMeasures,
       limitations: [
-        "SVI percentile ranks compare tracts within the 2022 national release and are not CareAtlas scores.",
+        "SVI percentile ranks compare tracts within the 2022 New Jersey release and are not CareAtlas scores.",
         "CDC cautions that SVI ranks from different release years are not directly comparable.",
         "A missing rank is unknown, not zero and not evidence of low vulnerability.",
         "The 2022 SVI tract vintage does not exactly match every tract in the current foundation."

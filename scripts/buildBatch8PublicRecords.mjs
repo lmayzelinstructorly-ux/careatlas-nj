@@ -724,7 +724,7 @@ function buildReport(rule, summary, countyRecords, allRecords) {
     ...rule.limitations.map((limitation) => `- ${limitation}`),
     "- CDC PLACES values are modeled population estimates, not individual diagnoses.",
     "- ACS values are survey-derived estimates; CareAtlas does not claim they cause healthcare access conditions.",
-    "- SVI values are official national percentile ranks, not CareAtlas rankings.",
+    "- SVI values are official New Jersey percentile ranks, not CareAtlas rankings.",
     "- HRSA designations can apply to whole areas, parts of areas or defined population groups.",
     "- The loaded facility layer is not a complete provider directory and does not measure medical quality.",
     "",
