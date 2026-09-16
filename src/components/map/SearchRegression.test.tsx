@@ -35,6 +35,36 @@ describe("place suggestions with official NJ boundaries", () => {
     await user.keyboard("{Escape}");
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
   });
+
+  it("selects a local town from the combined town and address search", async () => {
+    const user = userEvent.setup();
+    const fetchMock = vi.fn();
+    const onBoundarySelect = vi.fn();
+    const onLocationMatch = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+
+    render(
+      <AddressTractFinder
+        countyData={null}
+        onBoundarySelect={onBoundarySelect}
+        onClear={vi.fn()}
+        onLocationMatch={onLocationMatch}
+        resolution={{ status: "idle", message: null }}
+        townData={towns}
+      />
+    );
+
+    await user.type(screen.getByRole("combobox"), "nwark");
+    expect(screen.getAllByRole("option")[0]).toHaveTextContent("Newark City");
+    expect(screen.getAllByRole("option")[0]).toHaveTextContent("Town summary");
+    await user.keyboard("{Enter}");
+
+    expect(onBoundarySelect).toHaveBeenCalledWith(
+      expect.objectContaining({ displayName: "Newark City", level: "towns" })
+    );
+    expect(onLocationMatch).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
 });
 
 function renderAddress(onLocationMatch = vi.fn()) {

@@ -1,11 +1,20 @@
 import {
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
   type KeyboardEvent
 } from "react";
+import type { GeographyData } from "../../hooks/useGeographyData";
+import { normalizePlaceQuery, rankPlaceMatch } from "../../utils/placeSearch";
+import {
+  buildCandidates,
+  type BoundaryAutocompleteCandidate
+} from "./BoundaryAutocomplete";
 import { careAtlasMapResetEvent } from "./mapReset";
+
+const maximumPlaceSuggestions = 16;
 
 export type AddressLocationMatch = {
   address: string;
@@ -22,11 +31,15 @@ export type AddressResolutionState = {
 };
 
 type AddressSuggestion = {
+  boundary?: BoundaryAutocompleteCandidate;
   magicKey: string;
   text: string;
 };
 
 type Props = {
+  countyData?: GeographyData | null;
+  townData?: GeographyData | null;
+  onBoundarySelect?: (candidate: BoundaryAutocompleteCandidate) => void;
   onClear: () => void;
   onLocationMatch: (match: AddressLocationMatch) => void;
   resolution: AddressResolutionState;
@@ -47,6 +60,9 @@ async function postJson<T>(url: string, body: unknown, signal: AbortSignal) {
 }
 
 export function AddressTractFinder({
+  countyData = null,
+  townData = null,
+  onBoundarySelect,
   onClear,
   onLocationMatch,
   resolution
@@ -62,6 +78,37 @@ export function AddressTractFinder({
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
   const canSuggest = query.trim().length >= 2;
+  const places = useMemo(
+    () => [
+      ...buildCandidates(countyData, "counties"),
+      ...buildCandidates(townData, "towns")
+    ],
+    [countyData, townData]
+  );
+  const placeSuggestions = useMemo(() => {
+    if (!onBoundarySelect || /\d/u.test(query)) {
+      return [];
+    }
+
+    const normalizedQuery = normalizePlaceQuery(query);
+    return places
+      .map((boundary) => ({
+        boundary,
+        rank: rankPlaceMatch(boundary.normalizedName, normalizedQuery)
+      }))
+      .filter(({ rank }) => Number.isFinite(rank))
+      .sort(
+        (first, second) =>
+          first.rank - second.rank ||
+          first.boundary.displayName.localeCompare(second.boundary.displayName)
+      )
+      .slice(0, maximumPlaceSuggestions)
+      .map(({ boundary }) => ({
+        boundary,
+        magicKey: `boundary:${boundary.key}`,
+        text: boundary.displayName
+      }));
+  }, [places, query, onBoundarySelect]);
 
   useEffect(() => {
     setSuggestions([]);
@@ -69,6 +116,12 @@ export function AddressTractFinder({
     setError(null);
     if (!canSuggest || query === chosenText) {
       setSuggestions([]);
+      setIsLoadingSuggestions(false);
+      return;
+    }
+    if (placeSuggestions.length) {
+      setSuggestions(placeSuggestions);
+      setActiveIndex(0);
       setIsLoadingSuggestions(false);
       return;
     }
@@ -111,7 +164,7 @@ export function AddressTractFinder({
       window.clearTimeout(timer);
       controller.abort();
     };
-  }, [canSuggest, chosenText, query]);
+  }, [canSuggest, chosenText, query, placeSuggestions]);
 
   useEffect(() => {
     return () => geocodeControllerRef.current?.abort();
@@ -125,6 +178,18 @@ export function AddressTractFinder({
 
   async function chooseSuggestion(suggestion: AddressSuggestion) {
     geocodeControllerRef.current?.abort();
+    if (suggestion.boundary && onBoundarySelect) {
+      setQuery(suggestion.text);
+      setChosenText(suggestion.text);
+      setSuggestions([]);
+      setActiveIndex(-1);
+      setError(null);
+      setIsGeocoding(false);
+      setIsFocused(false);
+      onClear();
+      onBoundarySelect(suggestion.boundary);
+      return;
+    }
     const controller = new AbortController();
     geocodeControllerRef.current = controller;
     setQuery(suggestion.text);
@@ -179,7 +244,10 @@ export function AddressTractFinder({
       return;
     }
     if (!isOpen) {
-      if (event.key === "ArrowDown") { event.preventDefault(); setIsFocused(true); }
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setIsFocused(true);
+      }
       return;
     }
     if (suggestions.length === 0) return;
@@ -211,7 +279,7 @@ export function AddressTractFinder({
 
   return (
     <section
-      aria-label="Find your census tract by address"
+      aria-label="Search for a New Jersey town or address"
       className="relative w-full"
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {
@@ -224,7 +292,7 @@ export function AddressTractFinder({
           className="mb-1 block text-[11px] font-black uppercase tracking-[0.1em] text-hb-teal"
           htmlFor="address-tract-finder"
         >
-          Find the census tract for an address
+          Search a town or street address
         </label>
         <div className="relative">
           <svg
@@ -238,7 +306,9 @@ export function AddressTractFinder({
           </svg>
           <input
             aria-activedescendant={
-              isOpen && !isLoadingSuggestions && activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
+              isOpen && !isLoadingSuggestions && activeIndex >= 0
+                ? `${listboxId}-option-${activeIndex}`
+                : undefined
             }
             aria-autocomplete="list"
             aria-controls={listboxId}
@@ -259,7 +329,7 @@ export function AddressTractFinder({
             }}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
-            placeholder="Example: 123 Main St, Newark"
+            placeholder="Town or address, e.g. Newark or 920 Broad St"
             role="combobox"
             value={query}
           />
@@ -275,7 +345,9 @@ export function AddressTractFinder({
           )}
         </div>
         <p className="mt-1.5 text-xs leading-5 text-hb-muted">
-          Type at least two characters for suggestions. Add the building number and municipality to narrow the results; a street name alone may cross several tracts. A Census tract is a small area used to publish local statistics. Choose a full address to find its tract.
+          Enter a town for its summary, or choose a full street address to find
+          its Census tract. Include the building number and municipality for
+          the most precise address results.
         </p>
         <p className="mt-1 text-xs leading-5 text-hb-muted">
           New Jersey only · Suggestions from the{" "}
@@ -322,6 +394,13 @@ export function AddressTractFinder({
                     type="button"
                   >
                     {suggestion.text}
+                    {suggestion.boundary && (
+                      <span className="ml-2 text-xs font-normal text-hb-muted">
+                        {suggestion.boundary.level === "towns"
+                          ? "Town summary"
+                          : "County summary"}
+                      </span>
+                    )}
                   </button>
                 </li>
               ))}

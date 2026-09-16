@@ -1,14 +1,48 @@
 # CareAtlas NJ
 
-CareAtlas maps public healthcare-access evidence across New Jersey: 21 counties, 564 towns/townships, 2,181 census tracts and source-backed healthcare facility locations.
+[![CI](https://github.com/lmayzelinstructorly-ux/careatlas-nj/actions/workflows/test.yml/badge.svg)](https://github.com/lmayzelinstructorly-ux/careatlas-nj/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/code_license-MIT-0f766e.svg)](LICENSE)
+[![Live app](https://img.shields.io/badge/live_app-open-003B66.svg)](https://careatlas.lmayzel930.workers.dev)
 
-[Live site](https://careatlas.lmayzel930.workers.dev)
+CareAtlas turns public healthcare-access evidence into an explorable New Jersey map covering 21 counties, 564 towns/townships, 2,181 census tracts, and source-backed healthcare facility locations. Residents can start with a town or street address, inspect tract-level screening results, and trace every explanation back to its source.
 
-[Contribution, source versions and AI disclosure](docs/submission/contribution.md) · [Submission review package](docs/submission/README.md)
+[Explore the live app](https://careatlas.lmayzel930.workers.dev) · [Read the project story](https://careatlas.lmayzel930.workers.dev/story) · [Review the submission package](docs/submission/README.md)
+
+![CareAtlas NJ project card](docs/submission/assets/careatlas-brand-card.png)
+
+> **CareAtlas is a screening and planning tool—not medical advice, a diagnosis, a provider ranking, or proof that care is unavailable.**
+
+## What it includes
+
+- Search across all 564 New Jersey municipalities or locate a Census tract from a street address.
+- Explore 2,181 tract results produced by a transparent, versioned screening rule.
+- Distinguish potential access gaps, elevated need without matched shortage evidence, no current flag, and insufficient evidence.
+- Open a shareable evidence brief with rule inputs, source dates, limitations, and downloads.
+- View 215 source-backed hospitals and community health centers as context.
+- Explore a separate 734-location doctor-office pilot for pediatrics, dermatology, and oncology.
+
+![Newark town summary in CareAtlas](docs/submission/assets/newark.png)
+
+Purple tracts are classified as **potential access gaps**: elevated community-health need or social barriers appear alongside reviewed primary-care shortage evidence. Facility and office pin counts never determine this flag. See the [published rule](docs/batch-7-transparent-flagging.md) for the exact thresholds and state precedence.
+
+## How it works
+
+```mermaid
+flowchart LR
+  A[Census boundaries] --> D[Geographic joins]
+  B[CDC and ACS indicators] --> D
+  C[HRSA shortage evidence] --> D
+  D --> E[Versioned screening rule]
+  E --> F[Validated county shards]
+  F --> G[React and Leaflet map]
+  H[HRSA and CMS facilities] --> G
+```
+
+The data pipeline preserves geographic identifiers, missing values, source versions, and row-level provenance. Generated artifacts are validated before the Vite build, and the production bundle excludes staging records, source archives, and test fixtures.
 
 ## Run locally
 
-Install **Node.js 24** (with npm) and Git, then:
+Requirements: [Node.js 24](https://nodejs.org/) and npm.
 
 ```sh
 git clone https://github.com/lmayzelinstructorly-ux/careatlas-nj.git
@@ -17,44 +51,62 @@ npm ci
 npm run dev
 ```
 
-This is a private repository, so cloning requires GitHub access. Open the URL printed by Vite, normally **http://localhost:5173**. The local API runs on port **8787**. No account, API key, previous checkout or separately downloaded dataset is needed to run the core app.
+Open the URL printed by Vite, normally `http://localhost:5173`. The local API runs on port `8787`. The core map, checked-in data, and tests need no account or API key.
 
-County, town, tract and facility data are checked in. Basemap tiles and address lookup use external services. The optional Gemini explainer needs a server-side `GEMINI_API_KEY`; copy `.env.example` to `.env` only if configuring it. Without a key, the map and published evidence still work.
+The optional plain-language Gemini explainer requires a server-side `GEMINI_API_KEY`. Copy `.env.example` to `.env` only when configuring that feature; it is not needed to calculate or display screening results.
 
-## Run all tests
+## Verify the project
 
 ```sh
 npm test
 ```
 
-This runs `npm run check`: UI tests, data and provenance validation, importer fixtures, map checks, production build, local server HTTP checks and the Cloudflare packaging dry run. It needs no cloud login, API credentials, private data or historical Git tags. The official-source collector check uses isolated fixtures instead of live provider websites. Internet access is needed for the initial `npm ci`.
+The full check runs UI tests, data and provenance validators, importer fixtures, public-map assertions, the production build, local HTTP checks, and a Cloudflare packaging dry run. CI runs the same command on Linux and Windows.
 
-For focused work, use `npm run test:ui`, or `npm run check:changed` to select checks from your working-tree changes. See [testing](docs/testing.md) and the [demo readiness checklist](docs/demo-readiness-checklist.md).
+For focused development:
 
-## Serve a production build locally
+```sh
+npm run test:ui
+npm run check:changed
+npm run build
+```
+
+See [testing](docs/testing.md) for the check matrix and troubleshooting notes. The [demo-readiness checklist](docs/demo-readiness-checklist.md) provides a focused pre-release review.
+
+## Project structure
+
+| Path | Purpose |
+| --- | --- |
+| `src/` | React interface, map behavior, types, and UI tests |
+| `server/` | Local Node server and address/explanation API routes |
+| `worker/` | Cloudflare Worker API adapter |
+| `scripts/` | Import, review, generation, and validation tooling |
+| `public/data/` | Published runtime data, source archives, and isolated fixtures |
+| `docs/` | Methods, data contracts, deployment, and review records |
+
+The development-only review route (`/internal-data`) is excluded from production builds.
+
+## Sources and limitations
+
+CareAtlas integrates U.S. Census Bureau geography and ACS data, CDC PLACES, CDC/ATSDR SVI, HRSA shortage areas and health centers, and CMS hospital/provider data. Source versions, checked dates, attribution, reuse notes, and AI-assistance disclosures are recorded in the [contribution and provenance inventory](docs/submission/contribution.md).
+
+Important limits:
+
+- A flag identifies a combination of published indicators; it does not predict an individual's access to care.
+- No current flag does not prove adequate access.
+- Missing required evidence remains an explicit result instead of being treated as zero.
+- The facility and doctor-office layers are not complete provider directories.
+- Resident usability sessions and an independent public-health/GIS methods review remain future work.
+
+## Deployment
 
 ```sh
 npm run build
 npm start
 ```
 
-Open **http://localhost:8787**. This serves both the built website and its API. `PORT` can override the server port. `npm run preview` serves only Vite's static preview; use `npm start` when testing the API.
+This serves the production website and API on `http://localhost:8787`. See the [deployment guide](docs/deployment-guide.md) for Node and Cloudflare instructions.
 
-## Project structure
+## Contributing and license
 
-- `src/`: React interface and UI tests.
-- `public/data/`: published datasets, source archives and isolated test fixtures.
-- `server/`: local Node HTTP server and API.
-- `worker/`: Cloudflare Worker API adapter.
-- `scripts/`: import, review, validation and build tools.
-- `docs/`: methodology, data contracts and workflows.
-
-The `/internal-data` development-only review route is excluded from production builds. Source archives, staging data and test fixtures are excluded from the production asset bundle. Data refresh/import commands are maintenance operations, not prerequisites for local use or testing.
-
-## Data interpretation
-
-Screening flags are public-health planning context, not diagnoses, medical advice, rankings or proof that care is absent. Missing evidence stays explicit; facility counts do not determine the gap classification. See [the access-gap rule](docs/batch-7-transparent-flagging.md) and [outside-review kit](docs/outside-review-kit.md).
-
-## Deployment and license
-
-See [deployment](docs/deployment-guide.md) for Node and Cloudflare hosting. Source code uses the [MIT License](LICENSE); underlying datasets retain their publishers' terms.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing data, screening behavior, or public-health copy. Source code is available under the [MIT License](LICENSE); upstream datasets retain their publishers' terms and attribution requirements.

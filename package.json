@@ -1,7 +1,17 @@
 {
   "name": "careatlas",
   "version": "0.1.0",
+  "description": "A transparent New Jersey healthcare-access evidence map built from public data.",
   "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmayzelinstructorly-ux/careatlas-nj.git"
+  },
+  "homepage": "https://careatlas.lmayzel930.workers.dev",
+  "bugs": {
+    "url": "https://github.com/lmayzelinstructorly-ux/careatlas-nj/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=24.0.0"

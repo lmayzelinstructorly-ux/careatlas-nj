@@ -19,7 +19,6 @@ import { HealthcareFacilityKey } from "./HealthcareFacilityKey";
 import HealthcareFacilityMarkers from "./HealthcareFacilityMarkers";
 import { DoctorOfficeMode } from "./DoctorOfficeMode";
 import {
-  AddressTractFinder,
   type AddressLocationMatch,
   type AddressResolutionState
 } from "./map/AddressTractFinder";
@@ -824,30 +823,35 @@ function CareAtlasMap({ mapMode }: CareAtlasMapProps) {
         {mapMode === "doctor_offices" && counties.data && <DoctorOfficeMode countyData={counties.data} countyMode={!showingTowns} />}
       </MapContainer>
 
-      {mapMode === "gaps" && <GapSidebar
-        countyData={counties.data} townData={displayTowns} onSelect={handleAutocompleteSelect}
-        selectionId={selectedGeography?.geoid ?? activeTractCounty?.geoid ?? null}
-        addressSearch={<AddressTractFinder onClear={clearAddressLocation} onLocationMatch={handleAddressLocationMatch} resolution={addressResolution} />}
-      >
-      {!pendingAddressMatch && <SelectedAreaCard
-        activeTractCounty={activeTractCounty}
-        activeTractTown={activeTractTown}
-        facilities={newJerseyFacilities}
-        facilityLoadState={healthcare.loadState}
-        onBackToSummary={returnToAreaSummary}
-        onClear={() => {
-          setPendingTownTractGeoid(null);
-          setSelectedFeatureColorKey(null);
-          setSelectedGeography(null);
-        }}
-        onCloseTractMode={closeTractMode}
-        onOpenTractMode={openTractMode}
-        onSelectFlaggedTract={openFlaggedTownTract}
-        selectedGeography={selectedGeography}
-        tractMode={tractMode}
-      />}
-        {tractMode && !pendingAddressMatch && <TractMapKey focusLevel={activeTractTown ? "town" : "county"} />}
-      </GapSidebar>}
+      {mapMode === "gaps" && (
+        <GapSidebar
+          addressResolution={addressResolution}
+          countyData={counties.data} onSelect={handleAutocompleteSelect}
+          onAddressClear={clearAddressLocation}
+          onAddressLocationMatch={handleAddressLocationMatch}
+          selectionId={selectedGeography?.geoid ?? activeTractCounty?.geoid ?? null}
+          townData={displayTowns}
+        >
+          {!pendingAddressMatch && (
+            <SelectedAreaCard
+              activeTractCounty={activeTractCounty} activeTractTown={activeTractTown}
+              facilities={newJerseyFacilities} facilityLoadState={healthcare.loadState}
+              onBackToSummary={returnToAreaSummary}
+              onClear={() => {
+                setPendingTownTractGeoid(null);
+                setSelectedFeatureColorKey(null);
+                setSelectedGeography(null);
+              }}
+              onCloseTractMode={closeTractMode} onOpenTractMode={openTractMode}
+              onSelectFlaggedTract={openFlaggedTownTract}
+              selectedGeography={selectedGeography} tractMode={tractMode}
+            />
+          )}
+          {tractMode && !pendingAddressMatch && (
+            <TractMapKey focusLevel={activeTractTown ? "town" : "county"} />
+          )}
+        </GapSidebar>
+      )}
       {mapMode !== "gaps" && <BoundaryAutocomplete countyData={counties.data} onSelect={handleAutocompleteSelect} townData={displayTowns} />}
       {mapMode === "healthcare" && healthcare.loadState === "ready" && <HealthcareFacilityKey facilities={newJerseyFacilities} />}
 

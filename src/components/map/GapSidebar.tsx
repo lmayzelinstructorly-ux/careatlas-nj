@@ -1,20 +1,36 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { GeographyData } from "../../hooks/useGeographyData";
+import {
+  AddressTractFinder,
+  type AddressLocationMatch,
+  type AddressResolutionState
+} from "./AddressTractFinder";
 import { BoundaryAutocomplete, type BoundaryAutocompleteCandidate } from "./BoundaryAutocomplete";
 import { GapExplorer } from "./GapExplorer";
 
 import { newarkExampleUrl } from "./mapExamples";
 
 type Props = {
+  addressResolution: AddressResolutionState;
   countyData: GeographyData | null;
+  onAddressClear: () => void;
+  onAddressLocationMatch: (match: AddressLocationMatch) => void;
   townData: GeographyData | null;
   onSelect: (candidate: BoundaryAutocompleteCandidate) => void;
   selectionId: string | null;
-  addressSearch: ReactNode;
   children: ReactNode;
 };
 
-export function GapSidebar({ countyData, townData, onSelect, selectionId, addressSearch, children }: Props) {
+export function GapSidebar({
+  addressResolution,
+  children,
+  countyData,
+  onAddressClear,
+  onAddressLocationMatch,
+  onSelect,
+  selectionId,
+  townData
+}: Props) {
   const [searchOpen, setSearchOpen] = useState(!selectionId);
   const sidebarRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -42,8 +58,19 @@ export function GapSidebar({ countyData, townData, onSelect, selectionId, addres
             </div>
           )}
           <details className="mt-3">
-            <summary className="cursor-pointer text-sm font-semibold text-hb-navy">Or search by street address</summary>
-            <div className="mt-2">{addressSearch}</div>
+            <summary className="cursor-pointer text-sm font-semibold text-hb-navy">
+              Or search by town or street address
+            </summary>
+            <div className="mt-2">
+              <AddressTractFinder
+                countyData={countyData}
+                onBoundarySelect={onSelect}
+                onClear={onAddressClear}
+                onLocationMatch={onAddressLocationMatch}
+                resolution={addressResolution}
+                townData={townData}
+              />
+            </div>
           </details>
           <div className="mt-3"><GapExplorer countyData={countyData} townData={townData} onSelect={onSelect} /></div>
         </details>

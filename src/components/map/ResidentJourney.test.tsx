@@ -45,7 +45,14 @@ describe("town-first search", () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: async () => ({ stateCountsByCounty: {}, counties: [] }) }));
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    const props = { countyData: null, townData: towns, onSelect, addressSearch: <p>Address search content</p> };
+    const props = {
+      addressResolution: { status: "idle" as const, message: null },
+      countyData: null,
+      onAddressClear: vi.fn(),
+      onAddressLocationMatch: vi.fn(),
+      onSelect,
+      townData: towns
+    };
     const view = render(<GapSidebar {...props} selectionId={null}><p>Result</p></GapSidebar>);
     const search = screen.getByRole("combobox", { name: "Search New Jersey counties, towns, and townships" });
     await user.type(search, "Newark");
@@ -56,14 +63,32 @@ describe("town-first search", () => {
     await waitFor(() => expect(search).not.toBeVisible());
     expect(screen.getByRole("heading", { name: "Newark result" })).toBeVisible();
     await user.click(screen.getByText("Choose another place"));
-    expect(screen.getByRole("combobox")).toBeVisible();
+    expect(
+      screen.getByRole("combobox", {
+        name: "Search New Jersey counties, towns, and townships"
+      })
+    ).toBeVisible();
   });
 
   it("distinguishes same-name municipalities and explains an unmatched search", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: async () => ({ stateCountsByCounty: {}, counties: [] }) }));
     const user = userEvent.setup();
-    render(<GapSidebar countyData={null} townData={towns} onSelect={vi.fn()} selectionId={null} addressSearch={null}>{null}</GapSidebar>);
-    const search = screen.getByRole("combobox");
+    render(
+      <GapSidebar
+        addressResolution={{ status: "idle", message: null }}
+        countyData={null}
+        onAddressClear={vi.fn()}
+        onAddressLocationMatch={vi.fn()}
+        onSelect={vi.fn()}
+        selectionId={null}
+        townData={towns}
+      >
+        {null}
+      </GapSidebar>
+    );
+    const search = screen.getByRole("combobox", {
+      name: "Search New Jersey counties, towns, and townships"
+    });
     await user.type(search, "Pemberton");
     expect(screen.getByRole("option", { name: /Pemberton Borough/ })).toBeVisible();
     expect(screen.getByRole("option", { name: /Pemberton Township/ })).toBeVisible();
@@ -80,7 +105,9 @@ describe("optional address lookup", () => {
     const onMatch = vi.fn();
     render(<AddressTractFinder onClear={vi.fn()} onLocationMatch={onMatch} resolution={{ status: "idle", message: null }} />);
     await user.type(screen.getByRole("combobox"), "123 Test Street");
-    const region = screen.getByRole("region", { name: "Find your census tract by address" });
+    const region = screen.getByRole("region", {
+      name: "Search for a New Jersey town or address"
+    });
     expect((await within(region).findAllByText(/Address service unavailable/)).length).toBeGreaterThan(0);
     expect(onMatch).not.toHaveBeenCalled();
     await user.click(screen.getByRole("button", { name: "Clear address search" }));

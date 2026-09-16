@@ -28,10 +28,6 @@ type BoundaryAutocompleteProps = {
   townData: GeographyData | null;
 };
 
-function normalizeSearchText(value: string) {
-  return normalizePlaceQuery(value);
-}
-
 function getDisplayName(
   feature: Feature<Geometry, GeoJsonProperties>,
   level: BoundaryAutocompleteCandidate["level"]
@@ -42,7 +38,7 @@ function getDisplayName(
   );
 }
 
-function buildCandidates(
+export function buildCandidates(
   data: GeographyData | null,
   level: BoundaryAutocompleteCandidate["level"]
 ) {
@@ -54,7 +50,7 @@ function buildCandidates(
       feature,
       key: getGeographyFeatureColorKey(feature, level),
       level,
-      normalizedName: normalizeSearchText(displayName),
+      normalizedName: normalizePlaceQuery(displayName),
       typeLabel:
         level === "counties"
           ? "County"
@@ -80,26 +76,28 @@ export function BoundaryAutocomplete({
     ],
     [countyData, townData]
   );
-  const normalizedQuery = normalizeSearchText(query);
+  const normalizedQuery = normalizePlaceQuery(query);
   const suggestions = useMemo(() => {
     if (!normalizedQuery) {
       return [];
     }
 
     return candidates
-      .filter((candidate) => Number.isFinite(rankPlaceMatch(candidate.normalizedName, normalizedQuery)))
-      .sort((first, second) => {
-        const rankDifference =
-          rankPlaceMatch(first.normalizedName, normalizedQuery) -
-          rankPlaceMatch(second.normalizedName, normalizedQuery);
-
-        return (
-          rankDifference ||
-          first.displayName.localeCompare(second.displayName) ||
-          first.level.localeCompare(second.level)
-        );
-      })
-      .slice(0, maximumSuggestions);
+      .map((candidate) => ({
+        candidate,
+        rank: rankPlaceMatch(candidate.normalizedName, normalizedQuery)
+      }))
+      .filter(({ rank }) => Number.isFinite(rank))
+      .sort(
+        (first, second) =>
+          first.rank - second.rank ||
+          first.candidate.displayName.localeCompare(
+            second.candidate.displayName
+          ) ||
+          first.candidate.level.localeCompare(second.candidate.level)
+      )
+      .slice(0, maximumSuggestions)
+      .map(({ candidate }) => candidate);
   }, [candidates, normalizedQuery]);
   const isOpen = isFocused && normalizedQuery.length > 0;
 
@@ -155,9 +153,6 @@ export function BoundaryAutocomplete({
       return;
     }
 
-    if (event.key === "Escape") {
-      setIsFocused(false);
-    }
   }
 
   return (
