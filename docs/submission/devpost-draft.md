@@ -57,14 +57,14 @@ React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudfla
 - Live application: https://careatlas.lmayzel930.workers.dev
 - Repository: https://github.com/lmayzelinstructorly-ux/careatlas-nj (currently private; does not yet satisfy the public-source requirement).
 - Suggested track: Track 03, open technical innovation. This project does not claim to be a predictive ML model or diagnostic system.
-- Video: assets/careatlas-walkthrough.mp4, 3:17; upload to a permitted video host and add its public/unlisted URL.
-- Screenshots: assets/search.png, assets/tract.png, assets/sources.png, assets/export.png.
-- Final entry needs the author's real full name and confirmed eligibility; do not infer either from an account handle.
+- Video: leave the URL blank at the author's request. Use [the live recording script](demo-recording-script.md) to record a new demo. The older assets/careatlas-walkthrough.mp4 remains a clearly labeled screenshot-based walkthrough.
+- Saved Devpost gallery: assets/search.png, assets/sources.png and assets/export.png, with captions. The tract screenshot remains available locally.
+- Devpost displays the author as Leo Tobias Mayzel. The author completed registration; final acceptance and submission remain undone.
 
 ## Resume after changing ChatGPT accounts
 
 Open the existing CareAtlas folder and read AGENTS.md, this draft, README.md in this directory, contribution.md and methods-review.md. Run git status before changes and preserve pending work. GitHub and Devpost are separate accounts; retain access to the existing repository owner. Never store credentials in this document.
 
-As of this draft, Devpost account lmayzel930 is signed in in Chrome. The Global Innovation Build Challenge V2 registration page is awaiting the user's eligibility confirmation and acceptance of the rules. No competition project has been created or submitted by this workflow yet. Resume from the visible browser state, since this status can become stale.
+Devpost account lmayzel930 completed registration. CareAtlas NJ is saved as a draft (4/5 form steps), with its story, Track 03 framing, 18 technology tags, live-site/repository links, three captioned screenshots and author contribution. Preview: https://devpost.com/software/careatlas-nj. Editor: https://devpost.com/submit-to/30408-global-innovation-build-challenge-v2/manage/submissions/1185080-careatlas-nj/project_details/edit. The author explicitly instructed **do not submit**. Do not accept final terms or click Submit project. Resume from the visible browser state, since this status can become stale.
 
-Next: finish registration; create and save the project draft; add screenshots and hosted video; resolve public repository access with the owner; review all fields and eligibility before final submission. Official requirements: https://gibc-v2.devpost.com/rules. Deadline shown by Devpost: October 1, 2026, 11:45 a.m. EDT.
+Next: verify the project thumbnail after the user's manual upload; resolve public repository access with the owner; let the author record the demo using the script. Keep the video URL blank until instructed otherwise. Repository visibility has not been changed. Automated Chrome uploads were blocked; the author manually attached the gallery images, which were verified in the saved preview. Official requirements: https://gibc-v2.devpost.com/rules. Deadline shown by Devpost: October 1, 2026, 11:45 a.m. EDT.

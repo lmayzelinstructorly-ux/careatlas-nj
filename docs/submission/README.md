@@ -4,6 +4,8 @@ Prepared September 14, 2026. This package documents completed engineering work a
 
 ## Ready to review
 
+- [Live demo recording script](demo-recording-script.md): a four-minute sequence with exact actions and narration for the author's new recording.
+- [Devpost draft and handoff](devpost-draft.md): saved entry status and remaining steps. The entry is a draft; the author instructed not to submit and to leave the video URL blank.
 - [Narrated walkthrough](assets/careatlas-walkthrough.mp4): 3 minutes 17 seconds, 1280×720, English synthetic narration. It uses actual application screenshots, not a continuous screen recording. No actors, resident testimonials or expert endorsements are depicted.
 - [Interactive walkthrough](walkthrough.html), with [editable narration](walkthrough.json). Run `npm run dev` and open `http://localhost:5173/docs/submission/walkthrough.html`. Use the arrow buttons or arrow keys. The HTML preview is a repository document, not a production app route.
 - [Contribution and source inventory](contribution.md): pipeline, source versions, attribution, development chronology and AI assistance.
@@ -19,7 +21,7 @@ Two changes resulted from this review: SVI values are correctly labeled as New J
 
 The fixes were deployed to the [live site](https://careatlas.lmayzel930.workers.dev) on September 14, Cloudflare version `69594279-2558-48a6-913f-8e07ed733abb`. A live browser check confirmed Print brief on tract 19 and the corrected New Jersey percentile wording. All 47 changed data files were compared with the prior Git revision and contained only the intended SVI text corrections.
 
-## Still required
+## Remaining submission work and validation
 
 | Item | Actual status |
 | --- | --- |
@@ -29,7 +31,7 @@ The fixes were deployed to the [live site](https://careatlas.lmayzel930.workers.
 | Source chronology | Imported June/July metadata needs reconciliation with the author-reported August 1 implementation start. |
 | Dataset reuse notices | Source and general publisher policies documented; dataset-specific HRSA grant not verified. |
 | Public repository access | Repository remains private as requested. Do not submit a private URL as unrestricted judge access. |
-| Hosted demo video and Devpost submission | Video is prepared locally and in the repository; no upload or submission was made. |
+| Hosted demo video and Devpost submission | Devpost draft saved with three captioned screenshots. Author will record a new live demo using the script; video URL intentionally blank. No final submission. |
 
 Use the [resident and expert kit](../outside-review-kit.md) for the remaining human work. Real sessions should record task outcomes and misunderstandings, including unsuccessful attempts. The author's own feedback can improve the app but cannot stand in for five outside residents. A public quote requires permission for the exact attribution; anonymous aggregate observations can be reported without inventing testimonials.
 
