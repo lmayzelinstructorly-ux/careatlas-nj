@@ -131,7 +131,7 @@ assert.deepEqual(await aiUnavailableResponse.json(), {
 
 const invalidAddressResponse = await handleRequest(
   new Request("https://careatlas.example/api/address/suggest", {
-    body: JSON.stringify({ query: "Main" }),
+    body: JSON.stringify({ query: "M" }),
     headers: { "Content-Type": "application/json" },
     method: "POST"
   }),

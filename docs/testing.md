@@ -33,6 +33,15 @@ production data and validates `dist`. Do not run it separately after
 
 ## Focused checks
 
+Town and address search:
+
+```bash
+npm run test:ui
+npm run check:address-search
+```
+
+Search regression tests use the official checked-in NJ town boundaries for partial names, misspellings, keyboard selection, empty results and loading states. Address fixtures cover partial queries, stale suggestion/geocode responses, official-locator correction, duplicate filtering and rejection of out-of-state or non-address locations. They make no live geocoder requests. Address correction can only suggest matches returned by the NJ locator; no address is inferred from a town name or fabricated locally.
+
 Healthcare data:
 
 ```bash

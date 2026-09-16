@@ -106,6 +106,7 @@
     "check:healthcare-enrichment-plan": "node scripts/checkHealthcareEnrichmentPlan.mjs",
     "check:healthcare-enrichment-provenance": "node scripts/checkHealthcareEnrichmentProvenance.mjs",
     "check:public-map-workflow": "node scripts/checkPublicMapWorkflow.mjs",
+    "check:address-search": "node scripts/checkAddressSearch.mjs",
     "check:gemini-explanation": "node scripts/checkGeminiExplanation.mjs",
     "check:nj-map-geography": "node scripts/checkNjMapGeography.mjs",
     "check:demo-readiness": "node scripts/checkDemoReadiness.mjs",

@@ -61,9 +61,12 @@ export function AddressTractFinder({
   const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
-  const canSuggest = query.trim().length >= 4 && /\d/u.test(query);
+  const canSuggest = query.trim().length >= 2;
 
   useEffect(() => {
+    setSuggestions([]);
+    setActiveIndex(-1);
+    setError(null);
     if (!canSuggest || query === chosenText) {
       setSuggestions([]);
       setIsLoadingSuggestions(false);
@@ -71,6 +74,7 @@ export function AddressTractFinder({
     }
 
     const controller = new AbortController();
+    setIsLoadingSuggestions(true);
     const timer = window.setTimeout(() => {
       setIsLoadingSuggestions(true);
       setError(null);
@@ -80,6 +84,7 @@ export function AddressTractFinder({
         controller.signal
       )
         .then((payload) => {
+          if (controller.signal.aborted) return;
           setSuggestions(payload.suggestions);
           setActiveIndex(payload.suggestions.length > 0 ? 0 : -1);
           if (payload.suggestions.length === 0) {
@@ -135,6 +140,7 @@ export function AddressTractFinder({
         suggestion,
         controller.signal
       );
+      if (controller.signal.aborted) return;
       onLocationMatch(payload.match);
       setIsFocused(false);
     } catch (requestError) {
@@ -158,6 +164,7 @@ export function AddressTractFinder({
     setActiveIndex(-1);
     setError(null);
     setIsGeocoding(false);
+    setIsLoadingSuggestions(false);
     setIsFocused(false);
   }
 
@@ -168,8 +175,11 @@ export function AddressTractFinder({
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Escape") {
-      setSuggestions([]);
-      setActiveIndex(-1);
+      setIsFocused(false);
+      return;
+    }
+    if (!isOpen) {
+      if (event.key === "ArrowDown") { event.preventDefault(); setIsFocused(true); }
       return;
     }
     if (suggestions.length === 0) return;
@@ -228,7 +238,7 @@ export function AddressTractFinder({
           </svg>
           <input
             aria-activedescendant={
-              activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
+              isOpen && !isLoadingSuggestions && activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
             }
             aria-autocomplete="list"
             aria-controls={listboxId}
@@ -237,6 +247,10 @@ export function AddressTractFinder({
             className="w-full rounded-md border border-slate-300 bg-white py-2.5 pl-9 pr-9 text-sm font-semibold text-hb-deepNavy outline-none placeholder:font-medium placeholder:text-hb-muted focus:border-hb-aqua focus:ring-2 focus:ring-cyan-100"
             id="address-tract-finder"
             onChange={(event) => {
+              geocodeControllerRef.current?.abort();
+              setIsGeocoding(false);
+              setSuggestions([]);
+              setActiveIndex(-1);
               setQuery(event.target.value);
               setChosenText(null);
               setError(null);
@@ -261,7 +275,7 @@ export function AddressTractFinder({
           )}
         </div>
         <p className="mt-1.5 text-xs leading-5 text-hb-muted">
-          Start with the building number so the address service can match one location; a street name alone may cross several tracts. A Census tract is a small area used to publish local statistics.
+          Type at least two characters for suggestions. Add the building number and municipality to narrow the results; a street name alone may cross several tracts. A Census tract is a small area used to publish local statistics. Choose a full address to find its tract.
         </p>
         <p className="mt-1 text-xs leading-5 text-hb-muted">
           New Jersey only · Suggestions from the{" "}

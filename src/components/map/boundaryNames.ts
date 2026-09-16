@@ -80,6 +80,9 @@ export function getBoundaryLegalName(
   }
 
   if (baseName && legalType) {
+    if (baseName.toLowerCase().endsWith(` ${legalType.toLowerCase()}`)) {
+      return capitalizeLegalTypeSuffix(baseName);
+    }
     return `${baseName} ${legalType}`;
   }
 

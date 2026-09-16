@@ -7,6 +7,10 @@ const npmCliPath =
 
 const checks = [
   {
+    label: "address search and geocoding regression checks",
+    command: ["run", "check:address-search"]
+  },
+  {
     label: "healthcare validation and data quality",
     command: ["run", "validate:healthcare"]
   },

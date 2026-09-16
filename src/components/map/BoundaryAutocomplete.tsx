@@ -8,6 +8,7 @@ import {
   getBoundaryLegalType
 } from "./boundaryNames";
 import { careAtlasMapResetEvent } from "./mapReset";
+import { normalizePlaceQuery, rankPlaceMatch } from "../../utils/placeSearch";
 
 const maximumSuggestions = 16;
 
@@ -28,13 +29,7 @@ type BoundaryAutocompleteProps = {
 };
 
 function normalizeSearchText(value: string) {
-  return value
-    .normalize("NFKD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  return normalizePlaceQuery(value);
 }
 
 function getDisplayName(
@@ -68,22 +63,6 @@ function buildCandidates(
   });
 }
 
-function getSearchRank(candidate: BoundaryAutocompleteCandidate, query: string) {
-  if (candidate.normalizedName === query) {
-    return 0;
-  }
-
-  if (candidate.normalizedName.startsWith(query)) {
-    return 1;
-  }
-
-  if (candidate.normalizedName.split(" ").some((word) => word.startsWith(query))) {
-    return 2;
-  }
-
-  return 3;
-}
-
 export function BoundaryAutocomplete({
   embedded = false,
   countyData,
@@ -108,11 +87,11 @@ export function BoundaryAutocomplete({
     }
 
     return candidates
-      .filter((candidate) => candidate.normalizedName.includes(normalizedQuery))
+      .filter((candidate) => Number.isFinite(rankPlaceMatch(candidate.normalizedName, normalizedQuery)))
       .sort((first, second) => {
         const rankDifference =
-          getSearchRank(first, normalizedQuery) -
-          getSearchRank(second, normalizedQuery);
+          rankPlaceMatch(first.normalizedName, normalizedQuery) -
+          rankPlaceMatch(second.normalizedName, normalizedQuery);
 
         return (
           rankDifference ||
@@ -145,6 +124,10 @@ export function BoundaryAutocomplete({
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Escape") {
+      setIsFocused(false);
+      return;
+    }
     if (!isOpen || suggestions.length === 0) {
       if (event.key === "ArrowDown" && normalizedQuery) {
         setIsFocused(true);
@@ -201,7 +184,7 @@ export function BoundaryAutocomplete({
         </svg>
         <input
           aria-activedescendant={
-            activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
+            isOpen && activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
           }
           aria-autocomplete="list"
           aria-controls={listboxId}
@@ -265,7 +248,7 @@ export function BoundaryAutocomplete({
             </ul>
           ) : (
             <p className="px-3 py-3 text-sm text-hb-muted">
-              No New Jersey county or town matches “{query.trim()}”.
+              {!townData ? "Town suggestions are still loading. Please try again in a moment." : `No New Jersey county or town matches “${query.trim()}”. Try a shorter name or check the spelling.`}
             </p>
           )}
         </div>

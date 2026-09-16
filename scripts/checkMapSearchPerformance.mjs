@@ -88,7 +88,8 @@ assert(
 assert(
   !boundaryAutocompleteSource.includes("/data/") &&
     boundaryAutocompleteSource.includes("maximumSuggestions = 16") &&
-    boundaryAutocompleteSource.includes("normalizedName.startsWith(query)"),
+    boundaryAutocompleteSource.includes("rankPlaceMatch") &&
+    (await fs.readFile(path.join(workspaceRoot, "src", "utils", "placeSearch.ts"), "utf8")).includes("name.startsWith(query)"),
   "New Jersey autocomplete must remain local, bounded, and prefix-ranked."
 );
 assert(

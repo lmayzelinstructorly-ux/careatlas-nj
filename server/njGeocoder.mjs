@@ -21,7 +21,7 @@ function normalizeText(value, maximumLength) {
 }
 
 function isNewJerseySuggestion(text) {
-  return /,\s*(?:NJ|New Jersey)(?:,|$)/iu.test(text);
+  return /,\s*(?:NJ|New Jersey)(?=\s*(?:,|\d{5}\b|$))/iu.test(text);
 }
 
 function isInNewJerseyBounds(latitude, longitude) {
@@ -72,22 +72,39 @@ export async function getNjAddressSuggestions(
   fetchImplementation = fetch
 ) {
   const query = normalizeText(input, 120);
-  if (query.length < 4 || !/\d/u.test(query)) {
+  if (query.length < 2) {
     throw new AddressLookupError(
-      "Start with a street number and at least four characters.",
+      "Type at least two characters to search for a New Jersey address.",
       400
     );
   }
 
-  const payload = await postForm(
+  let payload = await postForm(
     "suggest",
     {
       f: "json",
-      maxSuggestions: "6",
+      maxSuggestions: "12",
       text: query
     },
     fetchImplementation
   );
+  // The suggest endpoint is strict about misspellings. Ask the same official
+  // locator for possible corrections, then retrieve selectable suggestion keys.
+  // Never invent an address or use a fuzzy candidate as the selected location.
+  if (!(payload.suggestions ?? []).some(item => item.isCollection !== true && isNewJerseySuggestion(item.text ?? "")) && /\d/u.test(query)) {
+    const candidates = await postForm("findAddressCandidates", {
+      f: "json", SingleLine: query, maxLocations: "3",
+      outFields: "Match_addr,Addr_type,Region", outSR: "4326"
+    }, fetchImplementation);
+    const corrections = [...new Set((candidates.candidates ?? [])
+      .filter(item => item.score >= 75 && /^(PointAddress|Subaddress|StreetAddress)$/u.test(item.attributes?.Addr_type ?? ""))
+      .map(item => normalizeText(item.attributes?.Match_addr ?? item.address, 180))
+      .filter(isNewJerseySuggestion))].slice(0, 3);
+    const corrected = await Promise.all(corrections.map(text => postForm("suggest", {
+      f: "json", maxSuggestions: "6", text
+    }, fetchImplementation)));
+    payload = { suggestions: corrected.flatMap(result => result.suggestions ?? []) };
+  }
   const seen = new Set();
 
   return (Array.isArray(payload?.suggestions) ? payload.suggestions : [])
@@ -151,6 +168,7 @@ export async function geocodeNjAddressSuggestion(
         Number.isFinite(entry.longitude) &&
         Number.isFinite(entry.score) &&
         /^(?:NJ|New Jersey)$/iu.test(entry.region) &&
+        /^(PointAddress|Subaddress|StreetAddress)$/u.test(entry.addressType) &&
         entry.score >= 85 &&
         isInNewJerseyBounds(entry.latitude, entry.longitude)
     );
