@@ -55,7 +55,7 @@ React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudfla
 ## Links and assets
 
 - Live application: https://careatlas.lmayzel930.workers.dev
-- Repository: https://github.com/lmayzelinstructorly-ux/careatlas-nj (currently private; does not yet satisfy the public-source requirement).
+- Repository: https://github.com/lmayzelinstructorly-ux/careatlas-nj (public; visibility verified September 15, 2026).
 - Suggested track: Track 03, open technical innovation. This project does not claim to be a predictive ML model or diagnostic system.
 - Video: leave the URL blank at the author's request. Use [the live recording script](demo-recording-script.md) to record a new demo. The older assets/careatlas-walkthrough.mp4 remains a clearly labeled screenshot-based walkthrough.
 - Saved Devpost gallery: assets/search.png, assets/sources.png and assets/export.png, with captions. The tract screenshot remains available locally.
@@ -67,4 +67,4 @@ Open the existing CareAtlas folder and read AGENTS.md, this draft, README.md in 
 
 Devpost account lmayzel930 completed registration. CareAtlas NJ is saved as a draft (4/5 form steps), with its story, Track 03 framing, 18 technology tags, live-site/repository links, three captioned screenshots and author contribution. Preview: https://devpost.com/software/careatlas-nj. Editor: https://devpost.com/submit-to/30408-global-innovation-build-challenge-v2/manage/submissions/1185080-careatlas-nj/project_details/edit. The author explicitly instructed **do not submit**. Do not accept final terms or click Submit project. Resume from the visible browser state, since this status can become stale.
 
-Next: verify the project thumbnail after the user's manual upload; resolve public repository access with the owner; let the author record the demo using the script. Keep the video URL blank until instructed otherwise. Repository visibility has not been changed. Automated Chrome uploads were blocked; the author manually attached the gallery images, which were verified in the saved preview. Official requirements: https://gibc-v2.devpost.com/rules. Deadline shown by Devpost: October 1, 2026, 11:45 a.m. EDT.
+The new 3:2 branded thumbnail was manually uploaded, visually verified and saved. Next: let the author record the demo using the script. Keep the video URL blank until instructed otherwise. Repository visibility was changed to public with explicit owner authorization and verified in GitHub. Automated Chrome uploads were blocked; the author manually attached the gallery images, which were verified in the saved preview. Official requirements: https://gibc-v2.devpost.com/rules. Deadline shown by Devpost: October 1, 2026, 11:45 a.m. EDT.

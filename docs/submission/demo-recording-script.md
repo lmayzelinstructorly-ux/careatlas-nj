@@ -6,7 +6,7 @@ Target: about 4 minutes, with your own English narration and a real screen recor
 
 - Open https://careatlas.lmayzel930.workers.dev in Chrome. Use a desktop window, readable zoom, and hide unrelated tabs and notifications.
 - Rehearse once: Potential gaps → search Newark → Newark City → View gap tracts → expand the flagged tract list → Census Tract 1. Choose Newark City, not East Newark Borough.
-- Have the repository README and docs/submission/contribution.md open in separate tabs. The repository must be publicly accessible before the final entry; its current private status is a separate outstanding task.
+- Have the repository README and docs/submission/contribution.md open in separate tabs. The repository is public as of September 15, 2026.
 - Test Copy link by opening the copied URL in a new tab. Test Print brief and the tract JSON download before recording. Only narrate a successful action if it actually completes. If something fails, fix it before your final take rather than implying success.
 - Read the current on-screen values. The September 14 snapshot showed 66 of 88 Newark-assigned tracts flagged; if refreshed data differs, use what the app actually shows.
 - Aim for a calm 125–140 words per minute. Pause briefly after each click so the viewer can follow. Do not show API keys, account settings or private messages.

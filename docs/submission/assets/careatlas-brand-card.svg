@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">CareAtlas NJ</title>
+  <desc id="desc">A teal location pin with a white care cross on navy, beside the CareAtlas name. New Jersey healthcare access mapping.</desc>
+  <rect width="1200" height="800" fill="#F5FAFB"/>
+  <path d="M0 660h1200M0 720h1200M100 660v140M260 660v140M420 660v140M580 660v140M740 660v140M900 660v140M1060 660v140" stroke="#D6E8EB" stroke-width="2"/>
+  <rect x="96" y="104" width="126" height="8" rx="4" fill="#009CA6"/>
+  <text x="96" y="160" fill="#5B7180" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">NEW JERSEY</text>
+  <g transform="translate(104 296) scale(2.75)">
+    <rect width="64" height="64" rx="16" fill="#002B4D"/>
+    <path d="M32 9c-10.5 0-19 8.2-19 18.5C13 41 32 55 32 55s19-14 19-27.5C51 17.2 42.5 9 32 9Z" fill="#009CA6"/>
+    <path d="M32 55s19-14 19-27.5c0-3.1-.8-6.1-2.1-8.7C49 34 38 43 25 49.1c4 3.8 7 5.9 7 5.9Z" fill="#18C7C0"/>
+    <path d="M28.5 17h7v7h7v7h-7v7h-7v-7h-7v-7h7Z" fill="#FFFFFF"/>
+  </g>
+  <text x="320" y="400" fill="#002B4D" font-family="Arial, sans-serif" font-size="108" font-weight="700" letter-spacing="-5">Care<tspan fill="#009CA6">Atlas</tspan></text>
+  <text x="326" y="450" fill="#5B7180" font-family="Arial, sans-serif" font-size="24">Healthcare access, explained.</text>
+  <text x="104" y="591" fill="#002B4D" font-family="Arial, sans-serif" font-size="26">Your town. The evidence. A clearer picture.</text>
+</svg>
