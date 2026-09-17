@@ -1,6 +1,6 @@
 # CareAtlas submission package
 
-Updated September 16, 2026. This package documents completed engineering work and remaining evidence gaps; it is not a claim that all submission requirements or outside validation are complete.
+Updated September 17, 2026. This package documents completed engineering work and remaining evidence gaps; it is not a claim that all submission requirements or outside validation are complete.
 
 ## Ready to review
 
@@ -33,7 +33,7 @@ The fixes were deployed to the [live site](https://careatlas.lmayzel930.workers.
 | Source chronology | Imported June/July metadata needs reconciliation with the author-reported August 1 implementation start. |
 | Dataset reuse notices | Source and general publisher policies documented; dataset-specific HRSA grant not verified. |
 | Public repository access | Public visibility authorized by the author and verified in GitHub on September 15, 2026. |
-| Hosted demo video and Devpost submission | Devpost draft saved with three captioned screenshots. Author will record a new live demo using the script; video URL intentionally blank. No final submission. |
+| Hosted demo video and Devpost submission | Devpost draft saved with the brand card first and two captioned app screenshots. Author will record a new live demo using the script; video URL intentionally blank. No final submission. |
 
 Use the [resident and expert kit](../outside-review-kit.md) for the remaining human work. Real sessions should record task outcomes and misunderstandings, including unsuccessful attempts. The author's own feedback can improve the app but cannot stand in for five outside residents. A public quote requires permission for the exact attribution; anonymous aggregate observations can be reported without inventing testimonials.
 

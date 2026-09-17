@@ -67,7 +67,7 @@ React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudfla
 - Live application: <https://careatlas.lmayzel930.workers.dev>
 - Repository: <https://github.com/methmoussa/careatlas-nj>
 - Video: pending. Record and host a 2–5 minute live demonstration using the [recording script](demo-recording-script.md). The older [screenshot-based walkthrough](assets/careatlas-walkthrough.mp4) is a planning artifact, not the intended submission video.
-- Gallery: the current Devpost draft has three captioned gap-view screenshots. Replace one with a current care-location or doctor-office view when an accurate capture is available.
+- Gallery: the current Devpost draft opens with the CareAtlas brand card, followed by captioned Newark town-search and tract-evidence screenshots. A current care-location or doctor-office capture would show those views more directly when available.
 - Project card: [PNG](assets/careatlas-brand-card.png) and editable [SVG](assets/careatlas-brand-card.svg).
 
 ## Remaining steps
