@@ -1,76 +1,60 @@
 # CareAtlas NJ: live demo recording script
 
-Target: about 4 minutes, with your own English narration and a real screen recording. Leave the Devpost video URL blank until you have recorded and uploaded the finished video. Nothing in this script authorizes submission.
+Target: about 4 minutes, with English narration or accurate English subtitles and a real screen recording. Show all three existing map views. Leave Devpost's video URL blank until the finished recording is hosted and verified.
 
 ## Before recording
 
-- Open https://careatlas.lmayzel930.workers.dev in Chrome. Use a desktop window, readable zoom, and hide unrelated tabs and notifications.
-- Rehearse once: Potential gaps → search Newark → Newark City → View gap tracts → expand the flagged tract list → Census Tract 1. Choose Newark City, not East Newark Borough.
-- Have the repository README and docs/submission/contribution.md open in separate tabs. The repository is public as of September 15, 2026.
-- Test Copy link by opening the copied URL in a new tab. Test Print brief and the tract JSON download before recording. Only narrate a successful action if it actually completes. If something fails, fix it before your final take rather than implying success.
-- Read the current on-screen values. The September 14 snapshot showed 66 of 88 Newark-assigned tracts flagged; if refreshed data differs, use what the app actually shows.
-- Aim for a calm 125–140 words per minute. Pause briefly after each click so the viewer can follow. Do not show API keys, account settings or private messages.
+- Open <https://careatlas.lmayzel930.workers.dev> in Chrome at a readable desktop size. Hide unrelated tabs and notifications.
+- Rehearse these current routes: Hospitals & community health centers → Newark City → a facility group; Doctor offices → Dermatology → Edison → View results; Potential gaps → Newark City → View gap tracts → a tract evidence brief.
+- Read counts from the screen during the final take. The September 17 snapshot showed 17 listed care locations in the Newark group and four Edison dermatology office locations; later source refreshes may change them.
+- Test the link, print and download actions before narrating them. Show only an action that succeeds in the recording.
+- Have the public repository README and [contribution and source inventory](contribution.md) ready in separate tabs. Do not show private messages, account settings, credentials or API keys.
 
-## 0:00–0:25 — Start with the resident's question
+## 0:00–0:25 — Start with a resident's question
 
-**Show:** CareAtlas homepage, then select Potential gaps. Keep the map visible while introducing it.
+**Show:** The CareAtlas welcome screen, then the three map-mode tabs.
 
-**Say:**
+**Say:** “Healthcare-access information is scattered across facility directories and public-health datasets. I built CareAtlas NJ so someone can start with a New Jersey town, explore recorded care locations, and inspect the evidence behind a screening result. The three views answer different questions.”
 
-“If you live in New Jersey, how do you make sense of healthcare-access data around your town? The evidence is spread across agencies, maps and spreadsheets. I built CareAtlas NJ to bring it together: start with a town, understand a tract's screening result, and see the official evidence behind it.”
+## 0:25–1:05 — Hospitals and community health centers
 
-## 0:25–0:55 — Find Newark
+**Show:** Choose Hospitals & community health centers, search Newark, select Newark City, and open a nearby facility group. Pause on a listing's address, contact options and source context.
 
-**Show:** Type Newark, choose Newark City, and pause on the town summary. Click View gap tracts.
+**Say:** “This view includes source-backed hospitals and HRSA community health centers. Here are the locations recorded around Newark. A person can inspect a listing and use its contact information, but these pins do not represent every place to get care. The map is a starting point for a question, not a guarantee of services or appointments.”
 
-**Say:**
+## 1:05–1:50 — Doctor-office pilot
 
-“I'll start with Newark. CareAtlas connects 564 municipalities with 2,181 census tracts across New Jersey. This summary shows how the tracts assigned to Newark are classified. These are counts of geographic areas—not the percentage of residents without care, and not a label for the entire city. Let's open one of the flagged tracts.”
+**Show:** Switch to Doctor offices, choose Dermatology, search Edison and select View results. Pause on a clearly named office such as Aura Dermatology at Edison. Open its clinician details and About this listing.
 
-## 0:55–1:35 — Explain one flag
+**Say:** “This separate pilot uses a CMS snapshot. I can search by town, ZIP, practice or clinician, open the filtered list directly, and see who is listed for the specialty. The listing links back to its source and shows its dates. It is incomplete and does not tell me whether the office is open, takes my insurance or has appointments.”
 
-**Show:** Expand the flagged tract list and select Census Tract 1. Point to Potential access gap and the two explanation boxes. Scroll slowly to the underlying indicators if needed.
+## 1:50–2:45 — Explain one tract result
 
-**Say:**
+**Show:** Switch to Potential gaps, keep or choose Newark City, click View gap tracts, and select a tract with a published result. Pause on the status, explanation, data values and nearby source links and dates.
 
-“Census Tract 1 is marked as a potential access gap. The explanation shows both parts of the rule: evidence of elevated health need or social barriers, together with an official shortage or underserved-area designation. This is a published screening rule, so I can inspect why the result appeared. Nearby facilities are context; counting map pins does not decide the flag. The result is a planning signal, not a diagnosis or proof that someone cannot get an appointment.”
+**Say:** “The third view uses a transparent screening rule across New Jersey census tracts. This tract's result comes from public indicators of health need or social barriers together with official shortage evidence. I can see the inputs, source dates and limitations instead of trusting a color alone. A potential gap is a planning signal, not a diagnosis or proof that care is unavailable. Facility and office pins never create the flag.”
 
-## 1:35–2:15 — Make the evidence inspectable
+## 2:45–3:15 — Keep and check the evidence
 
-**Show:** Open See full evidence and sources. Pause on a value, its cutoff and source link. Show the source date and limitations. Open one publisher link if it is ready and returns promptly, then return to CareAtlas.
+**Show:** Copy the tract link and open it to show the selection restored. Demonstrate Print brief or a record download that was tested before recording.
 
-**Say:**
+**Say:** “A resident can keep the explanation and its sources. This link reopens the selected area, and the brief can be printed or exported. Missing evidence remains unknown; an unflagged tract does not prove that access is adequate.”
 
-“Here I can inspect the inputs, thresholds and publisher links. The pipeline combines Census geography, CDC health estimates and social vulnerability data, and HRSA shortage records. The SVI ranks here are relative to New Jersey. These datasets have different dates and limitations, and missing required evidence stays unknown. That distinction matters: a confident-looking map should never hide the uncertainty behind it.”
+## 3:15–3:45 — Show the engineering
 
-## 2:15–2:50 — Take the explanation with you
+**Show:** Briefly show the repository README's pipeline diagram, local setup and test command, plus the source and methods inventory. Avoid scrolling through unreadable code.
 
-**Show:** Return to the brief, click Copy link, and open that URL in a new tab to show the selection restored. Return and demonstrate Print brief or the tract JSON download, whichever you verified before recording. Briefly show the actual preview or downloaded file.
+**Say:** “Behind the interface is a reproducible pipeline: official data, geographic joins, a versioned rule, validated records and a map that makes the result inspectable. The repository includes setup instructions and automated checks. A sensitivity analysis shows how different thresholds change classifications; it is not a claim of clinical validation.”
 
-**Say:**
+## 3:45–4:05 — Close with the honest next step
 
-“A resident can keep the context instead of losing it when the map closes. This shared link reopens the selected area. The brief also provides print and evidence-export controls, so the question and its sources can be revisited or brought into a conversation. The goal is to make the evidence easier to examine and discuss.”
+**Show:** Return to the live CareAtlas map with the project name visible.
 
-## 2:50–3:30 — Show the engineering contribution
+**Say:** “I built CareAtlas as a solo project with ChatGPT and Codex assisting development and testing. The next step is resident usability sessions and an independent public-health or GIS review. Those are future work. Today, CareAtlas helps people explore, question and share the public evidence around a place they know.”
 
-**Show:** Switch to docs/submission/contribution.md and its pipeline diagram. Then briefly show the README setup/test commands and scripts/applyAccessGapRule.mjs in the repository. Avoid scrolling through unreadable walls of code.
+## Final check
 
-**Say:**
-
-“Behind the interface is a reproducible pipeline: official sources, geographic joins, an explicit rule, validated tract records, and resident-facing briefs. County-sized files and a town crosswalk make the evidence navigable. The repository includes the data and fixtures needed to run the core application and tests locally. Automated checks cover consistency and behavior, and a sensitivity analysis shows how classifications change when thresholds change.”
-
-## 3:30–4:00 — Close with a credible next step
-
-**Show:** Return to the tract explanation and map. End on the live application, with its name visible.
-
-**Say:**
-
-“I developed CareAtlas as a solo project, with ChatGPT and Codex assisting development and testing. Its next step is real resident usability sessions and an independent methods review; I am not claiming those are already complete. CareAtlas turns scattered public records into a question someone can explore, verify and share—starting with their own town.”
-
-## Final recording check
-
-- Keep the finished video between 2 and 5 minutes; aim for 3:45–4:15.
-- Show actual interactions, legible text and the successful link/export behavior you describe. Re-record mistakes rather than claiming an unobserved result.
-- Add English captions if available and verify dataset names and numbers in auto-generated captions.
-- Do not call the app clinically validated, claim demonstrated health impact, or describe it as an ML prediction model. The optional Gemini explainer is disabled and is not part of the screening calculation.
-- This new recording will replace the earlier screenshot-based synthetic-narration walkthrough as the intended submission video. Keep the older artifact clearly described if it remains in the repository.
+- Keep the hosted video between 2 and 5 minutes on YouTube, Vimeo or Youku; public or unlisted access is acceptable under the current challenge requirements.
+- Use actual, legible interactions. Add English subtitles if narration is not in English, and review any automatic captions for incorrect names or numbers.
+- Verify the video link opens without a login and shows the full recording before adding it to Devpost.
+- Do not use the older [screenshot-based walkthrough](assets/careatlas-walkthrough.mp4) as the final demo; it does not show a continuous live interaction.
