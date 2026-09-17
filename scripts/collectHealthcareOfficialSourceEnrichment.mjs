@@ -263,7 +263,7 @@ async function fetchFresh(url) {
       headers: {
         accept: "text/html,application/xhtml+xml,text/plain;q=0.9,*/*;q=0.5",
         "user-agent":
-          "CareAtlas official-source enrichment collector (+https://github.com/lmayzelinstructorly-ux/careatlas)"
+          "CareAtlas official-source enrichment collector (+https://github.com/methmoussa/careatlas-nj)"
       },
       redirect: "follow",
       signal: controller.signal

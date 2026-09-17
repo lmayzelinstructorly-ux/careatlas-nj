@@ -55,7 +55,7 @@ React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudfla
 ## Links and assets
 
 - Live application: <https://careatlas.lmayzel930.workers.dev>
-- Repository: <https://github.com/lmayzelinstructorly-ux/careatlas-nj> (public; visibility verified September 15, 2026)
+- Repository: <https://github.com/methmoussa/careatlas-nj> (public; ownership and visibility verified September 16, 2026)
 - Suggested track: Track 03, open technical innovation. This project does not claim to be a predictive ML model or diagnostic system.
 - Video: pending. Use [the live recording script](demo-recording-script.md) for the final demo. The older [screenshot-based walkthrough](assets/careatlas-walkthrough.mp4) remains clearly labeled.
 - Gallery: [town search](assets/search.png), [source evidence](assets/sources.png), and [export controls](assets/export.png), with additional screenshots available in this directory.

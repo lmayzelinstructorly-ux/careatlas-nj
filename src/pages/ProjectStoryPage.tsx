@@ -346,11 +346,11 @@ function ProjectStoryPage() {
             <div>
               <p className="text-2xl font-black tracking-tight">Questions or feedback?</p>
               <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">
-                Feedback on the map, its explanations and its limitations is welcome. Contact the CareAtlas project on GitHub at <span className="font-bold text-white">@lmayzelinstructorly-ux</span>.
+                Feedback on the map, its explanations and its limitations is welcome. Contact the CareAtlas project on GitHub at <span className="font-bold text-white">@methmoussa</span>.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a className="inline-flex w-fit rounded-md border border-white/30 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/10" href="https://github.com/lmayzelinstructorly-ux" rel="noreferrer" target="_blank">
+              <a className="inline-flex w-fit rounded-md border border-white/30 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/10" href="https://github.com/methmoussa" rel="noreferrer" target="_blank">
                 Contact the project
               </a>
               <Link className="inline-flex w-fit rounded-md bg-hb-aqua px-5 py-3 text-sm font-black text-hb-deepNavy transition hover:-translate-y-0.5 hover:bg-white" to="/">

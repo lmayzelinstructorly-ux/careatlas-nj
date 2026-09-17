@@ -6,11 +6,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lmayzelinstructorly-ux/careatlas-nj.git"
+    "url": "git+https://github.com/methmoussa/careatlas-nj.git"
   },
   "homepage": "https://careatlas.lmayzel930.workers.dev",
   "bugs": {
-    "url": "https://github.com/lmayzelinstructorly-ux/careatlas-nj/issues"
+    "url": "https://github.com/methmoussa/careatlas-nj/issues"
   },
   "type": "module",
   "engines": {

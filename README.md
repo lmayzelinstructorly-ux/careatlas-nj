@@ -1,6 +1,6 @@
 # CareAtlas NJ
 
-[![CI](https://github.com/lmayzelinstructorly-ux/careatlas-nj/actions/workflows/test.yml/badge.svg)](https://github.com/lmayzelinstructorly-ux/careatlas-nj/actions/workflows/test.yml)
+[![CI](https://github.com/methmoussa/careatlas-nj/actions/workflows/test.yml/badge.svg)](https://github.com/methmoussa/careatlas-nj/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/code_license-MIT-0f766e.svg)](LICENSE)
 [![Live app](https://img.shields.io/badge/live_app-open-003B66.svg)](https://careatlas.lmayzel930.workers.dev)
 
@@ -45,7 +45,7 @@ The data pipeline preserves geographic identifiers, missing values, source versi
 Requirements: [Node.js 24](https://nodejs.org/) and npm.
 
 ```sh
-git clone https://github.com/lmayzelinstructorly-ux/careatlas-nj.git
+git clone https://github.com/methmoussa/careatlas-nj.git
 cd careatlas-nj
 npm ci
 npm run dev
