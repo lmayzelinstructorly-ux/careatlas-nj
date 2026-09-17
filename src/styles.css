@@ -1952,7 +1952,7 @@ body {
 
 .hb-gap-workspace {
   display: grid;
-  grid-template-columns: minmax(19rem, 23rem) minmax(0, 1fr);
+  grid-template-columns: clamp(22rem, 31vw, 29rem) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
 }
 

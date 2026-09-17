@@ -27,6 +27,7 @@ import {
 import { TownFlaggedTractList } from "./TownFlaggedTractList";
 import { ActionPaths, GapDriverContext } from "./TractGapContext";
 import { TractResultExplanation } from "./TractResultExplanation";
+import { TractSourceSummary } from "./TractSourceSummary";
 
 export type SelectedAreaCardProps = {
   activeTractCounty: SelectedGeography | null;
@@ -448,6 +449,7 @@ function TractDetails({
       </div>
 
       <TractResultExplanation record={record} />
+      <TractSourceSummary record={record} />
 
       <section className="mt-4">
         <div className="flex flex-wrap items-center gap-2">

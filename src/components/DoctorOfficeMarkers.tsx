@@ -23,6 +23,7 @@ import {
 type DoctorOfficeMarkersProps = {
   countyData: GeographyData;
   countyMode: boolean;
+  listRequestId: number;
   offices: DoctorOfficeLocation[];
   onPanelOpenChange: (open: boolean) => void;
   specialtyId: DoctorOfficeSpecialtyId;
@@ -31,6 +32,7 @@ type DoctorOfficeMarkersProps = {
 export type OfficeGroup = {
   boundaryFeature?: Feature<Geometry, GeoJsonProperties>;
   id: string;
+  isSearchResult?: boolean;
   label: string | null;
   latitude: number;
   longitude: number;
@@ -173,10 +175,11 @@ function providerMatchesSpecialty(
 }
 
 function formatAddress(office: DoctorOfficeLocation) {
+  const postalCode = office.postalCode.replace(/^(\d{5})(\d{4})$/u, "$1-$2");
   return [
-    office.addressLine1,
-    office.addressLine2,
-    `${office.city}, ${office.state} ${office.postalCode}`
+    formatListingName(office.addressLine1),
+    office.addressLine2 && formatListingName(office.addressLine2),
+    `${formatListingName(office.city)}, ${office.state} ${postalCode}`
   ].filter(Boolean).join(", ");
 }
 
@@ -282,7 +285,7 @@ export function DoctorOfficePanel({
       aria-describedby="doctor-office-dialog-description"
       aria-labelledby="doctor-office-dialog-title"
       aria-modal="true"
-      className="hb-doctor-office-panel absolute left-3 right-3 top-[4.25rem] z-[1000] max-h-[calc(100%-5rem)] overflow-y-auto rounded-lg border border-slate-300 bg-white p-4 pr-10 shadow-[0_12px_28px_rgb(0_43_77_/_0.24)] sm:left-auto sm:w-[24rem]"
+      className="hb-doctor-office-panel absolute bottom-3 left-3 right-3 z-[1000] max-h-[55%] overflow-y-auto rounded-lg border border-slate-300 bg-white p-4 pr-10 shadow-[0_12px_28px_rgb(0_43_77_/_0.24)] sm:bottom-auto sm:left-auto sm:top-[4.25rem] sm:max-h-[calc(100%-5rem)] sm:w-[24rem]"
       onClick={(event) => event.stopPropagation()}
       onDoubleClick={(event) => event.stopPropagation()}
       onKeyDown={handleKeyDown}
@@ -304,7 +307,9 @@ export function DoctorOfficePanel({
         Find care
       </p>
       <h3 className="mt-1 text-sm font-black leading-tight text-hb-deepNavy" id="doctor-office-dialog-title">
-        {group.label && group.offices.length > 1
+        {group.isSearchResult
+          ? `${group.offices.length} ${specialtyLabel} ${locationLabel} matching your search`
+          : group.label && group.offices.length > 1
           ? `${group.offices.length} ${specialtyLabel} ${locationLabel} in ${group.label}`
           : group.offices.length === 1
             ? formatListingName(group.offices[0].displayName)
@@ -335,6 +340,13 @@ export function DoctorOfficePanel({
               <p className="mt-1 text-[11px] leading-4 text-hb-muted">
                 {formatAddress(office)}
               </p>
+              {providers.length > 0 && (
+                <p className="mt-1.5 text-[11px] leading-4 text-hb-navy">
+                  <span className="font-bold">Listed {providerLabel} for this specialty:</span>{" "}
+                  {providers.slice(0, 2).map((provider) => formatListingName(provider.displayName)).join(", ")}
+                  {providers.length > 2 && ` + ${providers.length - 2} more`}
+                </p>
+              )}
               {office.addressPrecision === "building" && (
                 <p className="mt-1 text-[10px] font-semibold leading-4 text-amber-800">
                   Suite or floor details may be incomplete.
@@ -383,7 +395,7 @@ export function DoctorOfficePanel({
                           : ""}
                       </p>
                       <p className="mt-0.5 text-[10px] leading-4 text-hb-muted">
-                        Specialty listed by CMS: {[...provider.primarySpecialties, ...provider.secondarySpecialties].join(", ")}
+                        Specialty listed by CMS: {[...provider.primarySpecialties, ...provider.secondarySpecialties].map(formatListingName).join(", ")}
                       </p>
                       <p className="mt-0.5 text-[10px] leading-4 text-hb-muted">
                         NPI {provider.npi}
@@ -428,6 +440,7 @@ export function DoctorOfficePanel({
 function DoctorOfficeMarkers({
   countyData,
   countyMode,
+  listRequestId,
   offices,
   onPanelOpenChange,
   specialtyId
@@ -437,6 +450,7 @@ function DoctorOfficeMarkers({
   const [focusedOffice, setFocusedOffice] =
     useState<DoctorOfficeLocation | null>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
+  const lastListRequestId = useRef(0);
   const [viewport, setViewport] = useState(() => ({
     bounds: map.getBounds(),
     zoom: map.getZoom()
@@ -468,6 +482,22 @@ function DoctorOfficeMarkers({
   }, [offices, specialtyId]);
 
   useEffect(() => {
+    if (listRequestId === lastListRequestId.current) return;
+    lastListRequestId.current = listRequestId;
+    if (listRequestId === 0 || matchingOffices.length === 0) return;
+    rememberMarkerFocus();
+    setFocusedOffice(null);
+    setSelectedGroup({
+      id: `doctor-search-${listRequestId}`,
+      isSearchResult: true,
+      label: null,
+      latitude: matchingOffices[0].latitude,
+      longitude: matchingOffices[0].longitude,
+      offices: matchingOffices
+    });
+  }, [listRequestId, matchingOffices]);
+
+  useEffect(() => {
     onPanelOpenChange(panelOpen);
     return () => onPanelOpenChange(false);
   }, [onPanelOpenChange, panelOpen]);
@@ -481,6 +511,7 @@ function DoctorOfficeMarkers({
 
   function closePanel() {
     setSelectedGroup(null);
+    onPanelOpenChange(false);
     window.requestAnimationFrame(() => returnFocusRef.current?.focus());
   }
 
@@ -535,6 +566,12 @@ function DoctorOfficeMarkers({
         onShowOffice={(office) => {
           setFocusedOffice(office);
           map.stop();
+          map.flyTo([office.latitude, office.longitude], Math.max(map.getZoom(), 13), { animate: false });
+          const mobile = window.matchMedia("(max-width: 639px)").matches;
+          map.panBy([
+            mobile ? 0 : Math.min(map.getSize().x * 0.17, 190),
+            mobile ? Math.min(map.getSize().y * 0.2, 180) : 0
+          ], { animate: false });
         }}
         specialtyId={specialtyId}
       />

@@ -10,10 +10,12 @@ type DoctorOfficeControlsProps = {
   error: string;
   loadState: DoctorOfficeLoadState;
   matchingOfficeCount: number;
+  onViewSearchResults: () => void;
   onSearchQueryChange: (query: string) => void;
   onSpecialtyChange: (specialtyId: DoctorOfficeSpecialtyId | null) => void;
   searchQuery: string;
   selectedSpecialtyId: DoctorOfficeSpecialtyId | null;
+  panelOpen: boolean;
 };
 
 const specialtyResultLabels: Record<DoctorOfficeSpecialtyId, string> = {
@@ -27,10 +29,12 @@ export function DoctorOfficeControls({
   error,
   loadState,
   matchingOfficeCount,
+  onViewSearchResults,
   onSearchQueryChange,
   onSpecialtyChange,
   searchQuery,
-  selectedSpecialtyId
+  selectedSpecialtyId,
+  panelOpen
 }: DoctorOfficeControlsProps) {
   const selectedSpecialty =
     data?.specialties.find(({ id }) => id === selectedSpecialtyId) ?? null;
@@ -53,7 +57,7 @@ export function DoctorOfficeControls({
   return (
     <section
       aria-label="Doctor office specialty controls"
-      className="absolute bottom-14 left-3 z-[1000] max-h-[calc(100%-5rem)] w-[20rem] max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-slate-300 bg-white/95 p-3 shadow-[0_10px_24px_rgb(0_43_77_/_0.16)] backdrop-blur sm:bottom-4 sm:left-4"
+      className={`absolute bottom-14 left-3 z-[1000] max-h-[calc(100%-5rem)] w-[20rem] max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-slate-300 bg-white/95 p-3 shadow-[0_10px_24px_rgb(0_43_77_/_0.16)] backdrop-blur sm:bottom-4 sm:left-4 ${panelOpen ? "max-sm:hidden" : ""}`}
     >
       <p className="text-[11px] font-black uppercase tracking-[0.12em] text-hb-teal">
         New Jersey pilot
@@ -151,11 +155,20 @@ export function DoctorOfficeControls({
             {selectedSpecialty.officeCount > 0
               ? searchQuery.trim()
                 ? matchingOfficeCount > 0
-                  ? "Select any map number to see every location in that group. Use the mouse wheel to zoom."
+                  ? "View all results below, or select a map number to see its group."
                   : "Try a different ZIP, town, practice or doctor's name."
                 : "Map numbers show grouped locations. Select any number to see its list."
               : data?.coverage.explanation}
           </p>
+          {searchQuery.trim() && matchingOfficeCount > 0 && (
+            <button
+              className="mt-2 rounded-md bg-hb-teal px-3 py-2 text-xs font-bold text-white hover:bg-hb-navy focus:outline-none focus:ring-2 focus:ring-hb-aqua"
+              onClick={onViewSearchResults}
+              type="button"
+            >
+              View {matchingOfficeCount.toLocaleString()} result{matchingOfficeCount === 1 ? "" : "s"}
+            </button>
+          )}
         </div>
       )}
 

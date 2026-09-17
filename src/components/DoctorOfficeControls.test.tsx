@@ -124,6 +124,8 @@ const artifact: DoctorOfficeArtifact = {
   stateFips: "34"
 };
 
+const onViewSearchResults = vi.fn();
+
 function ControlsHarness() {
   const [specialtyId, setSpecialtyId] =
     useState<DoctorOfficeSpecialtyId | null>(null);
@@ -138,6 +140,7 @@ function ControlsHarness() {
     error=""
     loadState="ready"
     matchingOfficeCount={matching.length}
+    onViewSearchResults={onViewSearchResults}
     onSearchQueryChange={setQuery}
     onSpecialtyChange={(nextSpecialty) => {
       setSpecialtyId(nextSpecialty);
@@ -145,6 +148,7 @@ function ControlsHarness() {
     }}
     searchQuery={query}
     selectedSpecialtyId={specialtyId}
+    panelOpen={false}
   />;
 }
 
@@ -164,7 +168,9 @@ describe("DoctorOfficeControls", () => {
 
     await user.type(search, "Newark");
     expect(screen.getByRole("status")).toHaveTextContent("1 pediatric office location found");
-    expect(screen.getByRole("status")).toHaveTextContent("Use the mouse wheel to zoom");
+    expect(screen.getByRole("status")).toHaveTextContent("View all results below");
+    await user.click(screen.getByRole("button", { name: "View 1 result" }));
+    expect(onViewSearchResults).toHaveBeenCalledOnce();
     await user.click(screen.getByRole("button", { name: "Clear doctor-office search" }));
     expect(search).toHaveValue("");
   });
@@ -175,10 +181,12 @@ describe("DoctorOfficeControls", () => {
       error="Request failed"
       loadState="error"
       matchingOfficeCount={0}
+      onViewSearchResults={vi.fn()}
       onSearchQueryChange={vi.fn()}
       onSpecialtyChange={vi.fn()}
       searchQuery=""
       selectedSpecialtyId={null}
+      panelOpen={false}
     />);
     expect(screen.getByRole("alert")).toHaveTextContent("Request failed");
   });
@@ -195,10 +203,12 @@ describe("DoctorOfficeControls", () => {
       error=""
       loadState="ready"
       matchingOfficeCount={0}
+      onViewSearchResults={vi.fn()}
       onSearchQueryChange={vi.fn()}
       onSpecialtyChange={vi.fn()}
       searchQuery=""
       selectedSpecialtyId={null}
+      panelOpen={false}
     />);
     expect(screen.getByRole("status")).toHaveTextContent("Treat locations as historical");
   });
@@ -269,5 +279,36 @@ describe("DoctorOfficePanel", () => {
 
     await user.click(screen.getAllByText("See 1 clinician listed for this specialty")[0]);
     expect(clinicianDetails).toHaveAttribute("open");
+  });
+
+  it("formats a CMS listing and shows the clinician behind its specialty match", () => {
+    const office: DoctorOfficeLocation = {
+      ...offices[0],
+      addressLine1: "100 TEST AVENUE",
+      city: "NEWARK",
+      displayName: "RIVER PEDIATRICS",
+      postalCode: "071021234"
+    };
+    render(<DoctorOfficePanel
+      focusedOfficeId={null}
+      group={{
+        id: "search-results",
+        isSearchResult: true,
+        label: null,
+        latitude: office.latitude,
+        longitude: office.longitude,
+        offices: [office]
+      }}
+      onClose={vi.fn()}
+      onShowOffice={vi.fn()}
+      specialtyId="pediatrics"
+    />);
+
+    expect(screen.getByRole("dialog", {
+      name: "1 pediatric office location matching your search"
+    })).toBeVisible();
+    expect(screen.getByText("River Pediatrics")).toBeVisible();
+    expect(screen.getByText("100 Test Avenue, Newark, NJ 07102-1234")).toBeVisible();
+    expect(screen.getByText("Listed clinician for this specialty:").parentElement).toHaveTextContent("Jamie Rivera");
   });
 });

@@ -63,7 +63,8 @@ assert(
     controls.includes("Select a specialty") &&
     controls.includes("Search by ZIP, town or name") &&
     controls.includes("Listings come from CMS and may be incomplete") &&
-    controls.includes("Select any map number to see every location") &&
+    controls.includes("View all results below") &&
+    controls.includes("View {matchingOfficeCount.toLocaleString()} result") &&
     controls.includes("never affect potential-gap classifications"),
   "The specialty control must provide plain-language search guidance, disclose incomplete coverage and preserve gap separation."
 );
