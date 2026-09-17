@@ -72,17 +72,19 @@ function PublicHeader({ mapMode, onMapModeChange }: Props) {
           >
             Project story
           </Link>
-          <button
-            className="group inline-flex shrink-0 items-center gap-2 rounded-lg border border-hb-border bg-slate-50/80 px-3 py-2 text-xs font-bold text-hb-deepNavy shadow-sm transition hover:border-hb-teal hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-hb-aqua sm:px-4 sm:text-sm"
-            onClick={() => setIsMethodologyGuideOpen(true)}
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-              className="h-2 w-2 rounded-full bg-hb-teal shadow-[0_0_0_3px_rgba(15,118,110,0.12)] transition group-hover:bg-hb-aqua"
-            />
-            How gaps are found
-          </button>
+          {mapMode === "gaps" && (
+            <button
+              className="group inline-flex shrink-0 items-center gap-2 rounded-lg border border-hb-border bg-slate-50/80 px-3 py-2 text-xs font-bold text-hb-deepNavy shadow-sm transition hover:border-hb-teal hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-hb-aqua sm:px-4 sm:text-sm"
+              onClick={() => setIsMethodologyGuideOpen(true)}
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-hb-teal shadow-[0_0_0_3px_rgba(15,118,110,0.12)] transition group-hover:bg-hb-aqua"
+              />
+              How gaps are found
+            </button>
+          )}
         </div>
       </header>
       <MethodologyGuide

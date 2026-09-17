@@ -7,14 +7,17 @@ const CareAtlasMap = lazy(() => import("../components/CareAtlasMap"));
 function MapPage() {
   const [mapMode, setMapMode] = useState<MapMode>(() => {
     const parameters = new URLSearchParams(window.location.search);
+    const requestedMode = parameters.get("mode");
     const hasSelectedArea =
       /^34\d{3}$/.test(parameters.get("county") ?? "") ||
       /^34\d{8}$/.test(parameters.get("town") ?? "") ||
       /^34\d{9}$/.test(parameters.get("tract") ?? "");
-    if (parameters.get("mode") === "gaps" || hasSelectedArea) return "gaps";
-    return parameters.get("mode") === "doctor-offices"
-      ? "doctor_offices"
-      : parameters.get("mode") === "healthcare" ? "healthcare" : "gaps";
+    // Tract evidence is available only in the screening mode.
+    if (/^34\d{9}$/.test(parameters.get("tract") ?? "")) return "gaps";
+    if (requestedMode === "gaps") return "gaps";
+    if (requestedMode === "doctor-offices") return "doctor_offices";
+    if (requestedMode === "healthcare") return "healthcare";
+    return hasSelectedArea ? "gaps" : "healthcare";
   });
 
   useEffect(() => {

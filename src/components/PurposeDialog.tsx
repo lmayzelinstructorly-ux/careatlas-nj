@@ -20,6 +20,13 @@ export function PurposeDialog() {
     setIsOpen(false);
   }
 
+  function startPlaceSearch() {
+    dismiss();
+    window.requestAnimationFrame(() => {
+      document.getElementById("boundary-autocomplete")?.focus();
+    });
+  }
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -69,7 +76,7 @@ export function PurposeDialog() {
             className="mt-2 text-2xl font-black tracking-[-0.035em] text-hb-deepNavy sm:text-3xl"
             id="careatlas-purpose-title"
           >
-            What does the data say about care near you?
+            Explore care evidence in your New Jersey community.
           </h1>
           <div
             className="mt-4 space-y-3 text-sm leading-6 text-slate-700 sm:text-base sm:leading-7"
@@ -77,8 +84,8 @@ export function PurposeDialog() {
           >
             <p>
               CareAtlas NJ is an independent student-built public-health project.
-              Search your town to explore local health needs, barriers to care
-              and official primary-care shortage evidence in one place.
+              Search a town to explore source-backed care locations, a limited
+              doctor-office pilot and public-health screening evidence in one place.
             </p>
             <p className="rounded-xl border border-cyan-200 bg-cyan-50/70 px-4 py-3 text-sm leading-6 text-hb-deepNavy">
               Use the map to explore patterns and ask better questions—not to
@@ -87,14 +94,14 @@ export function PurposeDialog() {
             </p>
           </div>
 
-          <p className="mt-4 text-sm leading-6 text-slate-700">Start with your town, or explore Newark as a real example. A flag is a reason to look more closely, not proof that care is unavailable.</p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">Start with a place you know, or explore Newark as a real example. Screening flags are reasons to look more closely, not proof that care is unavailable.</p>
           <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
+            <button className="rounded-lg bg-hb-deepNavy px-4 py-2.5 text-sm font-bold text-white hover:bg-hb-teal focus:outline-none focus:ring-2 focus:ring-hb-aqua focus:ring-offset-2" onClick={startPlaceSearch} ref={continueButtonRef} type="button">
+              Search a town
+            </button>
             <a className="inline-flex items-center justify-center rounded-lg border border-hb-teal px-4 py-2.5 text-sm font-bold text-hb-navy focus:outline-none focus:ring-2 focus:ring-hb-aqua" href={newarkExampleUrl} onClick={dismiss}>
               Explore an example: Newark
             </a>
-            <button className="rounded-lg bg-hb-deepNavy px-4 py-2.5 text-sm font-bold text-white hover:bg-hb-teal focus:outline-none focus:ring-2 focus:ring-hb-aqua focus:ring-offset-2" onClick={dismiss} ref={continueButtonRef} type="button">
-              Explore my area
-            </button>
           </div>
           <div className="mt-3 text-center">
             <Link

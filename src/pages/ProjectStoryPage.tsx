@@ -172,20 +172,20 @@ function ProjectStoryPage() {
                 An independent student-built public-data project
               </p>
               <h1 className="mx-auto mt-5 max-w-5xl text-4xl font-black leading-[1.04] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-                Where might getting primary care be harder?
+                Explore local care evidence across New Jersey.
               </h1>
               <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
-                I built CareAtlas NJ to turn several public datasets into one map people can question, not just trust at a glance. It screens small areas for signs of higher need and documented primary-care shortage without pretending that a map can diagnose a community.
+                I built CareAtlas NJ to bring source-backed care locations, a limited doctor-office pilot and public-health evidence into one map people can question, not just trust at a glance. Its screening flags invite a closer look without pretending that a map can diagnose a community.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link className="rounded-md bg-hb-aqua px-5 py-3 text-sm font-black text-hb-deepNavy transition hover:-translate-y-0.5 hover:bg-white" to="/?mode=gaps">
-                  Explore potential gaps
-                </Link>
-                <Link className="rounded-md border border-white/35 bg-white/5 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/15" to="/?mode=healthcare">
-                  See healthcare facilities
+                <Link className="rounded-md bg-hb-aqua px-5 py-3 text-sm font-black text-hb-deepNavy transition hover:-translate-y-0.5 hover:bg-white" to="/">
+                  Explore the map
                 </Link>
                 <Link className="rounded-md border border-white/35 bg-white/5 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/15" to="/?mode=doctor-offices">
                   Explore doctor-office pilot
+                </Link>
+                <Link className="rounded-md border border-white/35 bg-white/5 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/15" to="/?mode=gaps">
+                  Explore potential gaps
                 </Link>
               </div>
             </div>

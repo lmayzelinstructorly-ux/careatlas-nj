@@ -125,6 +125,7 @@ type CareAtlasMapProps = { mapMode: MapMode };
 
 function CareAtlasMap({ mapMode }: CareAtlasMapProps) {
   const addressRequestIdRef = useRef(0);
+  const previousMapModeRef = useRef(mapMode);
   const [initialPermalink] = useState(() =>
     parseMapPermalink(window.location.search)
   );
@@ -245,17 +246,26 @@ function CareAtlasMap({ mapMode }: CareAtlasMapProps) {
     handleZoomGeographyLevelChange("counties");
   }, []);
   useEffect(() => {
-    if (mapMode === "gaps") return;
+    const previousMode = previousMapModeRef.current;
+    previousMapModeRef.current = mapMode;
+    if (previousMode !== "gaps" || mapMode === "gaps") return;
 
     setPendingAddressMatch(null);
     setAddressNavigationRequest(null);
     setAddressResolution({ message: null, status: "idle" });
+    setPendingTownTractGeoid(null);
+    if (currentGeographyLevel !== "tracts") return;
+
+    // Other modes use county and town boundaries. Keep the surrounding place
+    // and its map position when leaving a tract evidence view.
+    const area = activeTractTown ?? activeTractCounty;
     setActiveTractCounty(null);
     setActiveTractTown(null);
-    setPendingTownTractGeoid(null);
-    setCurrentGeographyLevel("counties");
-    setSelectedFeatureColorKey(null);
-    setSelectedGeography(null);
+    setCurrentGeographyLevel(area?.level === "towns" ? "towns" : "counties");
+    setSelectedGeography(area);
+    setSelectedFeatureColorKey(
+      area?.feature ? getGeographyFeatureColorKey(area.feature, area.level) : null
+    );
   }, [mapMode]);
 
   useEffect(() => {
@@ -485,11 +495,8 @@ function CareAtlasMap({ mapMode }: CareAtlasMapProps) {
   useEffect(() => {
     if (!permalinkHydrated) return;
     replaceMapPermalink(
-      mapMode === "gaps" && selectedGeography
-        ? getMapPermalinkTarget(
-            selectedGeography.level,
-            selectedGeography.geoid
-          )
+      selectedGeography
+        ? getMapPermalinkTarget(selectedGeography.level, selectedGeography.geoid)
         : null
     );
   }, [

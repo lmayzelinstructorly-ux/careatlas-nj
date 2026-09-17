@@ -42,7 +42,7 @@ assert(
   "The public header must expose a separate doctor-office mode."
 );
 assert(
-  mapPage.includes('parameters.get("mode") === "doctor-offices"') &&
+  mapPage.includes('requestedMode === "doctor-offices"') &&
     mapPage.includes('url.searchParams.set("mode", "doctor-offices")'),
   "Doctor-office mode must round-trip through a dedicated URL parameter."
 );

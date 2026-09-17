@@ -17,7 +17,7 @@ describe("resident entry points", () => {
     const user = userEvent.setup();
     const view = render(<MemoryRouter><PurposeDialog /></MemoryRouter>);
     expect(screen.getByRole("link", { name: "Explore an example: Newark" })).toHaveAttribute("href", newarkExampleUrl);
-    await user.click(screen.getByRole("button", { name: "Explore my area" }));
+    await user.click(screen.getByRole("button", { name: "Search a town" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     view.unmount();
     render(<MemoryRouter><PurposeDialog /></MemoryRouter>);
@@ -34,7 +34,7 @@ describe("resident entry points", () => {
     render(<MemoryRouter><PurposeDialog /></MemoryRouter>);
     screen.getByRole("link", { name: "See project decisions" }).focus();
     await user.tab();
-    expect(screen.getByRole("link", { name: "Explore an example: Newark" })).toHaveFocus();
+    expect(screen.getByRole("button", { name: "Search a town" })).toHaveFocus();
     await user.keyboard("{Escape}");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
