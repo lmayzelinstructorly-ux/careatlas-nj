@@ -11,7 +11,7 @@ Updated September 17, 2026. This package documents completed engineering work an
 - [Contribution and source inventory](contribution.md): pipeline, source versions, attribution, development chronology and AI assistance.
 - [Technical methods review](methods-review.md), including [reproducible sensitivity results](sensitivity.json). Re-run with `node scripts/reviewScreeningSensitivity.mjs`.
 - [Browser review](browser-review.md): five agent-operated scenarios, observed fixes and explicit testing limits.
-- Submission screenshots: [Newark facility map](assets/newark-facility-map.png), [Edison dermatology offices](assets/edison-dermatology-offices.png), [tract explanation](assets/tract.png), [town search](assets/search.png), [Newark summary](assets/newark.png), [source evidence](assets/sources.png), [export controls](assets/export.png), [mobile missing evidence](assets/mobile-missing.png). The September 17 facility screenshot has a visible Snipping Tool notification; its pixels have not been altered.
+- Submission screenshots: [Newark facility map](assets/newark-facility-map.png), [Edison dermatology offices](assets/edison-dermatology-offices.png), [tract explanation](assets/tract.png), [town search](assets/search.png), [Newark summary](assets/newark.png), [source evidence](assets/sources.png), [export controls](assets/export.png), [mobile missing evidence](assets/mobile-missing.png). The September 17 facility screenshot is a clean, unedited copy of the author's capture.
 
 ## Validation and fixes
 

@@ -69,7 +69,7 @@ React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudfla
 - Live application: <https://careatlas.lmayzel930.workers.dev>
 - Repository: <https://github.com/methmoussa/careatlas-nj>
 - Video: pending. Record and host a 2–5 minute live demonstration using the [recording script](demo-recording-script.md). The older [screenshot-based walkthrough](assets/careatlas-walkthrough.mp4) is a planning artifact, not the intended submission video.
-- Gallery: the saved and previewed Devpost draft shows the CareAtlas brand card, [Newark facility map](assets/newark-facility-map.png), [Edison dermatology offices](assets/edison-dermatology-offices.png), then [tract evidence](assets/tract.png). The two new captures are unedited copies of the author's September 17 screenshots. The facility capture includes a Snipping Tool notification and thumbnail in the lower-right corner; a clean replacement would improve presentation.
+- Gallery: the saved and previewed Devpost draft shows the CareAtlas brand card, [Newark facility map](assets/newark-facility-map.png), [Edison dermatology offices](assets/edison-dermatology-offices.png), then [tract evidence](assets/tract.png). The two new captures are unedited copies of the author's September 17 screenshots; the Newark file is the clean replacement capture.
 - Project card: [PNG](assets/careatlas-brand-card.png) and editable [SVG](assets/careatlas-brand-card.svg).
 
 ## Remaining steps
