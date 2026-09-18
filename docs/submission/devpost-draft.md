@@ -60,14 +60,14 @@ I began implementation on August 1, 2026 and have not entered substantially the 
 
 ## Built with
 
-React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudflare Workers; Vitest; Census TIGERweb and ACS; CDC PLACES; CDC/ATSDR SVI; HRSA; CMS/NPPES; OpenAI ChatGPT/Codex; optional Google Gemini integration (disabled in demo).
+React; TypeScript; Vite; Tailwind CSS; Leaflet; React Leaflet; Node.js; Cloudflare Workers; Vitest; Census TIGERweb, ACS and Geocoder; CDC PLACES; CDC/ATSDR SVI; HRSA; CMS/NPPES; OpenStreetMap/CARTO map tiles; OpenAI ChatGPT/Codex; optional Google Gemini integration (disabled in demo).
 
 ## Links and media
 
 - Live application: <https://careatlas.lmayzel930.workers.dev>
 - Repository: <https://github.com/methmoussa/careatlas-nj>
 - Video: pending. Record and host a 2–5 minute live demonstration using the [recording script](demo-recording-script.md). The older [screenshot-based walkthrough](assets/careatlas-walkthrough.mp4) is a planning artifact, not the intended submission video.
-- Gallery: the current Devpost draft opens with the CareAtlas brand card, followed by captioned Newark town-search and tract-evidence screenshots. A current care-location or doctor-office capture would show those views more directly when available.
+- Gallery: the current Devpost draft opens with the CareAtlas brand card, followed by captioned Newark town-search, tract-evidence and export screenshots. The three app screenshots satisfy the challenge's image minimum. A current care-location or doctor-office capture would show those views more directly when available.
 - Project card: [PNG](assets/careatlas-brand-card.png) and editable [SVG](assets/careatlas-brand-card.svg).
 
 ## Remaining steps
