@@ -16,35 +16,37 @@ Explore New Jersey care locations and access evidence by town, then trace each s
 
 ### Inspiration
 
-Healthcare-access information is spread across directories, maps and agency datasets. A resident may want to know which care locations are recorded nearby, whether a specialty office appears in a public snapshot, and why a census tract received an access-screening result. CareAtlas NJ brings those questions into one map while keeping the underlying sources and limits visible.
+Finding care starts with practical questions: Which hospitals or community health centers are recorded near my town? Which specialty offices appear in a public directory? If an area has a potential access concern, what evidence supports that finding? The answers live in separate agency datasets, and a map pin alone cannot tell someone whether care is available. I built CareAtlas NJ to make those sources explorable from one New Jersey map, with their dates and limits visible.
 
 ### What it does
 
-Search a New Jersey town or township, or locate a tract from a street address, then switch among three views:
+Start with a New Jersey town or township, or locate a tract from a street address. Three views answer different questions:
 
-- **Hospitals & community health centers:** Explore 62 hospitals and 153 HRSA community health centers with source-backed location and contact details.
-- **Doctor offices (pilot):** Search 734 CMS-listed office locations across pediatrics, dermatology and oncology by ZIP, town, practice or clinician. Open the filtered results, inspect the listed clinicians, and find phone numbers or directions. This monthly snapshot is incomplete and does not confirm appointments, insurance or current operation.
-- **Potential gaps:** Explore screening results for 2,181 census tracts connected to 564 municipalities. Select a tract to see the rule's inputs, an explanation, source dates and limitations. Copy a link, print a brief or download the published record.
+- **Hospitals & community health centers:** Explore 62 hospitals and 153 HRSA community health centers. Zoom from county groups to individual locations, then inspect the recorded name, contact details and directions.
+- **Doctor offices (pilot):** Search 734 CMS-listed office locations across pediatrics, dermatology and oncology by town, ZIP, practice or clinician. Open the filtered results directly, inspect the listed clinicians, and find available phone details or directions. The snapshot is incomplete and does not confirm appointments, insurance acceptance or current operation.
+- **Potential gaps:** Choose a county or town to explore screening results across 2,181 census tracts and New Jersey's 564 municipalities. Open a tract to read the rule's inputs, explanation, source dates and limitations. Copy a link, print a brief where offered or download the published record.
 
-A quick tour: choose Newark City to explore recorded care sites, select Dermatology and search Edison in the office pilot, then open a Newark tract's evidence brief. The three views answer different questions. Facility and office pins never determine a tract's gap status.
+A quick tour is Newark's recorded care sites, an Edison dermatology office search, and a Newark tract's evidence brief. Each view stays distinct: the presence or absence of facility and office pins never determines a tract's screening result.
 
 CareAtlas is a planning and explanation tool. A flag is not a diagnosis or proof that care is unavailable; no current flag is not proof that access is adequate; and a missing marker does not mean no provider exists.
 
 ### How I built it
 
-The data pipeline joins official Census geography, CDC PLACES estimates, New Jersey-relative CDC/ATSDR Social Vulnerability Index ranks, and HRSA shortage designations. It preserves missing values and source provenance, applies a versioned screening rule, validates tract records and publishes county-sized files. Census ACS measures and HRSA/CMS facility data add context. A geographic crosswalk connects familiar town names to tract evidence.
+Two source-backed data paths meet in one interface. The care-location layer uses reviewed HRSA health-center and CMS hospital records, keeping per-listing provenance and contact details. The separate office pilot groups CMS clinician rows into locations, checks provider status and maps only addresses with accepted Census geocodes. The map groups nearby or colocated listings while still letting people open each one.
+
+For the screening view, the pipeline joins official Census geography, CDC PLACES estimates, New Jersey-relative CDC/ATSDR Social Vulnerability Index ranks, and HRSA shortage designations. It preserves missing values and source provenance, applies a versioned rule, validates tract records and publishes county-sized files. Census ACS measures add context, and a geographic crosswalk connects familiar town names to tract evidence. Care-location counts do not enter the screening rule.
 
 The interface uses React, TypeScript, Vite, Tailwind CSS and React Leaflet. Node.js supports local development; Cloudflare Workers serves the deployed app. The public repository includes setup instructions, runtime data, tests and validation scripts. The core map and checks require no private API key.
 
 ### Challenges and decisions
 
-The hardest work was making different geographic units, source dates and missing observations understandable together. A review found that the imported SVI ranks are relative to New Jersey, so I corrected the labels and explanations without changing the underlying values or classifications. I also kept the care-location and office layers separate from the screening rule so a dense or sparse set of pins cannot create a misleading flag.
+The care directories needed careful wording: a source listing is useful for discovery, but it does not establish that an office is open or accepting a patient. I kept the office pilot's scope and source dates visible, and made filtered results reachable without hunting through map clusters. Grouped facility markers still reveal the individual recorded locations and contact options.
 
-The office pilot maps only address groups with an accepted Census geocode. Its records are shown as source listings, not provider recommendations. On the interface side, I made filtered office results reachable directly and moved tract source dates and links closer to the result.
+The screening view posed a different problem: geographic units, source dates and missing observations had to remain understandable together. A review found that the imported SVI ranks are relative to New Jersey, so I corrected the labels and explanations without changing the values or classifications. I also moved tract source dates and links closer to each result and kept facility pins separate from the rule.
 
 ### Accomplishments and what I learned
 
-CareAtlas is a working, deployed application with a reproducible local setup. Residents can move from a place they know to care listings or a tract result, inspect the supporting record, and retain a shareable or printable brief. Automated checks cover data consistency, rule behavior, interface behavior and deployment packaging. An offline sensitivity analysis shows how classifications change under alternative thresholds; it does not claim the chosen thresholds are empirically validated.
+CareAtlas is a working, deployed application with a reproducible local setup. Someone can start with a familiar town, open a recorded hospital or health center, search a specialty-office snapshot, and then inspect a separate tract screening result with its sources. Links and eligible printable briefs make findings easier to revisit or share. Automated checks cover data consistency, rule behavior, interface behavior and deployment packaging. An offline sensitivity analysis shows how classifications change under alternative thresholds; it does not claim the chosen thresholds are empirically validated.
 
 This project taught me that correct computation and trustworthy interpretation are separate tasks. Unknown evidence must stay unknown, source dates must remain visible, and an explanation must preserve the limits of the original measurements.
 
